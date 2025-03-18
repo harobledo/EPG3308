@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="index_files/libs/clipboard/clipboard.min.js"></script>
-<script src="index_files/libs/quarto-html/tabby.min.js"></script>
-<script src="index_files/libs/quarto-html/popper.min.js"></script>
-<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="Clase_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Clase_files/libs/quarto-html/tabby.min.js"></script>
+<script src="Clase_files/libs/quarto-html/popper.min.js"></script>
+<script src="Clase_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="Clase_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Clase_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="Clase_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="Clase_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
   <title>    EPG3308: Computación Estadística     Clase 01: Introducción a R</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="Clase_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="Clase_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -94,12 +94,12 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="Clase_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="styles.css">
-  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link href="Clase_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="Clase_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="Clase_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="Clase_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -817,10 +817,922 @@
 <li>Guarde el archivo y subir a Actividad Bonificada 1 en la sección de Tareas de Canvas.</li>
 </ol>
 </div>
+</div>
+</section>
+<section id="section-1" class="slide level2" data-background="#FFFFFFF" data-background-image="imagenes/0023_PortadaClase2.png">
+<h2></h2>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p>¿Cómo se aprende a programar en <img src="imagenes/Rlogo.png" style="width:80px;"> u otro lenguaje?</p>
+</div>
+<p><br></p>
+<div>
+<div style="font-size:0.9em">
+<ol type="1">
+<li>Aprendiendo la <em>sintaxis</em> y el dialecto del lenguaje de programación.</li>
+<li>Familiarizándonos resolviendo tareas sencillas.</li>
+<li>Resolviendo problemas interesantes.</li>
+<li><div style="font-size:1.2em">
+<strong>¡Equivocándonos mil y un veces!</strong>
+</div></li>
+</ol>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><strong>Como ejecutar código en R</strong></p>
+</div>
+<p><br></p>
+<p><img data-src="imagenes/0020_CodigoR.png" class="absolute" style="transform: rotate(0deg);top: 110px; left: 100px; width: 900px; "></p>
+<div class="fragment">
+<p><img data-src="imagenes/0021_CodigoR.png" class="absolute" style="transform: rotate(0deg);top: 110px; left: 100px; width: 800px; "></p>
+<p><br><br><br><br><br><br><br><br><br></p>
+</div>
+<div class="fragment">
+<p><strong>Atajo del Teclado: </strong> Control + Enter</p>
+</div>
+</section>
+<section id="section-2" class="slide level2" data-background="#43464B" data-background-image="imagenes/statisticalcomputing2.jpg">
+<h2></h2>
+<div style="display: flex; text-align:center; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 3.5em;">
+<p><b> R La Calculadora </b></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><strong>R como Calculadora</strong></p>
+</div>
+<p><strong>Suma y Resta</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="dv">10</span> <span class="sc">-</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="dv">2</span><span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="dv">2</span><span class="sc">**</span><span class="dv">2</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="sc">-</span><span class="dv">1</span><span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><strong>R como Calculadora</strong></p>
+</div>
+<p><strong>Multiplicación y División</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="sc">-</span><span class="dv">5</span> <span class="sc">*</span> <span class="dv">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -30</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="dv">3</span> <span class="sc">/</span> <span class="sc">-</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.5</code></pre>
+</div>
+</div>
+<p><strong>Potencias y Raíces</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="dv">2</span><span class="sc">**</span><span class="dv">2</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="sc">-</span><span class="dv">1</span><span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="dv">2</span><span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>) <span class="co"># Raíz cuadrada</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.414214</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">sqrt</span>(<span class="sc">-</span><span class="dv">1</span>) <span class="co"># NaN = Not a Number</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NaN</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><strong>R como Calculadora</strong></p>
+</div>
+<div style="font-size:0.8em">
+<ul>
+<li class="fragment">El orden en que se aplican las operaciones sigue las reglas de la matemática.
+<ul>
+<li class="fragment">Usar paréntesis <code>()</code> para agrupar sus operaciones y salir de duda.</li>
+</ul></li>
+</ul>
+<p><br></p>
+<ul>
+<li class="fragment">Orden:
+<ol type="1">
+<li class="fragment">Paréntesis</li>
+<li class="fragment">Exponenciación y raíces</li>
+<li class="fragment">Multiplicación y división (de izquierda a derecha)</li>
+<li class="fragment">Suma y resta</li>
+</ol></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><strong>R como Calculadora</strong></p>
+</div>
+<div>
+<div style="font-size:0.8em">
+<ul>
+<li>El orden en que se aplican las operaciones sigue las reglas de la matemática.
+<ul>
+<li>Usar paréntesis <code>()</code> para agrupar sus operaciones y salir de duda.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="dv">1</span> <span class="sc">+</span> (<span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+<p><br></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="sc">-</span><span class="dv">1</span> <span class="sc">*</span> <span class="dv">2</span><span class="sc">^</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -8</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="sc">-</span><span class="dv">1</span> <span class="sc">*</span> (<span class="dv">2</span><span class="sc">^</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -8</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div>
+<div style="text-align: center; font-size:1.5em">
+<p><strong>R como Calculadora</strong></p>
+</div>
+<div style="font-size:0.8em">
+<ul>
+<li>El orden en que se aplican las operaciones sigue las reglas de la matemática.
+<ul>
+<li>Usar paréntesis <code>()</code> para agrupar sus operaciones y salir de duda.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="dv">3</span> <span class="sc">-</span> <span class="dv">2</span> <span class="sc">/</span> <span class="dv">5</span> <span class="sc">*</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="dv">3</span> <span class="sc">-</span> ( (<span class="dv">2</span> <span class="sc">/</span> <span class="dv">5</span>) <span class="sc">*</span> <span class="dv">5</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a><span class="sc">-</span><span class="dv">5</span> <span class="sc">/</span> <span class="dv">7</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.285714</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a>(<span class="sc">-</span><span class="dv">5</span> <span class="sc">/</span> <span class="dv">7</span>) <span class="sc">+</span> (<span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.285714</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.3em">
+<p><strong>¡Actividad de Cinco Minutos!</strong></p>
+</div>
+<div>
+<div style="font-size:0.8em">
+<ol type="1">
+<li>Transforme a grados Farenheit los 26 grados Celsius pronosticados para mañana.</li>
+</ol>
+<p><span class="math display">\[F = 32 + C \times \frac{9}{5}\]</span> 2. Si usted obtuvo un promedio de notas de laboratorios de <span class="math inline">\(3.5\)</span>, un promedio de tareas de <span class="math inline">\(4.2\)</span>, y un examen de <span class="math inline">\(4.5\)</span>, ¿aprueba el curso?</p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.3em">
+<p><strong>¡Actividad de Cinco Minutos!</strong></p>
+</div>
+<div>
+<div style="font-size:0.7em">
+<ol start="3" type="1">
+<li>Sea <span class="math inline">\(p\)</span> el puntaje obtenido en una evaluación que tiene <span class="math inline">\(p_{max}\)</span> puntos como máximo. La nota que un estudiante obtiene bajo cualquier porcentaje de exigencia <span class="math inline">\(Ex\)</span> se calcula como sigue:</li>
+</ol>
+<ul>
+<li><p>Si se obtiene un puntaje <span class="math inline">\(p &lt; E\cdot p_{max}\)</span>, <span class="math display">\[\text{Nota} = 1 + 3\cdot\frac{1}{Ex}\cdot\frac{p}{p_{max}}.\]</span></p></li>
+<li><p>Mientras que si se obtiene un puntaje <span class="math inline">\(p \geq E \cdot p_{max}\)</span>, <span class="math display">\[\text{Nota} = 4 + 3\cdot\frac{p - Ex \cdot p_{max}}{p_{max}\cdot ( 1- Ex)}.\]</span></p></li>
+</ul>
+<p>¿Qué nota obtuvo usted si obtuvo 25 puntos en una prueba de 30 puntos como máximo bajo una exigencia del 80%?</p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.3em">
+<p><strong>¡Actividad de Cinco Minutos!</strong></p>
+</div>
+<div>
+<div style="font-size:0.8em">
+<ol start="4" type="1">
+<li>(para conocedores de funciones y condicionales) Construya una función que entregue la nota obtenida en una evaluación tras recibir como argumentos el puntaje obtenido, el puntaje total de la evaluación, y el porcentaje de exigencia.</li>
+</ol>
+<ul>
+<li>Explore las escalas de notas bajo el 50%, 60%, y 70%.</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><img data-src="imagenes/0022_NotasEx.png" class="absolute" style="transform: rotate(0deg);top: 110px; left: 100px; width: 900px; "> Fuente: <a href="https://escaladenotas.cl/">J. Pumarino</a></p>
+</section>
+<section id="section-3" class="slide level2" data-background="#43464B" data-background-image="imagenes/statisticalcomputing2.jpg">
+<h2></h2>
+<div style="display: flex; text-align:center; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 3.5em;">
+<p><b> Texto en R</b></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><strong>Escribir e Imprimir Texto en Consola</strong></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a><span class="do">### ¡Este codigo hace calculos muy importantes!</span></span>
+<span id="cb41-2"><a href=""></a></span>
+<span id="cb41-3"><a href=""></a><span class="co"># Operacion 1</span></span>
+<span id="cb41-4"><a href=""></a><span class="co">#                    Operacion 2</span></span>
+<span id="cb41-5"><a href=""></a><span class="co">#         Operacion 3</span></span>
+<span id="cb41-6"><a href=""></a><span class="co">#             .</span></span>
+<span id="cb41-7"><a href=""></a><span class="co">#             .     Operacion hecha con IA</span></span>
+<span id="cb41-8"><a href=""></a><span class="co">#  Error parcheado           </span></span>
+<span id="cb41-9"><a href=""></a><span class="co">#             .</span></span>
+<span id="cb41-10"><a href=""></a><span class="co">#             .</span></span>
+<span id="cb41-11"><a href=""></a><span class="co">#          Operacion 500.</span></span>
+<span id="cb41-12"><a href=""></a></span>
+<span id="cb41-13"><a href=""></a> </span>
+<span id="cb41-14"><a href=""></a><span class="co"># Anunciar finalizacion con exito del proceso:</span></span>
+<span id="cb41-15"><a href=""></a><span class="fu">print</span>(<span class="st">"¡Proceso terminado!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size:1.5em">
+<p>Sintaxis para <strong>texto</strong></p>
+</div>
+<ul>
+<li class="fragment">Todo carácter que deseen utilizarse como texto se escribe entre <strong>comillas dobles</strong> o entre comillas simples.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a><span class="st">"¡Hola mundo!"</span></span>
+<span id="cb42-2"><a href=""></a></span>
+<span id="cb42-3"><a href=""></a><span class="st">'¡Tambien sirvo con comillas simples!'</span></span>
+<span id="cb42-4"><a href=""></a></span>
+<span id="cb42-5"><a href=""></a><span class="st">"19.792.578-5"</span></span>
+<span id="cb42-6"><a href=""></a></span>
+<span id="cb42-7"><a href=""></a><span class="st">"(5 + 3/2)^2"</span></span>
+<span id="cb42-8"><a href=""></a></span>
+<span id="cb42-9"><a href=""></a><span class="st">'print("¡Hola mundo!")'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">Texto así no tiene mayor uso.</li>
+<li class="fragment">Comunicar a un lector de código a través de comentario:</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a><span class="do">## ¡Recorre este código cuan ave aletea en la vastedad!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Impresión de texto en consola</strong></p>
+<ul>
+<li class="fragment"><strong>Función <code>cat()</code></strong>: concatena texto e imprime en la consola.
+<ul>
+<li class="fragment"><code>cat</code> de concatena.</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href=""></a><span class="fu">cat</span>(<span class="st">"¡Hola mundo!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>¡Hola mundo!</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a><span class="co"># Una coma separa cada texto, que luego la funcion los une en uno solo.</span></span>
+<span id="cb46-2"><a href=""></a><span class="fu">cat</span>(<span class="st">"Este es uno de"</span> , <span class="st">"mis primeros textos"</span> , <span class="st">"impresos."</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Este es uno de mis primeros textos impresos.</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a><span class="fu">cat</span>(<span class="st">"(5 + 3/2)^2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(5 + 3/2)^2</code></pre>
+</div>
+</div>
+<p><br></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a><span class="fu">cat</span>(No se me ocurre qué más decir)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in parse(text = input): &lt;text&gt;:1:8: unexpected symbol
+1: cat(No se
+           ^</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href=""></a><span class="fu">cat</span>(<span class="st">"Mi nota es </span><span class="sc">\n</span><span class="st"> 1 + 6*(7.2/10) ="</span>, <span class="dv">1</span> <span class="sc">+</span> <span class="dv">6</span><span class="sc">*</span>(<span class="fl">7.2</span><span class="sc">/</span><span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mi nota es 
+ 1 + 6*(7.2/10) = 5.32</code></pre>
+</div>
+</div>
+<div style="font-size: 0.8em">
+<ul>
+<li class="fragment">Notar que puede recibir una operación e imprime el resultado.</li>
+</ul>
+</div>
+</div>
+<div class="fragment">
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a><span class="fu">cat</span>(<span class="st">'El resultado de la operacion es = '</span>, mil)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: objeto 'mil' no encontrado</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href=""></a><span class="fu">cat</span>(<span class="st">'El resultado de la operacion es ='</span>, <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in parse(text = input): &lt;text&gt;:2:0: unexpected end of input
+1: cat('El resultado de la operacion es =', 1000
+   ^</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><code>cat()</code> es una <em>función</em>.</p>
+<ul>
+<li class="fragment">Internamente ejecuta un procedimiento que puede depender o no de los elementos entregados por el usuario.
+<ul>
+<li class="fragment"><strong>Argumentos de una función</strong>: lo que debe recibir para que una función funcione.</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a><span class="fu">cat</span>(Argumento <span class="dv">1</span>, Argumento <span class="dv">2</span>, Argumento <span class="dv">3</span>, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a><span class="fu">cat</span>(<span class="st">"En"</span>, <span class="st">"la"</span>, <span class="st">"clase"</span>,<span class="st">"de"</span>, <span class="st">"hoy"</span>, <span class="st">"veremos"</span>, <span class="st">"la"</span>, <span class="st">"funcion"</span>,<span class="st">"cat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>En la clase de hoy veremos la funcion cat</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Función <code>print(x)</code></strong>: si <code>x</code> es texto, (sólo) lo imprime. Si <code>x</code> es otro objeto, imprime los atributos definidos a ser impresos.</p>
+<ul>
+<li class="fragment">Es menos flexible que <code>cat</code> para manipular texto.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a><span class="fu">print</span>(<span class="st">"¡Jelou Mundo!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "¡Jelou Mundo!"</code></pre>
+</div>
+</div>
+<p><br></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a><span class="fu">print</span>(cat) <span class="co"># Imprime el codigo de cat.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a><span class="fu">print</span>(<span class="st">"Este es uno de"</span> , <span class="st">"mis primeros textos"</span> , <span class="st">"impresos."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in print.default("Este es uno de", "mis primeros textos", "impresos."): invalid printing digits -2147483648</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Función <code>paste(x, y,...)</code></strong>: pega los textos <code>x</code> y <code>y</code> separándolos por un espacio.</p>
+<div style="font-size: 0.8em">
+<ul>
+<li class="fragment">Similar a <code>cat</code>, pero <code>cat</code> sólo imprime y devuelve texto impreso.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href=""></a>Texto1 <span class="ot">&lt;-</span> <span class="st">"Este es mi texto"</span></span>
+<span id="cb66-2"><a href=""></a>Texto2 <span class="ot">&lt;-</span> <span class="st">"y de nadie más!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a>TextoUnido <span class="ot">&lt;-</span> <span class="fu">cat</span>(Texto1, Texto2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Este es mi texto y de nadie más!</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a><span class="fu">print</span>(TextoUnido) <span class="co"># No lo guarda!!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a>TextoUnido <span class="ot">&lt;-</span> <span class="fu">paste</span>(Texto1, Texto2)</span>
+<span id="cb71-2"><a href=""></a><span class="fu">print</span>(TextoUnido)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Este es mi texto y de nadie más!"</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div>
+<div style="text-align: center; font-size:1.3em">
+<p><strong>¡Actividad de Cinco Minutos!</strong></p>
+</div>
+<ol type="1">
+<li>Usando <code>cat</code>, concatene en una única frase el siguiente poema de Pablo Neruda:</li>
+</ol>
+<div style="text-align: center; font-size:0.9em">
+<p><strong>Punto</strong></p>
+<p><em>No hay espacio más ancho que el dolor,</em></p>
+<p><em>no hay universo como aquel que sangra.</em></p>
+</div>
+<ol start="2" type="1">
+<li>En un único <code>cat</code> y con todo el poema en un único texto, use <code>\n</code> para que al imprimir el poema en la consola se haga un salto de línea tras la coma del poema. Observe qué ocurre si usa <code>print</code> para imprimir el mismo texto.</li>
+</ol>
+</div>
+</section>
+<section class="slide level2">
+
+<div>
+<div style="text-align: center; font-size:1.3em">
+<p><strong>¡Actividad de Cinco Minutos!</strong></p>
+</div>
+<ol start="3" type="1">
+<li>En un único <code>cat</code> y con todo el poema en un único texto, use <code>\n</code> para que al imprimir el poema en la consola se haga un salto de línea tras cada salto incluido por el poeta.</li>
+</ol>
+<div style="text-align: center; font-size:0.9em">
+<p><strong>Océano</strong></p>
+<p><em>Cuerpo más puro que una ola,</em></p>
+<p><em>sal que lava la línea,</em></p>
+<p><em>y el ave lúcida</em></p>
+<p><em>volando sin raíces.</em></p>
+</div>
+</div>
+</section>
+<section id="section-4" class="slide level2" data-background="#43464B" data-background-image="imagenes/statisticalcomputing2.jpg">
+<h2></h2>
+<div style="display: flex; text-align:center; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 3.5em;">
+<p><b> Creando Objetos en R</b></p>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment">Definir cantidades que puedan ser operadas posteriormente en el código.</li>
+<li class="fragment">Sintaxis:</li>
+</ul>
+<div class="fragment">
+<div style="text-align: center; font-size:1em">
+<p><code>Nombre &lt;- Elemento Almacenado como "Nombre"</code></p>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a>FondosTotales <span class="ot">&lt;-</span> <span class="dv">2234031</span></span>
+<span id="cb73-2"><a href=""></a><span class="do">##    Se gasto 120000 en impresiones</span></span>
+<span id="cb73-3"><a href=""></a><span class="do">##                     Se gastaron 120000 en renovacion de equipos</span></span>
+<span id="cb73-4"><a href=""></a><span class="do">##                     Se gastaron 30000 en chocmans</span></span>
+<span id="cb73-5"><a href=""></a><span class="do">##   Ingresaron 944000 por pago de clientes</span></span>
+<span id="cb73-6"><a href=""></a><span class="do">##              .</span></span>
+<span id="cb73-7"><a href=""></a><span class="do">##              .</span></span>
+<span id="cb73-8"><a href=""></a><span class="do">##        Otras operaciones importantes</span></span>
+<span id="cb73-9"><a href=""></a><span class="do">##              .</span></span>
+<span id="cb73-10"><a href=""></a><span class="fu">print</span>(FondosTotales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -25900</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">Objeto <code>FondosTotales</code> recibió cambios (ficticios) y tiene nuevo valor.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<p>*Se puede usar <code>=</code> en vez de <code>&lt;-</code> pero puede llevar a confusiones.</p>
+<ul>
+<li class="fragment">Definir objetos <strong>mejora la legibilidad del código.</strong></li>
+</ul>
+<div class="fragment">
+<div style="text-align: center; font-size:1em">
+<p>Sin objetos definidos</p>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a><span class="fu">print</span>(<span class="dv">4</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> (<span class="dv">25</span> <span class="sc">-</span> <span class="fl">0.80</span><span class="sc">*</span><span class="dv">30</span>)<span class="sc">/</span>(<span class="dv">30</span> <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.80</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.5</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><br></p>
+<div style="text-align: center; font-size:1em">
+<p>Con objetos definidos</p>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a>puntaje <span class="ot">&lt;-</span> <span class="dv">25</span></span>
+<span id="cb77-2"><a href=""></a>puntajeMax <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb77-3"><a href=""></a>Exigencia <span class="ot">&lt;-</span> <span class="fl">0.80</span></span>
+<span id="cb77-4"><a href=""></a></span>
+<span id="cb77-5"><a href=""></a>Nota <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> (puntaje <span class="sc">-</span> Exigencia<span class="sc">*</span>puntajeMax)<span class="sc">/</span>(puntajeMax <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> Exigencia))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Sobre nombres:</p>
+<ul>
+<li class="fragment"><p>No pueden tener espacios dentro del nombre. Ej: <code>mi objeto &lt;- 5</code></p></li>
+<li class="fragment"><p>No pueden llevar ciertos carácteres especiales. Ej: <code>valor$ &lt;- 5</code>, <code>valor&amp; &lt;- 5</code></p></li>
+<li class="fragment"><p>No pueden iniciar con un número. ej: <code>1objeto &lt;- 5</code></p></li>
+<li class="fragment"><p>Se recomienda no usar palabras reservadas para otras funciones u otros objetos. Ej: <code>print &lt;- 5</code></p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>¡Nombres de los objetos son sensible a mayúsculas y otras puntuaciones!</p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href=""></a>Valor <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb78-2"><a href=""></a>TEXTO <span class="ot">&lt;-</span> <span class="st">"Esto es un texto!"</span></span>
+<span id="cb78-3"><a href=""></a>datos_2 <span class="ot">&lt;-</span> mtcars <span class="co"># Tabla de Datos guardada en R.</span></span>
+<span id="cb78-4"><a href=""></a>lstas <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb78-5"><a href=""></a>secuencias  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">400</span>, <span class="dv">200</span>, <span class="dv">500</span>)</span>
+<span id="cb78-6"><a href=""></a></span>
+<span id="cb78-7"><a href=""></a><span class="fu">print</span>(valor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: objeto 'valor' no encontrado</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href=""></a><span class="fu">print</span>(texto)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: objeto 'texto' no encontrado</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href=""></a><span class="fu">print</span>(datos2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: objeto 'datos2' no encontrado</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href=""></a><span class="fu">print</span>(listas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: objeto 'listas' no encontrado</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href=""></a><span class="fu">print</span>(secuencia)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: objeto 'secuencia' no encontrado</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Buenas prácticas para asignación de nombres</strong></p>
+<ol type="1">
+<li class="fragment">Usar nombres descriptivos.</li>
+</ol>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href=""></a>a <span class="ot">&lt;-</span> <span class="fl">4.3</span> <span class="co"># ¿?</span></span>
+<span id="cb88-2"><a href=""></a>NotaTarea1 <span class="ot">&lt;-</span> <span class="fl">4.3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li class="fragment">Usar sólo una convención de nombramiento para todo el código:</li>
+</ol>
+<ul>
+<li class="fragment"><em>Camel Case</em>: <code>nombreObjeto</code></li>
+<li class="fragment"><em>Snake Case</em>: <code>nombre_objeto</code></li>
+<li class="fragment"><em>Pascal Case</em>: <code>NombreObjeto</code></li>
+</ul>
+<ol start="3" type="1">
+<li class="fragment">Evitar abreviaciones vagamente informativas. Ej: <code>var1</code>, <code>a1</code>, <code>X1</code>, etc.</li>
+</ol>
+</div>
+</section>
+<section class="slide level2">
+
+<ol start="4" type="1">
+<li class="fragment">Usar patrones coherentes en el código.</li>
+</ol>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href=""></a>total_ventas <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb89-2"><a href=""></a>ventas_totales <span class="ot">&lt;-</span> <span class="dv">1000</span> <span class="co"># Se rotó la posición de totales! Malo.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li class="fragment">Añadir contexto si hace falta.</li>
+</ol>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href=""></a>venta <span class="ot">&lt;-</span> <span class="dv">200</span>  <span class="co"># ¿?</span></span>
+<span id="cb90-2"><a href=""></a>ventaDiaria <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb90-3"><a href=""></a>ventaAnual <span class="ot">&lt;-</span> <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="6" type="1">
+<li class="fragment">Usar prefijos o sufijos para caracterizar.</li>
+</ol>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href=""></a>tabla_ventas</span>
+<span id="cb91-2"><a href=""></a>vector_productosVendidos</span>
+<span id="cb91-3"><a href=""></a>valor_dineroRestante</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="7" type="1">
+<li class="fragment">¡Cualquier otra cosa que ayude a le legibilidad!</li>
+</ol>
+</div>
+</section>
+<section id="section-5" class="slide level2" data-background="#43464B" data-background-image="imagenes/statisticalcomputing2.jpg">
+<h2></h2>
+<div style="display: flex; text-align:center; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 3.5em;">
+<p><b> Funciones en R</b></p>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Funciones</strong>: bloque de código que posee un nombre asignado y realiza una tarea específica.</p>
+<div style="font-size:0.8em">
+<ul>
+<li class="fragment">Es reutilizable.</li>
+<li class="fragment">Usualmente recibe de entrada elementos que definen el proceso a realizar.
+<ul>
+<li class="fragment">Los <em>Argumentos</em> de la función son estos objetos.</li>
+</ul></li>
+<li class="fragment">Puede o no entregar un objeto de salida.</li>
+</ul>
+</div>
+<div class="fragment">
+<p><a href="https://www.saludolearning.in/topics/c/user-defined-functions-in-c/">Fuente de Imágen</a> <img data-src="https://scaler.com/topics/images/what-is-a-function.webp"></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size:1.4em">
+<p><strong>Sintaxis para crear funciones</strong></p>
+</div>
+<div style="font-size:1.3em">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href=""></a>NombreFuncion <span class="ot">&lt;-</span> <span class="cf">function</span>(Argumento1, Argumento2, ..., ArgumentoK){</span>
+<span id="cb92-2"><a href=""></a>  </span>
+<span id="cb92-3"><a href=""></a>  <span class="fu">return</span>(Objeto) <span class="co"># Opcional</span></span>
+<span id="cb92-4"><a href=""></a>}</span>
+<span id="cb92-5"><a href=""></a></span>
+<span id="cb92-6"><a href=""></a><span class="do">## Ejecutando la funcion:</span></span>
+<span id="cb92-7"><a href=""></a><span class="fu">NombreFuncion</span>(<span class="at">Argumento1 =</span> ..., <span class="at">Argumento2 =</span> ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size:1.4em">
+<p><strong>Sintaxis para crear funciones</strong></p>
+</div>
+<div style="font-size:1.3em">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href=""></a>NombreFuncion <span class="ot">&lt;-</span> <span class="cf">function</span>(Argumento1, Argumento2, ...){</span>
+<span id="cb93-2"><a href=""></a>  </span>
+<span id="cb93-3"><a href=""></a>  <span class="do">## No dar ningun argumento tambien es opcion.</span></span>
+<span id="cb93-4"><a href=""></a>  </span>
+<span id="cb93-5"><a href=""></a>  <span class="do">## Aqui dentro se escriben todo el procedimiento</span></span>
+<span id="cb93-6"><a href=""></a>  <span class="do">## que se desea ejecutar cuando NombreFuncion es llamada.</span></span>
+<span id="cb93-7"><a href=""></a>  </span>
+<span id="cb93-8"><a href=""></a>  <span class="do">## Si se desea que la funcion retorne un </span></span>
+<span id="cb93-9"><a href=""></a>  <span class="do">## objeto tras su ejecucion:</span></span>
+<span id="cb93-10"><a href=""></a>  <span class="fu">return</span>(Objeto)</span>
+<span id="cb93-11"><a href=""></a>  </span>
+<span id="cb93-12"><a href=""></a>  <span class="do">## Tambien es opcion que no entregue nada.</span></span>
+<span id="cb93-13"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment"><p>Considere la función <code>Funcion(Argumento, X_Y, Z)</code>.</p></li>
+<li class="fragment"><p>Suponga, para este caso, que para que la función <em>funcione</em>, los tres argumentos deben recibir valores numéricos.</p></li>
+<li class="fragment"><p>Cualquiera de las siguientes opciones son sintaxis válidas en R:</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href=""></a><span class="fu">Funcion</span>(<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">300</span>)</span>
+<span id="cb94-2"><a href=""></a></span>
+<span id="cb94-3"><a href=""></a><span class="fu">Funcion</span>(<span class="at">Argumento =</span> <span class="dv">100</span>, <span class="at">X_Y =</span> <span class="dv">200</span>, <span class="at">Z =</span> <span class="dv">300</span>)</span>
+<span id="cb94-4"><a href=""></a></span>
+<span id="cb94-5"><a href=""></a><span class="fu">Funcion</span>(<span class="at">Arg =</span> <span class="dv">100</span>, <span class="at">X =</span> <span class="dv">200</span>, <span class="at">Z =</span> <span class="dv">300</span>)</span>
+<span id="cb94-6"><a href=""></a></span>
+<span id="cb94-7"><a href=""></a><span class="fu">Funcion</span>(<span class="at">A =</span> <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Ejemplos:</strong></p>
+<div class="fragment">
+<div>
+<ol type="1">
+<li>Función que imprime el poema de Neruda cuando es llamada.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href=""></a>Poema <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
+<span id="cb95-2"><a href=""></a>  <span class="fu">cat</span>(<span class="st">"No hay espacio más ancho que el dolor, </span><span class="sc">\n</span><span class="st">no hay universo como aquel que sangra."</span>)</span>
+<span id="cb95-3"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href=""></a><span class="fu">Poema</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>No hay espacio más ancho que el dolor, 
+no hay universo como aquel que sangra.</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div>
+<p><strong>Ejemplos:</strong></p>
+<ol start="2" type="1">
+<li>Función que transforma grados Celsius a Farenheit.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href=""></a>CelsiusFarenheit <span class="ot">&lt;-</span> <span class="cf">function</span>(Celsius){</span>
+<span id="cb98-2"><a href=""></a>  Farenheit <span class="ot">&lt;-</span> <span class="dv">32</span> <span class="sc">+</span> Celsius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span></span>
+<span id="cb98-3"><a href=""></a>  </span>
+<span id="cb98-4"><a href=""></a>  Salida <span class="ot">&lt;-</span> <span class="fu">paste</span>(Celsius, <span class="st">"grados Celsius son"</span>, Farenheit, <span class="st">"grados Farenheit."</span>)</span>
+<span id="cb98-5"><a href=""></a>  <span class="fu">return</span>(Salida)</span>
+<span id="cb98-6"><a href=""></a>  </span>
+<span id="cb98-7"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href=""></a><span class="fu">CelsiusFarenheit</span>(<span class="dv">0</span>) <span class="co"># Congelamiento del agua</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "0 grados Celsius son 32 grados Farenheit."</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href=""></a><span class="fu">CelsiusFarenheit</span>(<span class="at">Celsius =</span> <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "30 grados Celsius son 86 grados Farenheit."</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href=""></a><span class="fu">CelsiusFarenheit</span>(<span class="at">C =</span> <span class="dv">100</span>)  <span class="co"># Ebullicion  del agua</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "100 grados Celsius son 212 grados Farenheit."</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href=""></a><span class="fu">CelsiusFarenheit</span>(<span class="at">C =</span> <span class="dv">220</span>)  <span class="co"># Temperatura para hornear un pancito</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "220 grados Celsius son 428 grados Farenheit."</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div>
+<p><strong>Ejemplos:</strong></p>
+<ol start="3" type="1">
+<li>Funcion que calcula el promedio entre los cuatro laboratorios de este curso.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href=""></a>PromedioLaboratorios <span class="ot">&lt;-</span> <span class="cf">function</span>(Lab1, Lab2, Lab3, Lab4){</span>
+<span id="cb107-2"><a href=""></a>  </span>
+<span id="cb107-3"><a href=""></a>  Promedio <span class="ot">&lt;-</span> (Lab1 <span class="sc">+</span> Lab2 <span class="sc">+</span> Lab3 <span class="sc">+</span> Lab4)<span class="sc">/</span><span class="dv">4</span></span>
+<span id="cb107-4"><a href=""></a>  </span>
+<span id="cb107-5"><a href=""></a>  Promedio <span class="co"># Equivalente a solo escribir return(Promedio)</span></span>
+<span id="cb107-6"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href=""></a><span class="fu">PromedioLaboratorios</span>(<span class="fl">1.0</span>, <span class="fl">7.0</span>, <span class="fl">6.0</span>, <span class="fl">5.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.875</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href=""></a><span class="fu">PromedioLaboratorios</span>(<span class="fl">6.0</span>, <span class="fl">5.4</span>, <span class="fl">7.0</span>, <span class="fl">4.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.675</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href=""></a><span class="fu">PromedioLaboratorios</span>(<span class="fl">7.0</span>, <span class="fl">7.0</span>, <span class="fl">6.0</span>, <span class="fl">7.0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.75</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size:1.4em">
+<p><strong>¡Actividad Bonificada!</strong></p>
+</div>
+<ol type="1">
+<li class="fragment"><p>Construya una función que reciba de argumentos las notas de la Tarea 1 y 2 y entregue como salida el mensaje <em>Promedio de Laboratorios = NOTA OBTENIDA</em>.</p></li>
+<li class="fragment"><p>Construya una funcion que reciba de argumentos las notas de los laboratorios 1, 2, 3, y 4, las tareas 1 y 2, y el examen, y que calcule la nota final del curso. La nota final debe entregarla junto a un mensaje acorde.</p></li>
+<li class="fragment"><p>Muestre evidencia de que realizó el resto de actividades de esta clase.</p></li>
+</ol>
+<ul>
+<li class="fragment"><em>Basta responder hasta aquí para haber completado la actividad bonificada.</em></li>
+</ul>
+<p>Continúa….</p>
+</section>
+<section class="slide level2">
+
+<div style="font-size:1.4em">
+<p><strong>¡Actividad Bonificada!</strong></p>
+</div>
+<ol start="3" type="1">
+<li class="fragment"><p>Escriba una función que tome como argumentos una nota y un porcentaje de exigencia, y que devuelva la nota ajustada a un nuevo porcentaje de exigencia, asumiendo que la nota original corresponde a un 50% de exigencia.</p></li>
+<li class="fragment"><p>Escriba una función que reciba tantos argumentos como evaluaciones haya en el curso, además de un porcentaje de exigencia. La función deberá recalcular la nota final del curso ajustándola al porcentaje de exigencia indicado, asumiendo que las evaluaciones originales corresponden a un 50% de exigencia.</p></li>
+</ol>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
-</div>
 </div>
 </div>
 </section>
@@ -828,19 +1740,19 @@
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="Clase_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="Clase_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="Clase_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="Clase_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="Clase_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="Clase_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="Clase_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="Clase_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="Clase_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="Clase_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
