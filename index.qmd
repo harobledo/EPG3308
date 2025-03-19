@@ -463,11 +463,29 @@ Escoger el *repositorio* chileno para descargar R.
 
 </div>
 
-
-## {background="#FFFFFFF" background-image="imagenes/0023_PortadaClase2.png"}
-
-
 --------------------------------------------------------------------------------
+
+
+![](imagenes/LogoMATUC.png){width=950 fig-align="center"}
+
+
+<div style = "text-align: center; font-size:1.5em;color:#2E86C1">
+**EPG3308: Computación Estadística**
+</div>
+<div style = "text-align: center; font-size:1.9em;color:#313131">
+**Clase 02: Uso de R Básico**
+</div>
+
+
+<div style = "text-align: center; font-size:1em;color:#313131">
+**Profesor**: Hernán Robledo Araya (harobledo@uc.cl)<br> 
+**Ayudante**: Josefa Silva Muñoz (josefa.silva@alumni.uc.cl) <br> <br> 
+Primer Semestre - 2025
+
+</div>
+           
+         
+----------
 
 <div style = "text-align: center; font-size:1.5em">
 ¿Cómo se aprende a programar en <img src="imagenes/Rlogo.png" style="width:80px;"/> u otro lenguaje?
@@ -490,17 +508,21 @@ Escoger el *repositorio* chileno para descargar R.
 </div>
 <br> 
 
-![](imagenes/0020_CodigoR.png){.absolute top="110" left="100" width="900" style="transform: rotate(0deg);"}
+![](imagenes/0020_CodigoR.png){.absolute top="110" left="100" width="600" style="transform: rotate(0deg);"}
 
 . . .
 
-![](imagenes/0021_CodigoR.png){.absolute top="110" left="100" width="800" style="transform: rotate(0deg);"}
+![](imagenes/0021_CodigoR.png){.absolute top="110" left="100" width="600" style="transform: rotate(0deg);"}
 
 <br><br><br><br><br><br><br><br><br>
 
 . . . 
 
-**Atajo del Teclado: ** Control + Enter
+<div style = "text-align: center; font-size:0.8em">
+* **Atajo del Teclado: ** Control + Enter
+* Para código escrito en Consola tan solo presionar Enter.
+</div>
+
 
 ## {background="#43464B" background-image="imagenes/statisticalcomputing2.jpg"}
 
@@ -514,20 +536,19 @@ Escoger el *repositorio* chileno para descargar R.
 **R como Calculadora**
 </div>
 
-**Suma y Resta**
+**Suma con + y Resta con -**
 ```{r eval = TRUE, echo = TRUE}
 1 + 1
 
+10 + 20
+
+-5 + 50
+
 10 - 2
 
+5 - 5
 
-
-2^2
-
-2**2 
-
--1^2
-
+-1 - 10 - 100
 ```
 
 --------------------------------------------------------------------------------
@@ -572,7 +593,6 @@ sqrt(-1) # NaN = Not a Number
   3. Multiplicación y división (de izquierda a derecha)
   4. Suma y resta
 </div>
-
 
 --------------------------------------------------------------------------------
 
@@ -818,14 +838,12 @@ cat("Mi nota es \n 1 + 6*(7.2/10) =", 1 + 6*(7.2/10))
 ```
 
 <div style = "font-size: 0.8em">
+* Notar que `\n` hace un salto de línea.
 * Notar que puede recibir una operación e imprime el resultado.
 </div>
 
-
-
 . . . 
 
-<br>
 
 ```{r eval = TRUE, echo = TRUE, error = TRUE}
 cat('El resultado de la operacion es = ', mil)
@@ -833,7 +851,6 @@ cat('El resultado de la operacion es = ', mil)
 
 . . . 
 
-<br>
 
 ```{r eval = TRUE, echo = TRUE, error = TRUE}
 cat('El resultado de la operacion es =', 1000
@@ -1009,7 +1026,7 @@ print(FondosTotales)
 
 --------------------------------------------------------------------------------
 
-*Se puede usar `=` en vez de `<-` pero puede llevar a confusiones.
+* Se puede usar `=` en vez de `<-` pero puede llevar a confusiones.
 
 * Definir objetos **mejora la legibilidad del código.**
 
@@ -1026,7 +1043,6 @@ print(4 + 3 * (25 - 0.80*30)/(30 * (1 - 0.80)))
 
 . . .
 
-<br>
 
 <div style = "text-align: center; font-size:1em">
 Con objetos definidos
@@ -1038,12 +1054,13 @@ puntajeMax <- 30
 Exigencia <- 0.80
 
 Nota <- 4 + 3 * (puntaje - Exigencia*puntajeMax)/(puntajeMax * (1 - Exigencia))
+print(Nota)
 ```
 
 
 --------------------------------------------------------------------------------
 
-Sobre nombres:
+Acerca nombres para objetos:
 
 * No pueden tener espacios dentro del nombre. Ej: `mi objeto <- 5`
 
@@ -1094,7 +1111,7 @@ NotaTarea1 <- 4.3
 * *Snake Case*: `nombre_objeto`
 * *Pascal Case*: `NombreObjeto`
 
-3. Evitar abreviaciones vagamente informativas. Ej: `var1`, `a1`, `X1`, etc.
+3. Evitar abreviaciones vagamente informativas. Ej: `var1`, `a1`, etc.
 
 --------------------------------------------------------------------------------
 
@@ -1143,17 +1160,20 @@ valor_dineroRestante
 
 **Funciones**: bloque de código que posee un nombre asignado y realiza una tarea específica.
 
+
+[<span style = "font-size:0.7em"> Fuente de Imágen </span> ](https://www.saludolearning.in/topics/c/user-defined-functions-in-c/)
+![](https://scaler.com/topics/images/what-is-a-function.webp){width=70% fig-align="center"}
+
+. . .
+
+
 <div style = "font-size:0.8em">
-  * Es reutilizable.
   * Usualmente recibe de entrada elementos que definen el proceso a realizar.
     * Los *Argumentos* de la función son estos objetos.
   * Puede o no entregar un objeto de salida.
 </div>
 
-. . .
 
-[Fuente de Imágen](https://www.saludolearning.in/topics/c/user-defined-functions-in-c/)
-![](https://scaler.com/topics/images/what-is-a-function.webp)
 
 
 
@@ -1306,10 +1326,9 @@ PromedioLaboratorios(7.0, 7.0, 6.0, 7.0)
 
 --------------------------------------------------------------------------------
 
-<div style = "font-size:1.4em">
-**¡Actividad Bonificada!**
-</div>
+<span style="font-size:1.4em; color: #28A745;"> **¡Actividad Bonificada!** </span> 
 
+<div style="font-size:0.9em"> 
 1. Construya una función que reciba de argumentos las notas de la Tarea 1 y 2 y entregue como salida el mensaje *Promedio de Laboratorios = NOTA OBTENIDA*.
 
 2. Construya una funcion que reciba de argumentos las notas de los laboratorios 1, 2, 3, y 4, las tareas 1 y 2, y el examen, y que calcule la nota final del curso. La nota final debe entregarla junto a un mensaje acorde.
@@ -1318,15 +1337,179 @@ PromedioLaboratorios(7.0, 7.0, 6.0, 7.0)
 
   * *Basta responder hasta aquí para haber completado la actividad bonificada.*
 
+. . .
+
 Continúa....
+
+</div>
 
 --------------------------------------------------------------------------------
 
-<div style = "font-size:1.4em">
-**¡Actividad Bonificada!**
-</div>
+<span style="font-size:1.4em; color: #28A745;"> **¡Actividad Bonificada!** </span> 
 
+<div style="font-size:0.9em"> 
 3. Escriba una función que tome como argumentos una nota y un porcentaje de exigencia, y que devuelva la nota ajustada a un nuevo porcentaje de exigencia, asumiendo que la nota original corresponde a un 50% de exigencia.
 
 4. Escriba una función que reciba tantos argumentos como evaluaciones haya en el curso, además de un porcentaje de exigencia. La función deberá recalcular la nota final del curso ajustándola al porcentaje de exigencia indicado, asumiendo que las evaluaciones originales corresponden a un 50% de exigencia.
 
+</div>
+
+## {background="#43464B" background-image="imagenes/statisticalcomputing2.jpg"}
+
+<div style="display: flex; text-align:center; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 3.5em;">
+  <b> Estructura de Datos en R </b>
+</div>
+
+--------------------------------------------------------------------------------
+
+* Sabemos añadir un único elemento a un objeto
+
+. . .
+
+```{r echo = TRUE}
+notaEstudiante1 <- 5.4
+notaEstudiante2 <- 6.0
+```
+
+* Quisiéramos añadir múltiples elementos a un único objeto.
+
+. . .
+
+<div style = "text-align:center;font-size:1.2em">
+**Vectores de Datos**
+</div>
+
+* Función `c()` (combine) para crear y guardar un vector:
+
+. . .
+
+<div style = "text-align: center; font-size:1em">
+`Nombre <- c(Elemento1, Elemen2, Elem3, ...)`
+</div>
+
+* Ejemplo:
+
+. . .
+
+```{r echo = TRUE}
+NotasEPG3308 <- c(7.0, 6.9, 7.0, 6.9, 6.8, 7.0)
+Estudiantes <- c("Hernan", "Andrea", "Ximena", "Miguel")
+```
+
+
+--------------------------------------------------------------------------------
+
+* Es posible asignarle un nombre a los elementos del vector:
+
+. . .
+
+```{r echo = TRUE}
+Asistencia <- c("Hernan" = 1, "Andrea" = 0, 1, 1)
+print(Asistencia)
+```
+
+* Si un vector trae sólo números, R lo identificará como un *vector numérico*:
+
+. . .
+
+```{r echo = TRUE}
+NotasEPG3308 <- c(7.0, 6.9, 7.0, 6.9, 6.8, 7.0)
+class(NotasEPG3308) # Funcion class() devuelve la "clase" (tipo de objeto).
+```
+
+* Basta con que haya un elemento que sea carácter/texto para que el vector completo se transforme a texto.
+
+. . .
+
+```{r echo = TRUE}
+NotasEPG3308 <- c(7.0, 6.9, 7.0, 6.9, 6.8, "7.0")
+class(NotasEPG3308) 
+```
+
+--------------------------------------------------------------------------------
+
+**Funciones útiles de R para crear vectores**:
+
+* `a:b`: crea secuencia de números enteros desde `a` hasta `b`.
+
+. . .
+
+```{r echo = TRUE,eval = FALSE}
+1:10
+0:5
+-10:-2
+-5:-8
+```
+
+* `seq(from, to, by, ...)`: crea secuencia numérica desde `from` hasta `to` dando saltos de según `by`.
+
+. . . 
+```{r echo = TRUE, eval = FALSE}
+seq(from = 1, to = 10, by = 1)
+seq(from = 1, to = 100, by = 10)
+seq(from = 1, to = -10, by = -2)
+seq(from = 1, to = 100, length.out = 15) # length.out en vez de by para solicitar largo de secuencia
+```
+
+--------------------------------------------------------------------------------
+
+**Funciones útiles de R para crear vectores**:
+
+* `rep(x, times, length.out, each)`: repite el o los valores `x` dependiendo de si se entrega `times`, `length.out`, o `each`.
+  * `times`: repite `x` un número `times` de veces.
+
+. . .   
+
+<br>
+
+```{r echo = TRUE, eval = TRUE}
+rep(x = 1, times = 4)
+rep(x = c(1,2), times = 4)
+```
+
+--------------------------------------------------------------------------------
+
+`rep(x, times, length.out, each)`: 
+
+  * `each`: repite cada elemento de `x` un número `each` de veces.
+
+. . .
+
+```{r echo = TRUE, eval = TRUE}
+rep(x = 1, each = 4)
+rep(x = c(1,2), each = 4)
+```
+
+<br>
+
+* `length.out`: repite `x` hasta que vector sea de largo `length.out`.
+  
+. . .
+
+```{r echo = TRUE, eval = TRUE}
+rep(x = 1, length.out = 4)
+rep(x = c(1,2), length.out = 4)
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**Ayuda de R**
+</div>
+
+<div style = "text-align: center; font-size:1em">
+`help(funcion)` - `?funcion`
+</div>
+
+
+
+![](imagenes/0024_ayudaR.png){width=800 fig-align="center"}
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.1em">
+**Estructura de Documentación de Ayuda**
+</div>
+
+
+![](imagenes/0025_ayudaR2.png){width=150% fig-align="center"}
