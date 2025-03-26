@@ -1513,3 +1513,821 @@ rep(x = c(1,2), length.out = 4)
 
 
 ![](imagenes/0025_ayudaR2.png){width=150% fig-align="center"}
+
+
+
+----------------------------------
+
+![](imagenes/LogoMATUC.png){width=950 fig-align="center"}
+
+
+<div style = "text-align: center; font-size:1.5em;color:#2E86C1">
+**EPG3308: Computación Estadística**
+</div>
+<div style = "text-align: center; font-size:1.9em;color:#313131">
+**Clase 03: Estructura de Datos**
+</div>
+
+
+<div style = "text-align: center; font-size:1em;color:#313131">
+**Profesor**: Hernán Robledo Araya (harobledo@uc.cl)<br> 
+**Ayudante**: Josefa Silva Muñoz (josefa.silva@alumni.uc.cl) <br> <br> 
+Primer Semestre - 2025
+
+</div>
+           
+         
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.5em">
+**Hoy veremos:**
+</div>
+
+1. Operaciones con Vectores
+2. Matrices y Operaciones con Matrices
+3. Listas y Operaciones con Matrices
+4. Cuadros de Datos (Data Frames)
+5. Lectura de Datos
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align:center;font-size:1.2em">
+**1. Vectores de Datos**
+</div>
+
+* Función `c()` (combine) para crear y guardar un vector:
+
+. . .
+
+<div style = "text-align: center; font-size:1em">
+`Nombre <- c(Elemento1, Elemen2, Elem3, ...)`
+</div>
+
+. . .
+
+* Funciones: `seq` y `rep`.
+
+. . .
+
+**Veremos:**
+
+1. Acceder a elementos
+2. Funciones para vectores
+3. Matemática Vectorizada
+4. Cálculos Matemáticos
+
+--------------------------------------------------------------------------------
+
+* Acceso a elementos de vector con `vector[posicion]`:
+
+* Acceder a un único elemento:
+
+. . .
+
+```{r eval = TRUE, echo = TRUE}
+Notas <- c(4.0, 4.5, 4.7, 5.2, 6.0, 7.0)
+
+Notas[1] # Primer elemento
+Notas[2] # Segundo elemento
+```
+
+* Acceder a múltiples elementos: vector de índices.
+
+. . .
+
+```{r eval = TRUE, echo = TRUE}
+indices <- c(1,2)
+Notas[indices]
+
+indices <- c(3,6)
+Notas[indices]
+```
+
+--------------------------------------------------------------------------------
+
+::: {.nonincremental}
+
+* Acceso a elementos de vector con `vector[posicion]`:
+
+:::
+
+* Todos excepto un elemento: `vector[-posicion]`
+
+. . .
+
+```{r eval = TRUE, echo = TRUE}
+Notas[-1] # Todos excepto primer elemento
+Notas[-6] # Todos excepto sexto elemento
+```
+
+* Acceder a todos excepto un subconjunto:
+
+. . .
+
+```{r eval = TRUE, echo = TRUE}
+indices <- c(1,2)
+Notas[-indices] # Elementos 3, 4, 5 y 6 
+
+pares <- seq(2,6,2)
+Notas[pares]
+
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.2em">
+**Modificar o añadir elementos de un vector**
+</div>
+
+. . .
+
+<div style = "text-align: center; font-size:1em">
+vector[indices] <- vector2
+</div>
+
+. . .
+
+```{r echo = TRUE}
+vec <- c() # Vector vacío
+vec # Equivalente a hacer print(vec1)
+vec[1] <- 4.5
+vec
+```
+
+. . .
+
+```{r echo = TRUE}
+vec[5] <- 6.0
+vec
+```
+
+. . .
+
+```{r echo = TRUE}
+vec[2:4] <- c(5.0, 5.1, 5.2)
+vec
+```
+
+. . .
+
+```{r echo = TRUE}
+vec[c(1, 5, 8:9)] <- 1 # Reemplazar todo por valor 1
+vec
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.2em">
+**Funciones útiles**:
+</div>
+
+<div style = "font-size:0.8em">
+* `length(vector)`: entrega el numero de elementos contando NAs.
+* `sort(vector)`: ordena los elementos del vector.
+* `rank(vector)`: entrega el ranking de los elementos según su valor.
+* `rev(vector)`: invierte el orden de los elementos del vector.
+* `unique(vector)`: entrega un vector en que se eliminan los valores repetidos de `vector`.
+* `table(vector)`: tabla de frecuencia de los elementos de `vector`.
+</div>
+
+
+. . .
+
+::: {.callout-tip}
+Tip: Cuando necesiten hacer algo específico pregúntense: 
+
+<div style = "text-align:center;font-size:1.2em">
+***¿existe una función que ya lo haga?***
+</div>
+
+:::
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.2em">
+**Matemática con Vectores**:
+</div>
+
+<div style = "font-size:0.8em">
+* Sumas, restas, productos, divisiones, potencias y otras operaciones sí funcionan entre vectores.
+
+* **Operación entre Vector y Escalar**
+
+</div>
+
+. . .
+
+```{r echo = TRUE}
+vec <- c(1, 2, 4)
+vec^2
+```
+
+<div style = "font-size:0.8em">
+* **Operación entre Escalar y Vector**
+</div>
+. . .
+
+```{r echo = TRUE}
+vec <- c(1, 2, 4)
+5^vec
+```
+
+<div style = "font-size:0.8em">
+* **Operación entre Vector y Vector**
+</div>
+. . .
+
+```{r echo = TRUE}
+vec1 <- c(1, 2, 3);   vec2 <- c(0, 1, 2)
+vec1 ^ vec2
+```
+
+
+--------------------------------------------------------------------------------
+
+* Esta cualidad de R es llamada *Cálculos Vectorizados*.
+
+* Más eficientes que recorrer cada elemento, aplicar la operación deseada, y continuar con el siguiente elemento.
+
+. . .
+
+```{r echo = TRUE, eval = FALSE}
+mivector <- c(4.8, 5.3, 3.8, 6.1, 3.9, 4.4, 2.6, 1.8, 0.4, 0.5)
+
+## Funcion que eleva al cuadrado cada elemento de un vector
+vectoralcuadrado <- function(){
+  resultado <- c()
+  for(i in 1:10){
+    resultado[i] <- mivector[i]^2
+  }
+  return(resultado)
+}
+
+## Comparacion en nanosegundos de tiempos de computo entre
+## calculo vectorizado y escalar
+microbenchmark::microbenchmark(mivector^2, vectoralcuadrado(), times = 1000)
+```
+
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.2em">
+**Reciclaje de elementos**:
+</div>
+
+* Cuando se aplica una operación entre vectores de distintos tamaños, R comienza a reciclar elementos del vector más corto.
+
+. . .
+
+```{r echo = TRUE}
+vec1 <- 1:20 # Vector de largo 20
+vec2 <- rep(c(0,1), times = 5) # Vector de largo 10
+
+length(vec1*vec2)
+vec1*vec2
+
+```
+
+. . .
+
+::: {.callout-warning}
+## Advertencia
+Preferir no reciclar. Operar con vectores de igual tamaño.
+:::
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.2em">
+**Matemática con Vectores**
+</div>
+
+<div style = "font-size:0.8em">
+* `sum(vector)`: Calcula la suma de todos los elementos.
+* `prod(vector)`: Calcula el producto de todos los elementos.
+* `mean(vector)`: Calcula el promedio entre los elementos.
+* `median(vector)`: Encuentra la mediana de los elementos.
+* `var(vector)`: Calcula la varianza del vector.
+* `sd(vector)`: Calcula la desviación estándar.
+* `summary(vector)`: calcula múltiples estadísticas descriptivas.
+* `min(vector)`: Encuentra el valor mínimo.
+* `max(vector)`: Encuentra el valor máximo.
+* `quartile(vector, prob)`: entrega el cuartil que acumula `prob` del vector dado.
+</div>
+
+
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.3em">
+**¡Actividad de Diez Minutos!**
+</div>
+
+::: {.nonincremental}
+
+<div style = "font-size:0.8em">
+
+El archivo `DataC03.RData` se carga con el comando `load("DataC03.RData")` y contiene tres vectores con información de una muestra de estudiantes y sus puntajes en una prueba de competencias matemáticas. Los vectores tienen los nombres `edad`, `comuna` y `puntuacion`.
+
+1. Corrija el registro de la posición 97 en edad. Cree un nuevo cetor llamado `edad2`. ¿Habrá otro valor mal codificado?
+
+2. Siguiendo las recomendaciones de asignaciones de nombres a objetos, cree tres vectores con las edades de los estudiantes y tres vectores con las puntuaciones, agrupados por comuna.
+
+</div>
+:::
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.3em">
+**¡Actividad de Diez Minutos!**
+</div>
+
+::: {.nonincremental}
+
+3. Calcule estadísticas descriptivas (promedio, mediana, desviación estándar, mínimo y máximo) de las edades de los estudiantes agrupadas por comuna.
+
+4. Calcule estadísticas descriptivas (promedio, mediana, desviación estándar, mínimo y máximo) de las puntuaciones obtenidas por los estudiantes agrupadas por comuna.
+
+:::
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**2. Matrices**
+</div>
+
+* Arreglo bidimensional (tienen filas y columnas) de datos.
+
+. . .
+
+<div style = "text-align: center; font-size:0.8em">
+
+$$
+\begin{pmatrix}
+3 & 17 & 8 & 12 \\
+15 & 4 & 22 & 7 \\
+9 & 6 & 13 & 19 \\
+\end{pmatrix}
+$$
+
+</div>
+
+* Usadas en matemáticas (y estadística) para formalizar cálculos de múltiples números.
+
+. . .
+
+::: {.callout-note}
+Un vector es una matriz de una única columna.
+:::
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**2. Matrices**
+</div>
+
+. . .
+
+`matrix(vector, nrow, ncol, byrow)`: crea una función en base a `vector` con `nrow` filas, `ncol` columnas, y rellenada por filas o columnas según `byrow`.
+
+. . .
+
+$$
+\begin{pmatrix}
+ 3 & 17 \\
+15 &  4 \\
+\end{pmatrix}
+$$
+
+. . .
+
+```{r echo = TRUE}
+matrix(c(3, 15, 17, 4), nrow = 2) # Basta con indicar numero de filas
+```
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**2. Matrices**
+</div>
+
+. . .
+
+Ejemplo 1:
+
+. . .
+
+```{r echo = TRUE}
+matrix(c(3, 15, 9, 21,
+        17, 4, 6, 10,
+        8, 22, 13, 5,
+        12, 7, 19, 16), 
+        nrow = 4, ncol = 4, byrow = TRUE)
+```
+
+. . .
+
+Ejemplo 2:
+
+. . .
+
+```{r echo = TRUE}
+matrix(1:24, nrow = 2, byrow = TRUE)
+```
+
+--------------------------------------------------------------------------------
+
+* Nombre para filas o columnas: `row.names` y `col.names`
+
+. . .
+```{r echo = TRUE}
+A <- matrix(1:24, nrow = 2, byrow = TRUE)
+colnames(A) <- paste0("C", 1:12)
+rownames(A) <- c("Fila1", "Fila2")
+A
+```
+
+
+* Construir matrices pegando vectores: `cbind` y `rbind`
+
+. . . 
+
+```{r echo = TRUE}
+NotasL1 <- c(5.0, 3.4, 6.0, 5.0)
+NotasL2 <- c(4.5, 3.9, 5.8, 5.3)
+Notas <- cbind(NotasL1, NotasL2) # Column bind
+Notas
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**¡Actividad de Cinco Minutos!**
+</div>
+
+Utilice los datos del archivo `Data03.RData` para hacer lo siguiente:
+
+1. Crear una matriz de dos columnas usando la función `matrix` que contenga los datos de los vectores `edad` y `puntuacion`. Coloque nombres adecuados a las columnas de la matriz.
+
+2. Crear una matriz de tres columnas usando la función `cbind` que contenga los datos de los vectores `edad`, `comuna`, y `puntuacion`. Coloque nombres adecuados a las columnas de la matriz. ¿Qué se observa en la matriz resultante?
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.2em">
+**Matemática elemental con matrices**
+</div>
+
+* Igual que con vectores, se pueden aplicar las operaciones matemáticas elementales entre matrices.
+
+. . .
+
+```{r echo = TRUE, eval = FALSE}
+A <- matrix(c(1,0,1,1), nrow = 2)
+B <- matrix(c(-2,-1,0,1), nrow = 2)
+vec <- c(1,2)
+
+1 + A
+2*A
+A^2
+
+A + vec # Aplica operacion a cada columna de A
+A * vec
+A+B
+```
+* Más operaciones en la Clase 08: Álgebra Lineal
+
+--------------------------------------------------------------------------------
+
+
+<div style = "font-size:1.2em">
+**Funciones por columnas o filas con matrices**
+</div>
+
+* `colSums(matriz)`: Sumar datos por cada columna.
+* `rowSums(matriz)`: Sumar datos por fila columna.
+* `colMeans(matriz)`: Promediar datos por cada columna.
+* `rowMeans(matriz)`: Promediar datos por cada fila.
+* `apply`: Aplicar una función cualquier por fila o columnas.
+
+. . .
+
+<div style = "text-align: center; font-size:1em">
+
+`apply(matriz, fila_o_columna, funcion)`
+
+</div>
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.2em">
+**Funciones por columnas o filas con matrices**
+</div>
+
+
+<div style = "text-align: center; font-size:1em">
+`apply(matriz, fila_o_columna, funcion_a_aplicar)`
+</div>
+
+. . .
+
+```{r echo = TRUE}
+A <- matrix(c(1,0,1,1,-1,2), ncol = 2) 
+
+apply(A, 
+      MARGIN = 1, # 1 = aplicar operacion por filas
+      FUN = mean) # Equivalente a hacer rowMeans
+```
+
+. . .
+
+```{r echo = TRUE}
+apply(A, 
+      MARGIN = 2, # 2 = aplicar operacion por columnas
+      FUN = sd) # Calcular desviacion estandar por columnas
+```
+
+. . .
+
+```{r echo = TRUE}
+apply(A, 
+      MARGIN = 2, # 2 = aplicar operacion por columnas
+      FUN = sd) # Calcular desviacion estandar por columnas
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.2em">
+**Acceder a elementos de matrices**
+</div>
+
+* `matriz[filas, columnas]`
+  * Misma idea que con vectores.
+
+* Ejemplos:
+
+. . .
+
+```{r echo = TRUE, eval = FALSE}
+A <- matrix(c(1,0,1,1,-1,2), ncol = 2) 
+
+A[1,1]
+A[2,1]
+A[1:3, 1]
+A[c(1,3), c(1,2)]
+A[1,] # Primera fila
+A[,2] # Segunda columna
+A[-1,] # Todo menos primera fila
+A[-2,-3] # Todo menos segunda fila y segunda columna
+```
+
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.2em">
+**Funciones útiles para matrices**
+</div>
+
+* `dim(matriz)`: entrega el número de filas y columnas de una matriz.
+* `nrow(matriz)` y `ncol(matriz)`: lo mismo que la función anterior.
+* `diag(matriz)`: entrega un vector con los elementos ubicados en la diagonal de la matriz.
+
+--------------------------------------------------------------------------------
+
+<span style="font-size:1.4em; color: #28A745;"> **¡Actividad Bonificada!** </span> 
+
+El archivo `Clase03_notas.RData` contiene una matriz con las notas de los estudiantes de cierto curso. 
+
+1. Calcule el promedio de las evaluaciones para cada estudiante.
+2. Calcule para cada evaluación el promedio de notas.
+3. Calcule mínimo, máximo, y desviación estándar de las notas de cada evaluación.
+4. Muestre evidencia de haber realizado el resto de actividades de la clase.
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**Listas**
+</div>
+
+<div style = "font-size:0.9em">
+* Colección de elementos de distinta naturaleza (numérico, texto, tablas, etc.)
+
+* Crear lista con `list()`
+* Acceder a los elementos con `Lista[[ elemento ]]`
+
+* Si elementos tienen nombres, pueden ser llamados con `Lista$Nombre`.
+
+</div>
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**3. Listas**
+</div>
+
+```{r echo = TRUE, eval = TRUE}
+Lista <- list(Notas = c(5.0, 5.5, 6.5, 7.0),
+              Alumnos = 4,
+              Nombres = c("H", "A", "R", "T"))
+```
+
+* Acceder a elementos de la lista:
+
+. . .
+
+```{r echo = TRUE, eval = TRUE}
+Lista$Nota
+Lista[[2]]
+Lista$Nombres
+```
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**3. Listas**
+</div>
+
+* Añadir elemento a la lista:
+
+. . .
+
+```{r echo = TRUE, eval = TRUE}
+Lista[[4]] <- c(1,1,1,0) 
+Lista[[4]]
+```
+
+. . .
+
+```{r echo = TRUE, eval = TRUE}
+# Añadir elemento con nombre
+Lista$TieneBonificacion <- c(1,1,1,1) 
+Lista$TieneBonificacion
+```
+
+* Se pueden combinar elementos de cualquier naturaleza.
+
+. . .
+
+```{r echo = TRUE, eval = TRUE}
+# Añadir elemento con nombre
+Lista$TablaDatos <- cars
+Lista$TablaDatos
+```
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**3. Listas**
+</div>
+
+* `lapply(Lista, Funcion)` para aplicar una función a los elementos de una lista.
+
+. . .
+
+```{r echo = TRUE, eval = TRUE}
+Lista$TablaDatos <- cars # Añadiendo tabla de nombre cars a la lista
+
+lapply(Lista, class) # Aplica funcion "class" a elementos de la lista
+```
+  
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**4. Data Frames**
+</div>
+
+* Matrices que combinan columnas de distintas naturalezas.
+* Comparte sintaxis de listas para acceder a columnas. 
+
+. . .
+
+```{r echo = TRUE}
+class(mtcars) # Tabla de datos cars
+class(ToothGrowth) # Tabla de datos ToothGrowth
+class(iris) # Tabla de datos iris
+```
+
+. . .
+
+```{r echo = TRUE}
+head(iris) # head() imprime primeras seis filas de la tabla
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**4. Data Frames**
+</div>
+
+* Acceder a clases de cada columna con `str` (structure):
+
+. . .
+
+```{r echo = TRUE}
+str(iris) 
+```
+
+* Acceder a variables con sintaxis `tabla$variable`
+
+. . .
+
+```{r echo = TRUE}
+head(iris$Sepal.Length)
+head(iris$Species)
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**5. Lectura de Datos**
+</div>
+
+* Archivos `.RData` se leen con `load("archivo.RData")`.
+
+* Otros archivos: asistente de carga de datos.
+
+. . .
+
+
+![](imagenes/0026_CargaDatos1.png){.absolute top="300" left="100" width="800" style="transform: rotate(0deg);"}
+
+. . .
+
+![](imagenes/0026_CargaDatos2.png){.absolute top="300" left="100" width="800" style="transform: rotate(0deg);"}
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**5. Lectura de Datos**
+</div>
+
+![](imagenes/0026_CargaDatos3.png){.absolute top="100" left="50" width="950" style="transform: rotate(0deg);"}
+
+<br><br><br><br><br><br><br><br><br><br>
+
+* `From Text (readr)` para archivos .txt y .csv.
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**5. Lectura de Datos**
+</div>
+
+
+![](imagenes/0027_readr.png){.absolute top="100" left="100" width="900" style="transform: rotate(0deg);"}
+
+. . .
+
+![](imagenes/0027_readr2.png){.absolute top="100" left="100" width="900" style="transform: rotate(0deg);"}
+
+. . .
+
+![](imagenes/0027_readr3.png){.absolute top="100" left="100" width="900" style="transform: rotate(0deg);"}
+
+<br><br><br><br><br><br><br><br><br>
+
+. . .
+
+<div style = "font-size:0.9em">
+
+::: {.callout-tip}
+Copiar código de carga y pegarlo en el script.
+:::
+
+</div>
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**5. Lectura de Datos**
+</div>
+
+
+![](imagenes/0028_readr1.png){.absolute top="140" left="30" width="1100" style="transform: rotate(0deg);"}
+
+. . .
+
+![](imagenes/0028_readr2.png){.absolute top="140" left="30" width="1100" style="transform: rotate(0deg);"}
+
+. . .
+
+![](imagenes/0028_readr3.png){.absolute top="140" left="30" width="1100" style="transform: rotate(0deg);"}
+
+. . .
+
+![](imagenes/0028_readr4.png){.absolute top="140" left="30" width="1100" style="transform: rotate(0deg);"}
+
+
+--------------------------------------------------------------------------------
+
+**Próxima clase**:
+
+* Operaciones Lógicas
+* Control de Flujo: `if`, `else`, `while`.
+* Simulación de datos
+

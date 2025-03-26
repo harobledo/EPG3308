@@ -1935,7 +1935,1002 @@ no hay universo como aquel que sangra.</code></pre>
 <p><strong>Estructura de Documentación de Ayuda</strong></p>
 </div>
 
-<img data-src="imagenes/0025_ayudaR2.png" class="quarto-figure quarto-figure-center r-stretch" style="width:150.0%"><div class="quarto-auto-generated-content">
+<img data-src="imagenes/0025_ayudaR2.png" class="quarto-figure quarto-figure-center r-stretch" style="width:150.0%"></section>
+<section class="slide level2">
+
+
+<img data-src="imagenes/LogoMATUC.png" class="quarto-figure quarto-figure-center r-stretch" width="950"><div style="text-align: center; font-size:1.5em;color:#2E86C1">
+<p><strong>EPG3308: Computación Estadística</strong></p>
+</div>
+<div style="text-align: center; font-size:1.9em;color:#313131">
+<p><strong>Clase 03: Estructura de Datos</strong></p>
+</div>
+<div style="text-align: center; font-size:1em;color:#313131">
+<p><strong>Profesor</strong>: Hernán Robledo Araya (harobledo@uc.cl)<br> <strong>Ayudante</strong>: Josefa Silva Muñoz (josefa.silva@alumni.uc.cl) <br> <br> Primer Semestre - 2025</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size:1.5em">
+<p><strong>Hoy veremos:</strong></p>
+</div>
+<ol type="1">
+<li class="fragment">Operaciones con Vectores</li>
+<li class="fragment">Matrices y Operaciones con Matrices</li>
+<li class="fragment">Listas y Operaciones con Matrices</li>
+<li class="fragment">Cuadros de Datos (Data Frames)</li>
+<li class="fragment">Lectura de Datos</li>
+</ol>
+</section>
+<section class="slide level2">
+
+<div style="text-align:center;font-size:1.2em">
+<p><strong>1. Vectores de Datos</strong></p>
+</div>
+<ul>
+<li class="fragment">Función <code>c()</code> (combine) para crear y guardar un vector:</li>
+</ul>
+<div class="fragment">
+<div style="text-align: center; font-size:1em">
+<p><code>Nombre &lt;- c(Elemento1, Elemen2, Elem3, ...)</code></p>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">Funciones: <code>seq</code> y <code>rep</code>.</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Veremos:</strong></p>
+<ol type="1">
+<li class="fragment">Acceder a elementos</li>
+<li class="fragment">Funciones para vectores</li>
+<li class="fragment">Matemática Vectorizada</li>
+<li class="fragment">Cálculos Matemáticos</li>
+</ol>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment"><p>Acceso a elementos de vector con <code>vector[posicion]</code>:</p></li>
+<li class="fragment"><p>Acceder a un único elemento:</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href=""></a>Notas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.0</span>, <span class="fl">4.5</span>, <span class="fl">4.7</span>, <span class="fl">5.2</span>, <span class="fl">6.0</span>, <span class="fl">7.0</span>)</span>
+<span id="cb139-2"><a href=""></a></span>
+<span id="cb139-3"><a href=""></a>Notas[<span class="dv">1</span>] <span class="co"># Primer elemento</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href=""></a>Notas[<span class="dv">2</span>] <span class="co"># Segundo elemento</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.5</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">Acceder a múltiples elementos: vector de índices.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href=""></a>indices <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb143-2"><a href=""></a>Notas[indices]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.0 4.5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href=""></a>indices <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">6</span>)</span>
+<span id="cb145-2"><a href=""></a>Notas[indices]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.7 7.0</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div>
+<ul>
+<li>Acceso a elementos de vector con <code>vector[posicion]</code>:</li>
+</ul>
+</div>
+<ul>
+<li class="fragment">Todos excepto un elemento: <code>vector[-posicion]</code></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href=""></a>Notas[<span class="sc">-</span><span class="dv">1</span>] <span class="co"># Todos excepto primer elemento</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.5 4.7 5.2 6.0 7.0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href=""></a>Notas[<span class="sc">-</span><span class="dv">6</span>] <span class="co"># Todos excepto sexto elemento</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.0 4.5 4.7 5.2 6.0</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">Acceder a todos excepto un subconjunto:</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href=""></a>indices <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb151-2"><a href=""></a>Notas[<span class="sc">-</span>indices] <span class="co"># Elementos 3, 4, 5 y 6 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.7 5.2 6.0 7.0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb153"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb153-1"><a href=""></a>pares <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">2</span>)</span>
+<span id="cb153-2"><a href=""></a>Notas[pares]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.5 5.2 7.0</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size:1.2em">
+<p><strong>Modificar o añadir elementos de un vector</strong></p>
+</div>
+<div class="fragment">
+<div style="text-align: center; font-size:1em">
+<p>vector[indices] &lt;- vector2</p>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb155"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb155-1"><a href=""></a>vec <span class="ot">&lt;-</span> <span class="fu">c</span>() <span class="co"># Vector vacío</span></span>
+<span id="cb155-2"><a href=""></a>vec <span class="co"># Equivalente a hacer print(vec1)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb157"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb157-1"><a href=""></a>vec[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fl">4.5</span></span>
+<span id="cb157-2"><a href=""></a>vec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.5</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb159"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb159-1"><a href=""></a>vec[<span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="fl">6.0</span></span>
+<span id="cb159-2"><a href=""></a>vec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.5  NA  NA  NA 6.0</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb161"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a href=""></a>vec[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">5.0</span>, <span class="fl">5.1</span>, <span class="fl">5.2</span>)</span>
+<span id="cb161-2"><a href=""></a>vec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.5 5.0 5.1 5.2 6.0</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb163"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb163-1"><a href=""></a>vec[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">8</span><span class="sc">:</span><span class="dv">9</span>)] <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="co"># Reemplazar todo por valor 1</span></span>
+<span id="cb163-2"><a href=""></a>vec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.0 5.0 5.1 5.2 1.0  NA  NA 1.0 1.0</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size:1.2em">
+<p><strong>Funciones útiles</strong>:</p>
+</div>
+<div style="font-size:0.8em">
+<ul>
+<li class="fragment"><code>length(vector)</code>: entrega el numero de elementos contando NAs.</li>
+<li class="fragment"><code>sort(vector)</code>: ordena los elementos del vector.</li>
+<li class="fragment"><code>rank(vector)</code>: entrega el ranking de los elementos según su valor.</li>
+<li class="fragment"><code>rev(vector)</code>: invierte el orden de los elementos del vector.</li>
+<li class="fragment"><code>unique(vector)</code>: entrega un vector en que se eliminan los valores repetidos de <code>vector</code>.</li>
+<li class="fragment"><code>table(vector)</code>: tabla de frecuencia de los elementos de <code>vector</code>.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Tip: Cuando necesiten hacer algo específico pregúntense:</p>
+<div style="text-align:center;font-size:1.2em">
+<p><strong><em>¿existe una función que ya lo haga?</em></strong></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size:1.2em">
+<p><strong>Matemática con Vectores</strong>:</p>
+</div>
+<div style="font-size:0.8em">
+<ul>
+<li class="fragment"><p>Sumas, restas, productos, divisiones, potencias y otras operaciones sí funcionan entre vectores.</p></li>
+<li class="fragment"><p><strong>Operación entre Vector y Escalar</strong></p></li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb165"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb165-1"><a href=""></a>vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>)</span>
+<span id="cb165-2"><a href=""></a>vec<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1  4 16</code></pre>
+</div>
+</div>
+<div style="font-size:0.8em">
+<ul>
+<li class="fragment"><strong>Operación entre Escalar y Vector</strong></li>
+</ul>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb167"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb167-1"><a href=""></a>vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>)</span>
+<span id="cb167-2"><a href=""></a><span class="dv">5</span><span class="sc">^</span>vec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]   5  25 625</code></pre>
+</div>
+</div>
+<div style="font-size:0.8em">
+<ul>
+<li class="fragment"><strong>Operación entre Vector y Vector</strong></li>
+</ul>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb169"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href=""></a>vec1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>);   vec2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb169-2"><a href=""></a>vec1 <span class="sc">^</span> vec2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 9</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment"><p>Esta cualidad de R es llamada <em>Cálculos Vectorizados</em>.</p></li>
+<li class="fragment"><p>Más eficientes que recorrer cada elemento, aplicar la operación deseada, y continuar con el siguiente elemento.</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb171"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href=""></a>mivector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.8</span>, <span class="fl">5.3</span>, <span class="fl">3.8</span>, <span class="fl">6.1</span>, <span class="fl">3.9</span>, <span class="fl">4.4</span>, <span class="fl">2.6</span>, <span class="fl">1.8</span>, <span class="fl">0.4</span>, <span class="fl">0.5</span>)</span>
+<span id="cb171-2"><a href=""></a></span>
+<span id="cb171-3"><a href=""></a><span class="do">## Funcion que eleva al cuadrado cada elemento de un vector</span></span>
+<span id="cb171-4"><a href=""></a>vectoralcuadrado <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
+<span id="cb171-5"><a href=""></a>  resultado <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb171-6"><a href=""></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>){</span>
+<span id="cb171-7"><a href=""></a>    resultado[i] <span class="ot">&lt;-</span> mivector[i]<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb171-8"><a href=""></a>  }</span>
+<span id="cb171-9"><a href=""></a>  <span class="fu">return</span>(resultado)</span>
+<span id="cb171-10"><a href=""></a>}</span>
+<span id="cb171-11"><a href=""></a></span>
+<span id="cb171-12"><a href=""></a><span class="do">## Comparacion en nanosegundos de tiempos de computo entre</span></span>
+<span id="cb171-13"><a href=""></a><span class="do">## calculo vectorizado y escalar</span></span>
+<span id="cb171-14"><a href=""></a>microbenchmark<span class="sc">::</span><span class="fu">microbenchmark</span>(mivector<span class="sc">^</span><span class="dv">2</span>, <span class="fu">vectoralcuadrado</span>(), <span class="at">times =</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size:1.2em">
+<p><strong>Reciclaje de elementos</strong>:</p>
+</div>
+<ul>
+<li class="fragment">Cuando se aplica una operación entre vectores de distintos tamaños, R comienza a reciclar elementos del vector más corto.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb172"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href=""></a>vec1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span> <span class="co"># Vector de largo 20</span></span>
+<span id="cb172-2"><a href=""></a>vec2 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">times =</span> <span class="dv">5</span>) <span class="co"># Vector de largo 10</span></span>
+<span id="cb172-3"><a href=""></a></span>
+<span id="cb172-4"><a href=""></a><span class="fu">length</span>(vec1<span class="sc">*</span>vec2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb174"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb174-1"><a href=""></a>vec1<span class="sc">*</span>vec2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  0  2  0  4  0  6  0  8  0 10  0 12  0 14  0 16  0 18  0 20</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Advertencia</strong></p>
+</div>
+<div class="callout-content">
+<p>Preferir no reciclar. Operar con vectores de igual tamaño.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size:1.2em">
+<p><strong>Matemática con Vectores</strong></p>
+</div>
+<div style="font-size:0.8em">
+<ul>
+<li class="fragment"><code>sum(vector)</code>: Calcula la suma de todos los elementos.</li>
+<li class="fragment"><code>prod(vector)</code>: Calcula el producto de todos los elementos.</li>
+<li class="fragment"><code>mean(vector)</code>: Calcula el promedio entre los elementos.</li>
+<li class="fragment"><code>median(vector)</code>: Encuentra la mediana de los elementos.</li>
+<li class="fragment"><code>var(vector)</code>: Calcula la varianza del vector.</li>
+<li class="fragment"><code>sd(vector)</code>: Calcula la desviación estándar.</li>
+<li class="fragment"><code>summary(vector)</code>: calcula múltiples estadísticas descriptivas.</li>
+<li class="fragment"><code>min(vector)</code>: Encuentra el valor mínimo.</li>
+<li class="fragment"><code>max(vector)</code>: Encuentra el valor máximo.</li>
+<li class="fragment"><code>quartile(vector, prob)</code>: entrega el cuartil que acumula <code>prob</code> del vector dado.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.3em">
+<p><strong>¡Actividad de Diez Minutos!</strong></p>
+</div>
+<div>
+<div style="font-size:0.8em">
+<p>El archivo <code>DataC03.RData</code> se carga con el comando <code>load("DataC03.RData")</code> y contiene tres vectores con información de una muestra de estudiantes y sus puntajes en una prueba de competencias matemáticas. Los vectores tienen los nombres <code>edad</code>, <code>comuna</code> y <code>puntuacion</code>.</p>
+<ol type="1">
+<li><p>Corrija el registro de la posición 97 en edad. Cree un nuevo cetor llamado <code>edad2</code>. ¿Habrá otro valor mal codificado?</p></li>
+<li><p>Siguiendo las recomendaciones de asignaciones de nombres a objetos, cree tres vectores con las edades de los estudiantes y tres vectores con las puntuaciones, agrupados por comuna.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.3em">
+<p><strong>¡Actividad de Diez Minutos!</strong></p>
+</div>
+<div>
+<ol start="3" type="1">
+<li><p>Calcule estadísticas descriptivas (promedio, mediana, desviación estándar, mínimo y máximo) de las edades de los estudiantes agrupadas por comuna.</p></li>
+<li><p>Calcule estadísticas descriptivas (promedio, mediana, desviación estándar, mínimo y máximo) de las puntuaciones obtenidas por los estudiantes agrupadas por comuna.</p></li>
+</ol>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><strong>2. Matrices</strong></p>
+</div>
+<ul>
+<li class="fragment">Arreglo bidimensional (tienen filas y columnas) de datos.</li>
+</ul>
+<div class="fragment">
+<div style="text-align: center; font-size:0.8em">
+<p><span class="math display">\[
+\begin{pmatrix}
+3 &amp; 17 &amp; 8 &amp; 12 \\
+15 &amp; 4 &amp; 22 &amp; 7 \\
+9 &amp; 6 &amp; 13 &amp; 19 \\
+\end{pmatrix}
+\]</span></p>
+</div>
+<ul>
+<li class="fragment">Usadas en matemáticas (y estadística) para formalizar cálculos de múltiples números.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Un vector es una matriz de una única columna.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><strong>2. Matrices</strong></p>
+</div>
+<div class="fragment">
+<p><code>matrix(vector, nrow, ncol, byrow)</code>: crea una función en base a <code>vector</code> con <code>nrow</code> filas, <code>ncol</code> columnas, y rellenada por filas o columnas según <code>byrow</code>.</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\begin{pmatrix}
+3 &amp; 17 \\
+15 &amp;  4 \\
+\end{pmatrix}
+\]</span></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb176"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb176-1"><a href=""></a><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">15</span>, <span class="dv">17</span>, <span class="dv">4</span>), <span class="at">nrow =</span> <span class="dv">2</span>) <span class="co"># Basta con indicar numero de filas</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    3   17
+[2,]   15    4</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><strong>2. Matrices</strong></p>
+</div>
+<div class="fragment">
+<p>Ejemplo 1:</p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb178"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb178-1"><a href=""></a><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">15</span>, <span class="dv">9</span>, <span class="dv">21</span>,</span>
+<span id="cb178-2"><a href=""></a>        <span class="dv">17</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">10</span>,</span>
+<span id="cb178-3"><a href=""></a>        <span class="dv">8</span>, <span class="dv">22</span>, <span class="dv">13</span>, <span class="dv">5</span>,</span>
+<span id="cb178-4"><a href=""></a>        <span class="dv">12</span>, <span class="dv">7</span>, <span class="dv">19</span>, <span class="dv">16</span>), </span>
+<span id="cb178-5"><a href=""></a>        <span class="at">nrow =</span> <span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">4</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4]
+[1,]    3   15    9   21
+[2,]   17    4    6   10
+[3,]    8   22   13    5
+[4,]   12    7   19   16</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Ejemplo 2:</p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb180"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb180-1"><a href=""></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
+[1,]    1    2    3    4    5    6    7    8    9    10    11    12
+[2,]   13   14   15   16   17   18   19   20   21    22    23    24</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment">Nombre para filas o columnas: <code>row.names</code> y <code>col.names</code></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb182"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb182-1"><a href=""></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb182-2"><a href=""></a><span class="fu">colnames</span>(A) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"C"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb182-3"><a href=""></a><span class="fu">rownames</span>(A) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Fila1"</span>, <span class="st">"Fila2"</span>)</span>
+<span id="cb182-4"><a href=""></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11 C12
+Fila1  1  2  3  4  5  6  7  8  9  10  11  12
+Fila2 13 14 15 16 17 18 19 20 21  22  23  24</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">Construir matrices pegando vectores: <code>cbind</code> y <code>rbind</code></li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb184"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb184-1"><a href=""></a>NotasL1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">5.0</span>, <span class="fl">3.4</span>, <span class="fl">6.0</span>, <span class="fl">5.0</span>)</span>
+<span id="cb184-2"><a href=""></a>NotasL2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.5</span>, <span class="fl">3.9</span>, <span class="fl">5.8</span>, <span class="fl">5.3</span>)</span>
+<span id="cb184-3"><a href=""></a>Notas <span class="ot">&lt;-</span> <span class="fu">cbind</span>(NotasL1, NotasL2) <span class="co"># Column bind</span></span>
+<span id="cb184-4"><a href=""></a>Notas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     NotasL1 NotasL2
+[1,]     5.0     4.5
+[2,]     3.4     3.9
+[3,]     6.0     5.8
+[4,]     5.0     5.3</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><strong>¡Actividad de Cinco Minutos!</strong></p>
+</div>
+<p>Utilice los datos del archivo <code>Data03.RData</code> para hacer lo siguiente:</p>
+<ol type="1">
+<li class="fragment"><p>Crear una matriz de dos columnas usando la función <code>matrix</code> que contenga los datos de los vectores <code>edad</code> y <code>puntuacion</code>. Coloque nombres adecuados a las columnas de la matriz.</p></li>
+<li class="fragment"><p>Crear una matriz de tres columnas usando la función <code>cbind</code> que contenga los datos de los vectores <code>edad</code>, <code>comuna</code>, y <code>puntuacion</code>. Coloque nombres adecuados a las columnas de la matriz. ¿Qué se observa en la matriz resultante?</p></li>
+</ol>
+</section>
+<section class="slide level2">
+
+<div style="font-size:1.2em">
+<p><strong>Matemática elemental con matrices</strong></p>
+</div>
+<ul>
+<li class="fragment">Igual que con vectores, se pueden aplicar las operaciones matemáticas elementales entre matrices.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb186"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb186-1"><a href=""></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb186-2"><a href=""></a>B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb186-3"><a href=""></a>vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb186-4"><a href=""></a></span>
+<span id="cb186-5"><a href=""></a><span class="dv">1</span> <span class="sc">+</span> A</span>
+<span id="cb186-6"><a href=""></a><span class="dv">2</span><span class="sc">*</span>A</span>
+<span id="cb186-7"><a href=""></a>A<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb186-8"><a href=""></a></span>
+<span id="cb186-9"><a href=""></a>A <span class="sc">+</span> vec <span class="co"># Aplica operacion a cada columna de A</span></span>
+<span id="cb186-10"><a href=""></a>A <span class="sc">*</span> vec</span>
+<span id="cb186-11"><a href=""></a>A<span class="sc">+</span>B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li class="fragment">Más operaciones en la Clase 08: Álgebra Lineal</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size:1.2em">
+<p><strong>Funciones por columnas o filas con matrices</strong></p>
+</div>
+<ul>
+<li class="fragment"><code>colSums(matriz)</code>: Sumar datos por cada columna.</li>
+<li class="fragment"><code>rowSums(matriz)</code>: Sumar datos por fila columna.</li>
+<li class="fragment"><code>colMeans(matriz)</code>: Promediar datos por cada columna.</li>
+<li class="fragment"><code>rowMeans(matriz)</code>: Promediar datos por cada fila.</li>
+<li class="fragment"><code>apply</code>: Aplicar una función cualquier por fila o columnas.</li>
+</ul>
+<div class="fragment">
+<div style="text-align: center; font-size:1em">
+<p><code>apply(matriz, fila_o_columna, funcion)</code></p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size:1.2em">
+<p><strong>Funciones por columnas o filas con matrices</strong></p>
+</div>
+<div style="text-align: center; font-size:1em">
+<p><code>apply(matriz, fila_o_columna, funcion_a_aplicar)</code></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb187"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb187-1"><a href=""></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">2</span>), <span class="at">ncol =</span> <span class="dv">2</span>) </span>
+<span id="cb187-2"><a href=""></a></span>
+<span id="cb187-3"><a href=""></a><span class="fu">apply</span>(A, </span>
+<span id="cb187-4"><a href=""></a>      <span class="at">MARGIN =</span> <span class="dv">1</span>, <span class="co"># 1 = aplicar operacion por filas</span></span>
+<span id="cb187-5"><a href=""></a>      <span class="at">FUN =</span> mean) <span class="co"># Equivalente a hacer rowMeans</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1.0 -0.5  1.5</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb189"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb189-1"><a href=""></a><span class="fu">apply</span>(A, </span>
+<span id="cb189-2"><a href=""></a>      <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="co"># 2 = aplicar operacion por columnas</span></span>
+<span id="cb189-3"><a href=""></a>      <span class="at">FUN =</span> sd) <span class="co"># Calcular desviacion estandar por columnas</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5773503 1.5275252</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb191"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb191-1"><a href=""></a><span class="fu">apply</span>(A, </span>
+<span id="cb191-2"><a href=""></a>      <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="co"># 2 = aplicar operacion por columnas</span></span>
+<span id="cb191-3"><a href=""></a>      <span class="at">FUN =</span> sd) <span class="co"># Calcular desviacion estandar por columnas</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5773503 1.5275252</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size:1.2em">
+<p><strong>Acceder a elementos de matrices</strong></p>
+</div>
+<ul>
+<li class="fragment"><code>matriz[filas, columnas]</code>
+<ul>
+<li class="fragment">Misma idea que con vectores.</li>
+</ul></li>
+<li class="fragment">Ejemplos:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb193"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb193-1"><a href=""></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">2</span>), <span class="at">ncol =</span> <span class="dv">2</span>) </span>
+<span id="cb193-2"><a href=""></a></span>
+<span id="cb193-3"><a href=""></a>A[<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb193-4"><a href=""></a>A[<span class="dv">2</span>,<span class="dv">1</span>]</span>
+<span id="cb193-5"><a href=""></a>A[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">1</span>]</span>
+<span id="cb193-6"><a href=""></a>A[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>), <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]</span>
+<span id="cb193-7"><a href=""></a>A[<span class="dv">1</span>,] <span class="co"># Primera fila</span></span>
+<span id="cb193-8"><a href=""></a>A[,<span class="dv">2</span>] <span class="co"># Segunda columna</span></span>
+<span id="cb193-9"><a href=""></a>A[<span class="sc">-</span><span class="dv">1</span>,] <span class="co"># Todo menos primera fila</span></span>
+<span id="cb193-10"><a href=""></a>A[<span class="sc">-</span><span class="dv">2</span>,<span class="sc">-</span><span class="dv">3</span>] <span class="co"># Todo menos segunda fila y segunda columna</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size:1.2em">
+<p><strong>Funciones útiles para matrices</strong></p>
+</div>
+<ul>
+<li class="fragment"><code>dim(matriz)</code>: entrega el número de filas y columnas de una matriz.</li>
+<li class="fragment"><code>nrow(matriz)</code> y <code>ncol(matriz)</code>: lo mismo que la función anterior.</li>
+<li class="fragment"><code>diag(matriz)</code>: entrega un vector con los elementos ubicados en la diagonal de la matriz.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p><span style="font-size:1.4em; color: #28A745;"> <strong>¡Actividad Bonificada!</strong> </span></p>
+<p>El archivo <code>Clase03_notas.RData</code> contiene una matriz con las notas de los estudiantes de cierto curso.</p>
+<ol type="1">
+<li class="fragment">Calcule el promedio de las evaluaciones para cada estudiante.</li>
+<li class="fragment">Calcule para cada evaluación el promedio de notas.</li>
+<li class="fragment">Calcule mínimo, máximo, y desviación estándar de las notas de cada evaluación.</li>
+<li class="fragment">Muestre evidencia de haber realizado el resto de actividades de la clase.</li>
+</ol>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><strong>Listas</strong></p>
+</div>
+<div style="font-size:0.9em">
+<ul>
+<li class="fragment"><p>Colección de elementos de distinta naturaleza (numérico, texto, tablas, etc.)</p></li>
+<li class="fragment"><p>Crear lista con <code>list()</code></p></li>
+<li class="fragment"><p>Acceder a los elementos con <code>Lista[[ elemento ]]</code></p></li>
+<li class="fragment"><p>Si elementos tienen nombres, pueden ser llamados con <code>Lista$Nombre</code>.</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><strong>3. Listas</strong></p>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb194"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb194-1"><a href=""></a>Lista <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Notas =</span> <span class="fu">c</span>(<span class="fl">5.0</span>, <span class="fl">5.5</span>, <span class="fl">6.5</span>, <span class="fl">7.0</span>),</span>
+<span id="cb194-2"><a href=""></a>              <span class="at">Alumnos =</span> <span class="dv">4</span>,</span>
+<span id="cb194-3"><a href=""></a>              <span class="at">Nombres =</span> <span class="fu">c</span>(<span class="st">"H"</span>, <span class="st">"A"</span>, <span class="st">"R"</span>, <span class="st">"T"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li class="fragment">Acceder a elementos de la lista:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb195"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb195-1"><a href=""></a>Lista<span class="sc">$</span>Nota</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.0 5.5 6.5 7.0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb197"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb197-1"><a href=""></a>Lista[[<span class="dv">2</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb199"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb199-1"><a href=""></a>Lista<span class="sc">$</span>Nombres</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "H" "A" "R" "T"</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><strong>3. Listas</strong></p>
+</div>
+<ul>
+<li class="fragment">Añadir elemento a la lista:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb201"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb201-1"><a href=""></a>Lista[[<span class="dv">4</span>]] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>) </span>
+<span id="cb201-2"><a href=""></a>Lista[[<span class="dv">4</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 1 1 0</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb203"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb203-1"><a href=""></a><span class="co"># Añadir elemento con nombre</span></span>
+<span id="cb203-2"><a href=""></a>Lista<span class="sc">$</span>TieneBonificacion <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>) </span>
+<span id="cb203-3"><a href=""></a>Lista<span class="sc">$</span>TieneBonificacion</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 1 1 1</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">Se pueden combinar elementos de cualquier naturaleza.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb205"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb205-1"><a href=""></a><span class="co"># Añadir elemento con nombre</span></span>
+<span id="cb205-2"><a href=""></a>Lista<span class="sc">$</span>TablaDatos <span class="ot">&lt;-</span> cars</span>
+<span id="cb205-3"><a href=""></a>Lista<span class="sc">$</span>TablaDatos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   speed dist
+1      4    2
+2      4   10
+3      7    4
+4      7   22
+5      8   16
+6      9   10
+7     10   18
+8     10   26
+9     10   34
+10    11   17
+11    11   28
+12    12   14
+13    12   20
+14    12   24
+15    12   28
+16    13   26
+17    13   34
+18    13   34
+19    13   46
+20    14   26
+21    14   36
+22    14   60
+23    14   80
+24    15   20
+25    15   26
+26    15   54
+27    16   32
+28    16   40
+29    17   32
+30    17   40
+31    17   50
+32    18   42
+33    18   56
+34    18   76
+35    18   84
+36    19   36
+37    19   46
+38    19   68
+39    20   32
+40    20   48
+41    20   52
+42    20   56
+43    20   64
+44    22   66
+45    23   54
+46    24   70
+47    24   92
+48    24   93
+49    24  120
+50    25   85</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><strong>3. Listas</strong></p>
+</div>
+<ul>
+<li class="fragment"><code>lapply(Lista, Funcion)</code> para aplicar una función a los elementos de una lista.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb207"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb207-1"><a href=""></a>Lista<span class="sc">$</span>TablaDatos <span class="ot">&lt;-</span> cars <span class="co"># Añadiendo tabla de nombre cars a la lista</span></span>
+<span id="cb207-2"><a href=""></a></span>
+<span id="cb207-3"><a href=""></a><span class="fu">lapply</span>(Lista, class) <span class="co"># Aplica funcion "class" a elementos de la lista</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$Notas
+[1] "numeric"
+
+$Alumnos
+[1] "numeric"
+
+$Nombres
+[1] "character"
+
+[[4]]
+[1] "numeric"
+
+$TieneBonificacion
+[1] "numeric"
+
+$TablaDatos
+[1] "data.frame"</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><strong>4. Data Frames</strong></p>
+</div>
+<ul>
+<li class="fragment">Matrices que combinan columnas de distintas naturalezas.</li>
+<li class="fragment">Comparte sintaxis de listas para acceder a columnas.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb209"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb209-1"><a href=""></a><span class="fu">class</span>(mtcars) <span class="co"># Tabla de datos cars</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "data.frame"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb211"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb211-1"><a href=""></a><span class="fu">class</span>(ToothGrowth) <span class="co"># Tabla de datos ToothGrowth</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "data.frame"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb213"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb213-1"><a href=""></a><span class="fu">class</span>(iris) <span class="co"># Tabla de datos iris</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "data.frame"</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb215"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb215-1"><a href=""></a><span class="fu">head</span>(iris) <span class="co"># head() imprime primeras seis filas de la tabla</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa
+6          5.4         3.9          1.7         0.4  setosa</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><strong>4. Data Frames</strong></p>
+</div>
+<ul>
+<li class="fragment">Acceder a clases de cada columna con <code>str</code> (structure):</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb217"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb217-1"><a href=""></a><span class="fu">str</span>(iris) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   150 obs. of  5 variables:
+ $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+ $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+ $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+ $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+ $ Species     : Factor w/ 3 levels "setosa","versicolor",..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">Acceder a variables con sintaxis <code>tabla$variable</code></li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb219"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb219-1"><a href=""></a><span class="fu">head</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.1 4.9 4.7 4.6 5.0 5.4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb221"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb221-1"><a href=""></a><span class="fu">head</span>(iris<span class="sc">$</span>Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] setosa setosa setosa setosa setosa setosa
+Levels: setosa versicolor virginica</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><strong>5. Lectura de Datos</strong></p>
+</div>
+<ul>
+<li class="fragment"><p>Archivos <code>.RData</code> se leen con <code>load("archivo.RData")</code>.</p></li>
+<li class="fragment"><p>Otros archivos: asistente de carga de datos.</p></li>
+</ul>
+<div class="fragment">
+<p><img data-src="imagenes/0026_CargaDatos1.png" class="absolute" style="transform: rotate(0deg);top: 300px; left: 100px; width: 800px; "></p>
+</div>
+<div class="fragment">
+<p><img data-src="imagenes/0026_CargaDatos2.png" class="absolute" style="transform: rotate(0deg);top: 300px; left: 100px; width: 800px; "></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><strong>5. Lectura de Datos</strong></p>
+</div>
+<p><img data-src="imagenes/0026_CargaDatos3.png" class="absolute" style="transform: rotate(0deg);top: 100px; left: 50px; width: 950px; "></p>
+<p><br><br><br><br><br><br><br><br><br><br></p>
+<ul>
+<li class="fragment"><code>From Text (readr)</code> para archivos .txt y .csv.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><strong>5. Lectura de Datos</strong></p>
+</div>
+<p><img data-src="imagenes/0027_readr.png" class="absolute" style="transform: rotate(0deg);top: 100px; left: 100px; width: 900px; "></p>
+<div class="fragment">
+<p><img data-src="imagenes/0027_readr2.png" class="absolute" style="transform: rotate(0deg);top: 100px; left: 100px; width: 900px; "></p>
+</div>
+<div class="fragment">
+<p><img data-src="imagenes/0027_readr3.png" class="absolute" style="transform: rotate(0deg);top: 100px; left: 100px; width: 900px; "></p>
+<p><br><br><br><br><br><br><br><br><br></p>
+</div>
+<div class="fragment">
+<div style="font-size:0.9em">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Copiar código de carga y pegarlo en el script.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><strong>5. Lectura de Datos</strong></p>
+</div>
+<p><img data-src="imagenes/0028_readr1.png" class="absolute" style="transform: rotate(0deg);top: 140px; left: 30px; width: 1100px; "></p>
+<div class="fragment">
+<p><img data-src="imagenes/0028_readr2.png" class="absolute" style="transform: rotate(0deg);top: 140px; left: 30px; width: 1100px; "></p>
+</div>
+<div class="fragment">
+<p><img data-src="imagenes/0028_readr3.png" class="absolute" style="transform: rotate(0deg);top: 140px; left: 30px; width: 1100px; "></p>
+</div>
+<div class="fragment">
+<p><img data-src="imagenes/0028_readr4.png" class="absolute" style="transform: rotate(0deg);top: 140px; left: 30px; width: 1100px; "></p>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Próxima clase</strong>:</p>
+<ul>
+<li class="fragment">Operaciones Lógicas</li>
+<li class="fragment">Control de Flujo: <code>if</code>, <code>else</code>, <code>while</code>.</li>
+<li class="fragment">Simulación de datos</li>
+</ul>
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
