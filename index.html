@@ -2924,12 +2924,836 @@ Levels: setosa versicolor virginica</code></pre>
 </section>
 <section class="slide level2">
 
-<p><strong>Próxima clase</strong>:</p>
+
+<img data-src="imagenes/LogoMATUC.png" class="quarto-figure quarto-figure-center r-stretch" width="950"><div style="text-align: center; font-size:1.5em;color:#2E86C1">
+<p><strong>EPG3308: Computación Estadística</strong></p>
+</div>
+<div style="text-align: center; font-size:1.9em;color:#313131">
+<p><strong>Clase 04: Operaciones Lógicas y Control de Flujo</strong></p>
+</div>
+<div style="text-align: center; font-size:1em;color:#313131">
+<p><strong>Profesor</strong>: Hernán Robledo Araya (harobledo@uc.cl)<br> <strong>Ayudante</strong>: Josefa Silva Muñoz (josefa.silva@alumni.uc.cl) <br> <br> Primer Semestre - 2025</p>
+</div>
+</section>
+<section id="section-6" class="slide level2" data-background="#43464B" data-background-image="imagenes/statisticalcomputing2.jpg">
+<h2></h2>
+<div style="display: flex; text-align:center; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 3.5em;">
+<p><b> Operaciones Lógicas </b></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb223"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb223-1"><a href=""></a><span class="fu">load</span>(<span class="st">"DataC04.RData"</span>)</span>
+<span id="cb223-2"><a href=""></a><span class="fu">head</span>(base)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Comuna Edad puntuacion
+1 La Florida   13       49.2
+2 La Florida   14      100.0
+3      Macul   13       20.0
+4 La Florida   14       57.6
+5 La Florida   15       93.6
+6 La Florida   14       79.2</code></pre>
+</div>
+</div>
 <ul>
-<li class="fragment">Operaciones Lógicas</li>
-<li class="fragment">Control de Flujo: <code>if</code>, <code>else</code>, <code>while</code>.</li>
-<li class="fragment">Simulación de datos</li>
+<li class="fragment">¿Cómo filtramos esta tabla según los estudiantes de <code>La Florida</code>?</li>
 </ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb225"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb225-1"><a href=""></a>baseLaFlorida <span class="ot">&lt;-</span> base[base<span class="sc">$</span>Comuna <span class="sc">==</span> <span class="st">"La Florida"</span>, ]</span>
+<span id="cb225-2"><a href=""></a><span class="fu">head</span>(baseLaFlorida,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Comuna Edad puntuacion
+1 La Florida   13       49.2
+2 La Florida   14      100.0
+4 La Florida   14       57.6</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Operación Lógica</strong></p>
+</div>
+<div class="fragment">
+<div style="text-align: center; font-size:1.2em">
+<p><code>base$Comuna == "La Florida"</code></p>
+</div>
+<ul>
+<li class="fragment">Operador lógico <code>==</code> evalúa qué elementos de <code>base$Comuna</code> son iguales a <code>La Florida</code>.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb227"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb227-1"><a href=""></a><span class="fu">head</span>(base<span class="sc">$</span>Comuna <span class="sc">==</span> <span class="st">"La Florida"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>Resultado: vector de <code>TRUE</code> y <code>FALSE</code> indicando en qué se cumple la condición.</p></li>
+<li class="fragment"><p>Un vector de <code>TRUE</code> y <code>FALSE</code> puede usarse en conjunto con <code>[]</code> para filtrar.</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Observaciones</strong></p>
+<ul>
+<li class="fragment"><p><code>TRUE</code> y <code>FALSE</code> se pueden abreviar como <code>T</code> y <code>F</code>.</p></li>
+<li class="fragment"><p>R interpreta <code>TRUE</code> y <code>FALSE</code> como un valor 1 y 0.</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">Vector de valores 0 y 1 a <code>TRUE</code> y <code>FALSE</code></li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  TRUE FALSE FALSE  TRUE  TRUE</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Operadores Lógicos más comunes de R</strong></p>
+<div class="fragment">
+<div style="text-align: center; font-size:0.7em">
+<table class="caption-top">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 86%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Operador</th>
+<th style="text-align: left;">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>==</code></td>
+<td style="text-align: left;">Igual a. Devuelve <code>TRUE</code> si ambos operandos son iguales.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>!=</code></td>
+<td style="text-align: left;">Diferente de. Devuelve <code>TRUE</code> si los operandos son distintos.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>&gt;</code></td>
+<td style="text-align: left;">Mayor que. Devuelve <code>TRUE</code> si el operando de la izquierda es mayor.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>&lt;</code></td>
+<td style="text-align: left;">Menor que. Devuelve <code>TRUE</code> si el operando de la izquierda es menor.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>&gt;=</code></td>
+<td style="text-align: left;">Devuelve <code>TRUE</code> si el operando de la izquierda es mayor o igual.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>&lt;=</code></td>
+<td style="text-align: left;">Devuelve <code>TRUE</code> si el operando de la izquierda es menor o igual.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>&amp;</code></td>
+<td style="text-align: left;">AND lógico. Devuelve <code>TRUE</code> si ambos operandos son <code>TRUE</code> en cada posición.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>|</code></td>
+<td style="text-align: left;">OR lógico. Devuelve <code>TRUE</code> si al menos uno de los operandos es <code>TRUE</code> en cada posición.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>!</code></td>
+<td style="text-align: left;">Negación lógica. Devuelve <code>TRUE</code> si el operando es <code>FALSE</code>, y viceversa.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Ejemplos</strong></p>
+<ul>
+<li class="fragment">Operador <code>==</code> y <code>!=</code></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb233"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb233-1"><a href=""></a>a <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb233-2"><a href=""></a>a <span class="sc">==</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb235"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb235-1"><a href=""></a>a <span class="sc">!=</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">Operación <code>objeto == objeto</code> está vectorizada.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] FALSE FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE FALSE FALSE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE  TRUE FALSE</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>¡Advertencia!</strong></p>
+</div>
+<div class="callout-content">
+<p>A pesar de que teóricamente dos números sean iguales, ¡¡computacionalmente pueden no serlo!!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><span class="math display">\[(\sqrt{2})^2 = 2\]</span></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb239"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb239-1"><a href=""></a>a <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">2</span>)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb239-2"><a href=""></a>a <span class="sc">==</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<p>😱😱😱</p>
+</div>
+<div class="fragment">
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Error de Redondeo</strong></p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Casos comunes de Errores de Redondeo</strong></p>
+<ul>
+<li class="fragment">Uso de números irracionales</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb241"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb241-1"><a href=""></a><span class="fu">sqrt</span>(<span class="dv">3</span>)<span class="sc">^</span><span class="dv">3</span> <span class="sc">==</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">Sumas o restas entre números muy grandes y muy pequeños</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb243"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb243-1"><a href=""></a><span class="fl">1e16</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fl">1e16</span> <span class="co"># 1e16 = 1 * 10 ^ (16)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">Números con representación binaria inexacta.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb245"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb245-1"><a href=""></a><span class="fl">0.1</span> <span class="sc">+</span> <span class="fl">0.2</span> <span class="sc">==</span> <span class="fl">0.3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>¿Por qué pasa esto?</strong></p>
+</div>
+<div class="callout-content">
+<div style="font-size:1.2em">
+<ul>
+<li class="fragment">Ciertos números (como 0.1 o 1/3) no tienen representación exacta en código binario.</li>
+<li class="fragment">No se pueden registrar los infinitos números decimales de un número irracional en un computador.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb247"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb247-1"><a href=""></a><span class="fu">options</span>(<span class="at">digits =</span> <span class="dv">20</span>) <span class="co"># digits por defecto = 7</span></span>
+<span id="cb247-2"><a href=""></a><span class="fu">sqrt</span>(<span class="dv">2</span>)<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.0000000000000004441</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb249"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb249-1"><a href=""></a><span class="fu">sqrt</span>(<span class="dv">3</span>)<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.9999999999999995559</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb251"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb251-1"><a href=""></a><span class="fl">0.1</span> <span class="sc">+</span> <span class="fl">0.2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.30000000000000004441</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb253"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb253-1"><a href=""></a><span class="fl">0.3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2999999999999999889</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Solución</strong></p>
+</div>
+<div class="callout-content">
+<div style="text-align: center; font-size:1.5em">
+<p>Comparar números según una <strong><em>tolerancia</em></strong>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\text{Si } |a - b| &lt; \text{Tolerancia} \quad \Rightarrow \quad a \approx b \]</span></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb255"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb255-1"><a href=""></a>tolerancia <span class="ot">&lt;-</span> <span class="fl">1e-10</span> <span class="co"># 1 * 10^(-10) = 0.0000000001</span></span>
+<span id="cb255-2"><a href=""></a><span class="fu">abs</span>(<span class="fu">sqrt</span>(<span class="dv">2</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">2</span>) <span class="co"># |a - b|: valor absoluto entre a y b</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.440892e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb257"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb257-1"><a href=""></a><span class="co"># ¿Es a lo suficientemente similar a b?</span></span>
+<span id="cb257-2"><a href=""></a><span class="fu">abs</span>(<span class="fu">sqrt</span>(<span class="dv">2</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">2</span>) <span class="sc">&lt;</span> tolerancia</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment">Operadores <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb259"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb259-1"><a href=""></a><span class="dv">3</span> <span class="sc">&gt;</span> <span class="dv">2</span>       <span class="co"># TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb261"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb261-1"><a href=""></a><span class="dv">5</span> <span class="sc">&lt;=</span> <span class="dv">5</span>      <span class="co"># TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb263"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb263-1"><a href=""></a><span class="dv">7</span> <span class="sc">&lt;</span> <span class="dv">1</span>       <span class="co"># FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><br></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><br></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.0em">
+<p>¿Cómo evaluar que se cumplan múltiples condiciones?</p>
+</div>
+<div class="fragment">
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Operador <code>&amp;</code></strong></p>
+<p><code>Condicion1 &amp; Condicion2</code></p>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><br></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><br></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.0em">
+<p>¿Cómo evaluar que se cumplan <strong>al menos</strong> una condición?</p>
+</div>
+<div class="fragment">
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Operador <code>|</code></strong></p>
+<p><code>Condicion1 | Condicion2</code></p>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><br></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><br></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Negación Lógica con <code>!</code></strong></p>
+</div>
+<div class="fragment">
+<div>
+<ul>
+<li>Suponer filtramos datos tales que</li>
+</ul>
+<div style="text-align: center; font-size:1.0em">
+<p><code>Comuna == "San Joaquin" &amp; Edad &gt;= 14</code></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>        Comuna Edad puntuacion
+11 San Joaquin   14         25
+15 San Joaquin   14         38
+31 San Joaquin   14         50
+52 San Joaquin   14         88</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">¿Cómo filtramos por todos excepto los casos anteriores?
+<ul>
+<li class="fragment"><em>Negando</em> la condición</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<div style="text-align: center; font-size:1.0em">
+<p><code>!(Comuna == "San Joaquin" &amp; Edad &gt;= 14)</code></p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment">Operador <code>!</code> invierte todos los <code>TRUE</code> y <code>FALSE</code>:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>      [,1]  [,2]  [,3]  [,4]  [,5]  [,6]  [,7]  [,8]  [,9] [,10] [,11] [,12]
+[1,] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE
+[2,]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><br></p>
+<p>¿Qué buscan realizar estas operaciones?</p>
+</div>
+<div class="fragment">
+<div style="text-align: center; font-size:1.0em">
+<p><code>14 &lt; Edad &amp; Edad &lt; 16</code></p>
+<p><code>!(14 &lt; Edad &amp; Edad &lt; 16)</code></p>
+<p><code>!(Comuna == "San Joaquin" &amp; Comuna == "Macul")</code></p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Funciones útiles</strong></p>
+<ul>
+<li class="fragment"><code>which(vector_logico)</code>: entrega las posiciones en que se encuentran los <code>TRUE</code>.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 4</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment"><code>which.min(numeros)</code> y <code>which.max(numeros)</code>: da posición del menor y mayor valor, respectivamente.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Funciones útiles</strong></p>
+<ul>
+<li class="fragment">Operador <code>vec1 %in% vec2</code>: evalúa si los elementos de <code>vec1</code> se encuentran en <code>vec2</code>.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE  TRUE  TRUE</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment"><p><code>all(cond1, cond2, ...)</code>: entrega <code>TRUE</code> si todas las condiciones se cumplen y <code>FALSE</code> si no.</p></li>
+<li class="fragment"><p><code>any(cond1, cond2, ...)</code>: entrega <code>TRUE</code> si al menos una de las condiciones se cumplen y <code>FALSE</code> si no.</p></li>
+<li class="fragment"><p><code>all.equal(x,y)</code>: evalúa si dos objetos son idénticos o no (incluye grado de tolerancia).</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<div>
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Actidad de Práctica</strong></p>
+</div>
+<p>Cargue en R la tabla del archivo <code>pokemon.csv</code>.</p>
+<ol type="1">
+<li><p>Filtre la tabla según las filas que cumplan <code>type1 == "water"</code> usando <code>tabla[tabla$type1 == "water,]</code>.</p></li>
+<li><p>Filtre la tabla según las filas que cumplan <code>type1 == "fire"</code>.</p></li>
+<li><p>Filtre la tabla según las filas que cumplan <code>type1 == "fire"</code> y <code>type2 == "flying"</code>.</p></li>
+<li><p>Filtre la tabla según las filas que cumplan <code>type1 == "fire"</code> o <code>type1 == "water"</code>.</p></li>
+</ol>
+</div>
+</section>
+<section id="section-7" class="slide level2" data-background="#43464B" data-background-image="imagenes/statisticalcomputing2.jpg">
+<h2></h2>
+<div style="display: flex; text-align:center; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 3.5em;">
+<p><b> Control de Flujo </b></p>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment">Considere la siguiente situación:
+<ul>
+<li class="fragment">Si un estudiante viene de la comuna de San Joaquín, recibirá una prueba de 20 preguntas.</li>
+<li class="fragment">Si un estudiante viene de otra comuna, recibirá una prueba de 30 preguntas.</li>
+</ul></li>
+<li class="fragment">Queremos una función que de el número de preguntas según la comuna.</li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="imagenes/0029_DFlujo.png" class="quarto-figure quarto-figure-center" width="600"></p>
+</figure>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="fragment">
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Control de Flujo: <code>if-else</code></strong></p>
+</div>
+</div>
+<div class="fragment">
+<div style="text-align: center; font-size:1.2em">
+<pre><code>if(condicion a evaluar){ 
+
+  # Código evaluado si se cumple condición
+  
+}else{
+
+  # Código evaluado si NO se cumple condición
+  
+}</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Control de Flujo: <code>if-else</code></strong></p>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Ejemplo</strong>: calculadora de notas según exigencia.</p>
+<div style="text-align: center; font-size:0.8em">
+<p><span class="math display">\[
+\text{Nota} =
+\begin{cases}
+1 + 3\frac{p}{Ex\cdot p_{max}}, &amp; \text{si } p &lt; Ex\cdot p_{max}, \\
+4 + 3\frac{p - Ex \cdot p_{max}}{p_{max}(1 - Ex)}, &amp; \text{si } p \geq Ex\cdot p_{max}.
+\end{cases}
+\]</span></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.3</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Observaciones</strong></p>
+<ul>
+<li class="fragment">Dentro de la condición del <code>if</code> puede venir cualquier operación lógica de interés.</li>
+</ul>
+<div class="fragment">
+<div style="text-align: center; font-size:0.8em">
+<p><code>if(comuna == "A" &amp; edad &gt; 50 &amp; ptje == 10 &amp; ...)</code></p>
+</div>
+<ul>
+<li class="fragment">Si se desean ejecutar más de dos casos usar <code>else if()</code>:</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Bucles <code>for</code></strong></p>
+</div>
+<ul>
+<li class="fragment"><p>Permiten recorrer cada elemento de un vector y realizar una acción con cada uno de ellos.</p>
+<ul>
+<li class="fragment">Realizar procedimientos repetitivos.</li>
+</ul></li>
+<li class="fragment"><p>Sintaxis:</p></li>
+</ul>
+<div class="fragment">
+<div style="text-align: center; font-size:1.4em">
+
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Ejemplos</strong></p>
+<ul>
+<li class="fragment">Imprimir cada elemento de un vector:</li>
+</ul>
+<div class="fragment">
+<ul>
+<li class="fragment">Aplicar operación matemática a cada elemento:</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment">Lo más común es usar vector de índices:</li>
+</ul>
+<div class="fragment">
+<ul>
+<li class="fragment">Notación simplificada:</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">Usar <code>for</code> para ir rellenando variables:</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Importante</strong></p>
+</div>
+<div class="callout-content">
+<p>Usar <code>for</code> cuando no haya una función vectorizada en R que haga lo mismo, o cuando necesite hacer muchos cálculos dentro de cada iteración.</p>
+<p><strong>Cálculos vectorizados son siempre más rápidos</strong></p>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">Sumar con <code>for</code> vs sumar con función <code>sum</code>:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 55</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Aplicación combinando <code>if-else</code> y <code>for</code></strong></p>
+<div class="fragment">
+<div>
+<p>Calcular nota de alumnos donde la exigencia cambia según comuna:</p>
+<ul>
+<li><p>San Joaquín: 50% exigencia</p></li>
+<li><p>Macul: 60% exigencia</p></li>
+<li><p>La Florida: 65% exigencia</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Solución</strong>:</p>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p>Bucle <code>while</code></p>
+</div>
+<ul>
+<li class="fragment">Estructura que ejecuta un bloque de código de forma repetitiva mientras una condición sea verdadera.</li>
+</ul>
+<div class="fragment">
+<div style="text-align: center; font-size:1.4em">
+
+</div>
+<ul>
+<li class="fragment"><p>Antes de iniciar cada iteración, se reevalúa la condición.</p></li>
+<li class="fragment"><p>Dentro del código debe ocurrir algo que modifique el estado de la condición.</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Ejemplos:</p>
+<ul>
+<li class="fragment">Sumar números hasta que la suma sea mayor a 100.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 15</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">Validar la respueta de un usuario:</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<div>
+<div style="text-align: center; font-size:1.2em;color: #28A745;">
+<p>¡Actividad Bonificada!</p>
+</div>
+<div style="font-size:0.9em;">
+<p>Resuelva cada caso utilizando procedimientos vectorizados y utilizando control de flujo (<code>if-else</code> y/o <code>for</code>)</p>
+<ol type="1">
+<li><p>Construya una función que reciba un vector de notas e imprima un mensaje indicando si alguien obtuvo una nota 7.0 o no.</p></li>
+<li><p>Usando el archivo <code>Clase03_notas.R</code> y las notas calculadas previamente, escriba un código que recorra el vector de notas e imprima un mensaje para cada una, según estos casos:</p></li>
+</ol>
+<ul>
+<li>Si Nota &lt; 4.0 <span class="math inline">\(\rightarrow\)</span> “No se exime de examen”.</li>
+<li>Si Nota está entre 4.0 y 6.0 <span class="math inline">\(\rightarrow\)</span> “Posible eximición examen”.</li>
+<li>Si Nota &gt; 6.0 4.0 <span class="math inline">\(\rightarrow\)</span> “Eximido de examen”.</li>
+</ul>
+</div>
+</div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 

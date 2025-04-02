@@ -2325,9 +2325,850 @@ Copiar código de carga y pegarlo en el script.
 
 --------------------------------------------------------------------------------
 
-**Próxima clase**:
 
-* Operaciones Lógicas
-* Control de Flujo: `if`, `else`, `while`.
-* Simulación de datos
+![](imagenes/LogoMATUC.png){width=950 fig-align="center"}
 
+
+<div style = "text-align: center; font-size:1.5em;color:#2E86C1">
+**EPG3308: Computación Estadística**
+</div>
+<div style = "text-align: center; font-size:1.9em;color:#313131">
+**Clase 04: Operaciones Lógicas y Control de Flujo**
+</div>
+
+
+<div style = "text-align: center; font-size:1em;color:#313131">
+**Profesor**: Hernán Robledo Araya (harobledo@uc.cl)<br> 
+**Ayudante**: Josefa Silva Muñoz (josefa.silva@alumni.uc.cl) <br> <br> 
+Primer Semestre - 2025
+
+</div>
+           
+         
+## {background="#43464B" background-image="imagenes/statisticalcomputing2.jpg"}
+
+<div style="display: flex; text-align:center; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 3.5em;">
+  <b>  Operaciones Lógicas </b>
+</div>
+
+
+--------------------------------------------------------------------------------
+
+```{r echo = TRUE}
+load("DataC04.RData")
+head(base)
+```
+
+* ¿Cómo filtramos esta tabla según los estudiantes de `La Florida`?
+
+. . .
+
+```{r echo = TRUE}
+baseLaFlorida <- base[base$Comuna == "La Florida", ]
+head(baseLaFlorida,3)
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Operación Lógica**
+</div>
+
+. . .
+
+<div style = "text-align: center; font-size:1.2em">
+`base$Comuna == "La Florida"`
+</div>
+
+
+* Operador lógico `==` evalúa qué elementos de `base$Comuna` son iguales a ` La Florida`. 
+
+. . .
+
+```{r echo = TRUE}
+head(base$Comuna == "La Florida")
+```
+
+* Resultado: vector de `TRUE` y `FALSE` indicando en qué se cumple la condición. 
+
+* Un vector de `TRUE` y `FALSE` puede usarse en conjunto con `[]` para filtrar.
+
+--------------------------------------------------------------------------------
+
+**Observaciones**
+
+* `TRUE` y `FALSE` se pueden abreviar como `T` y `F`.
+
+* R interpreta `TRUE` y `FALSE` como un valor 1 y 0.
+
+. . .
+
+```{r}
+TRUE*TRUE + FALSE - TRUE
+
+vector_logico <- c(T, T, T, F, F)
+sum(vector_logico)
+mean(vector_logico)
+```
+* Vector de valores 0 y 1 a `TRUE` y `FALSE`
+
+. . .
+
+```{r}
+as.logical(c(1,0,0,1,1))
+```
+
+
+--------------------------------------------------------------------------------
+
+**Operadores Lógicos más comunes de R**
+
+. . .
+
+<div style = "text-align: center; font-size:0.7em">
+| Operador | Descripción |
+|:-|:------------|
+| `==`     | Igual a. Devuelve `TRUE` si ambos operandos son iguales. |
+| `!=`     | Diferente de. Devuelve `TRUE` si los operandos son distintos. |
+| `>`      | Mayor que. Devuelve `TRUE` si el operando de la izquierda es mayor. |
+| `<`      | Menor que. Devuelve `TRUE` si el operando de la izquierda es menor. |
+| `>=`     | Devuelve `TRUE` si el operando de la izquierda es mayor o igual. |
+| `<=`     | Devuelve `TRUE` si el operando de la izquierda es menor o igual. |
+| `&`      | AND lógico. Devuelve `TRUE` si ambos operandos son `TRUE` en cada posición. |
+| `|`      | OR lógico. Devuelve `TRUE` si al menos uno de los operandos es `TRUE` en cada posición. | 
+| `!`      | Negación lógica. Devuelve `TRUE` si el operando es `FALSE`, y viceversa. |
+</div>
+
+--------------------------------------------------------------------------------
+
+**Ejemplos**
+
+* Operador `==` y `!=`
+
+. . .
+
+```{r echo = TRUE}
+a <- 5
+a == 5
+a != 5
+```
+* Operación `objeto == objeto` está vectorizada.
+
+. . .
+
+```{r}
+c(14, 14, 13, 13, 13, 14, 13, 13, 12, 14) == 13
+```
+. . .
+
+```{r}
+Edades1 <- c(12, 14, 13); Edades2 <- c(13, 14, 15)
+Edades1 == Edades2
+```
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+
+::: {.callout-warning}
+## ¡Advertencia!
+
+A pesar de que teóricamente dos números sean iguales, ¡¡computacionalmente pueden no serlo!!
+
+:::
+</div>
+
+. . .
+
+$$(\sqrt{2})^2 = 2$$
+
+. . .
+
+```{r echo = TRUE}
+a <- sqrt(2)^2
+a == 2
+```
+😱😱😱
+
+. . .
+
+<div style = "text-align: center; font-size:1.2em">
+**Error de Redondeo**
+</div>
+
+--------------------------------------------------------------------------------
+
+**Casos comunes de Errores de Redondeo**
+
+* Uso de números irracionales
+
+. . .
+
+```{r echo = TRUE}
+sqrt(3)^3 == 3
+```
+* Sumas o restas entre números muy grandes y muy pequeños
+
+. . .
+
+```{r echo = TRUE}
+1e16 + 1 - 1e16 # 1e16 = 1 * 10 ^ (16)
+```
+
+* Números con representación binaria inexacta.
+
+. . .
+
+```{r echo = TRUE}
+0.1 + 0.2 == 0.3
+```
+
+--------------------------------------------------------------------------------
+
+::: {.callout-note}
+## ¿Por qué pasa esto?
+<div style = "font-size:1.2em">
+* Ciertos números (como 0.1 o 1/3) no tienen representación exacta en código binario.
+* No se pueden registrar los infinitos números decimales de un número irracional en un computador.
+</div>
+
+:::
+
+. . .
+
+
+```{r echo = TRUE}
+options(digits = 20) # digits por defecto = 7
+sqrt(2)^2
+sqrt(3)^2
+0.1 + 0.2
+0.3
+```
+```{r echo = FALSE}
+options(digits = 7)
+```
+
+--------------------------------------------------------------------------------
+
+::: {.callout-tip}
+## Solución
+<div style = "text-align: center; font-size:1.5em">
+Comparar números según una ***tolerancia***.
+</div>
+:::
+
+. . .
+
+$$\text{Si } |a - b| < \text{Tolerancia} \quad \Rightarrow \quad a \approx b $$
+
+. . .
+
+```{r echo = TRUE}
+tolerancia <- 1e-10 # 1 * 10^(-10) = 0.0000000001
+abs(sqrt(2)^2 - 2) # |a - b|: valor absoluto entre a y b
+
+# ¿Es a lo suficientemente similar a b?
+abs(sqrt(2)^2 - 2) < tolerancia
+```
+
+--------------------------------------------------------------------------------
+
+* Operadores `>`, `<`, `>=`, `<=`.
+
+. . .
+
+```{r echo = TRUE}
+3 > 2       # TRUE
+5 <= 5      # TRUE
+7 < 1       # FALSE
+```
+
+. . .
+
+<br>
+
+```{r}
+Edades <- c(20, 25, 28, 28, 30, 40, 41)
+Edades >= 25
+```
+
+. . .
+
+<br>
+
+```{r}
+Edades <- c(20, 25, 28, 28, 30, 40, 41)
+Edades > mean(Edades) # ¿Que edades son mayores a su promedio?
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.0em">
+¿Cómo evaluar que se cumplan múltiples condiciones?
+</div>
+
+. . .
+
+<div style = "text-align: center; font-size:1.2em">
+**Operador `&`**
+
+`Condicion1 & Condicion2`
+</div>
+
+. . .
+
+```{r}
+## Aprueba curso si PromedioLab > 5.0   Y   PromedioTarea > 4.0
+PromedioLab <- 5.2;    PromedioTarea <- 3.9
+(PromedioLab > 5.0) & (PromedioTarea > 4.0)
+```
+
+. . .
+
+<br>
+```{r}
+PromedioLab <- 5.7;    PromedioTarea <- 4.1
+(PromedioLab > 5.0) & (PromedioTarea > 4.0)
+```
+
+. . .
+
+<br>
+```{r}
+FALSE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.0em">
+¿Cómo evaluar que se cumplan **al menos** una condición?
+</div>
+
+. . .
+
+<div style = "text-align: center; font-size:1.2em">
+**Operador `|`**
+
+`Condicion1 | Condicion2`
+</div>
+
+. . .
+
+```{r}
+## Se exime Examen si PromedioLab > 5.5   O   PromedioTarea > 4.0
+PromedioLab <- 5.2;    PromedioTarea <- 3.9
+(PromedioLab > 5.5) | (PromedioTarea > 4.0)
+```
+
+. . .
+
+<br>
+```{r}
+PromedioLab <- 5.7;    PromedioTarea <- 4.1
+(PromedioLab > 5.5) | (PromedioTarea > 4.0)
+```
+
+. . .
+
+<br>
+```{r}
+TRUE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Negación Lógica con `!`**
+</div>
+
+. . .
+
+::: {.nonincremental}
+
+* Suponer filtramos datos tales que
+
+<div style = "text-align: center; font-size:1.0em">
+`Comuna == "San Joaquin" & Edad >= 14`
+</div>
+
+:::
+
+. . .
+
+```{r}
+head(base[base$Comuna == "San Joaquin" & base$Edad >= 14,],4)
+```
+
+* ¿Cómo filtramos por todos excepto los casos anteriores?
+  * *Negando* la condición
+
+. . .
+
+<div style = "text-align: center; font-size:1.0em">
+`!(Comuna == "San Joaquin" & Edad >= 14)`
+</div>
+
+--------------------------------------------------------------------------------
+
+* Operador `!` invierte todos los `TRUE` y `FALSE`:
+
+. . .
+
+```{r}
+tabla <- rbind(base$Comuna == "San Joaquin", 
+               !(base$Comuna == "San Joaquin"))
+tabla[,1:12]
+```
+
+. . .
+
+<br>
+
+¿Qué buscan realizar estas operaciones?
+
+. . .
+
+<div style = "text-align: center; font-size:1.0em">
+`14 < Edad & Edad < 16`
+
+`!(14 < Edad & Edad < 16)` 
+
+`!(Comuna == "San Joaquin" & Comuna == "Macul")`
+</div>
+
+
+--------------------------------------------------------------------------------
+
+**Funciones útiles**
+
+* `which(vector_logico)`: entrega las posiciones en que se encuentran los `TRUE`.
+
+. . .
+
+```{r}
+which(c(TRUE, TRUE, FALSE, TRUE))
+```
+
+* `which.min(numeros)` y `which.max(numeros)`: da posición del menor y mayor valor, respectivamente.
+
+. . .
+
+```{r}
+which.min(c(4,3,2,1))
+which.max(c(4,3,2,1))
+```
+
+--------------------------------------------------------------------------------
+
+**Funciones útiles**
+
+* Operador `vec1 %in% vec2`: evalúa si los elementos de `vec1` se encuentran en `vec2`.
+
+. . . 
+```{r}
+vec1 <- c("SJ", "SM", "Stgo", "Macul"); vec2 <- c("Stgo", "Macul")
+vec1 %in% vec2
+```
+
+* `all(cond1, cond2, ...)`: entrega `TRUE` si todas las condiciones se cumplen y `FALSE` si no.
+
+* `any(cond1, cond2, ...)`: entrega `TRUE` si al menos una de las condiciones se cumplen y `FALSE` si no.
+
+* `all.equal(x,y)`: evalúa si dos objetos son idénticos o no (incluye grado de tolerancia).
+
+--------------------------------------------------------------------------------
+
+::: {.nonincremental}
+<div style = "text-align: center; font-size:1.2em">
+**Actidad de Práctica**
+</div>
+
+Cargue en R la tabla del archivo `pokemon.csv`.
+
+1. Filtre la tabla según las filas que cumplan `type1 == "water"` usando `tabla[tabla$type1 == "water,]`.
+
+2. Filtre la tabla según las filas que cumplan `type1 == "fire"`.
+
+3. Filtre la tabla según las filas que cumplan `type1 == "fire"` y `type2 == "flying"`.
+
+4. Filtre la tabla según las filas que cumplan `type1 == "fire"` o `type1 == "water"`.
+
+:::
+
+## {background="#43464B" background-image="imagenes/statisticalcomputing2.jpg"}
+
+<div style="display: flex; text-align:center; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 3.5em;">
+  <b>  Control de Flujo </b>
+</div>
+
+--------------------------------------------------------------------------------
+
+* Considere la siguiente situación:
+  * Si un estudiante viene de la comuna de San Joaquín, recibirá una prueba de 20 preguntas.
+  * Si un estudiante viene de otra comuna, recibirá una prueba de 30 preguntas.
+  
+* Queremos una función que de el número de preguntas según la comuna.
+
+. . .
+
+
+![](imagenes/0029_DFlujo.png){width=600 fig-align="center"}
+
+
+--------------------------------------------------------------------------------
+
+```{r eval = FALSE}
+NPreguntas <- function(comuna){
+  # Si comuna es "San Joaquin", entonces
+       nitems <- 20
+       return(nitems)
+  
+  # Si comuna NO es "San Joaquin", entonces
+       nitems <- 30
+       return(nitems)
+}
+```
+
+. . .
+
+<div style = "text-align: center; font-size:1.2em">
+**Control de Flujo: `if-else`**
+</div>
+
+. . .
+
+<div style = "text-align: center; font-size:1.2em">
+```
+if(condicion a evaluar){ 
+
+  # Código evaluado si se cumple condición
+  
+}else{
+
+  # Código evaluado si NO se cumple condición
+  
+}
+```
+</div>
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Control de Flujo: `if-else`**
+</div>
+
+```{r}
+NPreguntas <- function(comuna){
+  if(comuna == "San Joaquin"){
+    nitem <- 20
+    return(nitem)
+  }else{
+    nitem <- 30
+    return(nitem)
+  }
+}
+
+NPreguntas("San Joaquin")
+NPreguntas("San Miguel")
+NPreguntas("Comuna que no es San Joaquin")
+```
+
+
+--------------------------------------------------------------------------------
+
+**Ejemplo**: calculadora de notas según exigencia.
+
+<div style = "text-align: center; font-size:0.8em">
+
+$$
+\text{Nota} =
+\begin{cases}
+1 + 3\frac{p}{Ex\cdot p_{max}}, & \text{si } p < Ex\cdot p_{max}, \\
+4 + 3\frac{p - Ex \cdot p_{max}}{p_{max}(1 - Ex)}, & \text{si } p \geq Ex\cdot p_{max}.
+\end{cases}
+$$
+
+</div>
+
+. . .
+
+```{r}
+NotaEPG3308 <- function(p, pMax, Ex){
+  if(p < Ex * pMax){
+    Nota <- 1 + 3*p/(Ex*pMax)
+    return( round(Nota,1) )
+  }else{ # En caso contrario, p >= Ex * pMax
+    Nota <- 4 + 3*(p - Ex*pMax)/(pMax*(1- Ex))
+    return( round(Nota,1) )
+  }
+}
+```
+
+. . .
+
+```{r}
+NotaEPG3308(p = 15, pMax = 30, Ex = 0.5)
+NotaEPG3308(p = 15, pMax = 30, Ex = 0.65)
+```
+
+
+--------------------------------------------------------------------------------
+
+**Observaciones**
+
+* Dentro de la condición del `if` puede venir cualquier operación lógica de interés.
+
+. . .
+
+<div style = "text-align: center; font-size:0.8em">
+`if(comuna == "A" & edad > 50 & ptje == 10 & ...)`
+</div>
+
+* Si se desean ejecutar más de dos casos usar `else if()`:
+
+. . .
+
+```{r eval = FALSE}
+if(condicion1){
+  
+}else if(condicion2){
+  
+}else if(condicion3){
+  
+}else{
+  ...
+}
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Bucles `for`**
+</div>
+
+* Permiten recorrer cada elemento de un vector y realizar una acción con cada uno de ellos.
+
+  * Realizar procedimientos repetitivos.
+
+* Sintaxis:
+
+. . .
+
+<div style = "text-align: center; font-size:1.4em">
+```{r eval = FALSE}
+for(elemento in vector){ # Para cada elemento en el vector:
+  # Usar "elemento" para ejecutar (o no) algo. 
+}
+```
+</div>
+
+--------------------------------------------------------------------------------
+
+**Ejemplos**
+
+* Imprimir cada elemento de un vector:
+
+. . .
+
+```{r eval= FALSE}
+Alumnos <- c("H", "A", "R", "B", "J", "F")
+for(a in Alumnos){ # Para cada elemento de Alumnos
+  print(a)
+}
+```
+
+* Aplicar operación matemática a cada elemento:
+
+. . .
+
+```{r eval= FALSE}
+Secuencia <- 1:10
+for(potencia in Secuencia){ 
+  print(pi^potencia)
+}
+```
+
+--------------------------------------------------------------------------------
+
+* Lo más común es usar vector de índices:
+
+. . .
+
+```{r eval = FALSE}
+indices <- 1:nrow(base)
+for(i in indices){
+  print(base$Edad[i])
+  
+  Sys.sleep(1) # Añade un segundo de tiempo entre iteraciones
+}
+```
+
+* Notación simplificada:
+
+. . .
+
+```{r eval = FALSE}
+for(i in 1:10){
+  print(base[i,])
+}
+```
+
+* Usar `for` para ir rellenando variables:
+
+. . .
+
+```{r eval = FALSE}
+vector <- c() # Vector vacío
+for(i in 1:20){
+  vector[i] <- exp(i) # número de euler elevado a i = 2.718^i
+}
+```
+
+--------------------------------------------------------------------------------
+
+
+<div style = "text-align: center; font-size:1.2em">
+::: {.callout-important}
+## Importante
+
+Usar `for` cuando no haya una función vectorizada en R que haga lo mismo, o cuando necesite hacer muchos cálculos dentro de cada iteración.
+
+**Cálculos vectorizados son siempre más rápidos**
+
+:::
+
+</div>
+
+* Sumar con `for` vs sumar con función `sum`:
+
+. . .
+
+```{r}
+vector <- 1:10
+suma <- 0
+for(i in 1:length(vector)) suma <- suma + vector[i]
+
+sum(vector)
+```
+
+--------------------------------------------------------------------------------
+
+**Aplicación combinando `if-else` y `for`**
+
+. . .
+
+:::{.nonincremental}
+
+Calcular nota de alumnos donde la exigencia cambia según comuna:
+
+  * San Joaquín: 50\% exigencia
+
+  * Macul: 60\% exigencia
+
+  * La Florida: 65\% exigencia
+
+:::
+
+--------------------------------------------------------------------------------
+
+**Solución**:
+
+. . .
+```{r eval = FALSE}
+Notas <- c()
+for(i in 1:nrow(base)){
+  if(base$Comuna[i] == "San Joaquin"){
+    Notas[i] <- NotaEPG3308(p = base$puntuacion[i],
+                            pMax = 100,
+                            Ex = 0.50)
+  }else if(base$Comuna[i] == "Macul"){
+        Notas[i] <- NotaEPG3308(p = base$puntuacion[i],
+                            pMax = 100,
+                            Ex = 0.60)
+  }else{
+        Notas[i] <- NotaEPG3308(p = base$puntuacion[i],
+                            pMax = 100,
+                            Ex = 0.65)
+  }
+}
+
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+Bucle `while`
+</div>
+
+* Estructura que ejecuta un bloque de código de forma repetitiva mientras una condición sea verdadera. 
+
+. . .
+
+<div style = "text-align: center; font-size:1.4em">
+```{r eval = FALSE}
+while(condicion){ # Mientras se cumpla la condición ejecutar:
+
+  # Código
+  
+}
+```
+</div>
+
+* Antes de iniciar cada iteración, se reevalúa la condición.
+
+* Dentro del código debe ocurrir algo que modifique el estado de la condición.  
+
+--------------------------------------------------------------------------------
+
+Ejemplos:
+
+* Sumar números hasta que la suma sea mayor a 100.
+
+. . .
+
+```{r}
+suma <- 0
+n <- 1 # Contador
+while (suma <= 100) {
+  suma <- suma + n
+  n <- n + 1
+}
+print(n)
+```
+
+* Validar la respueta de un usuario:
+
+. . .
+
+```{r eval = FALSE}
+respuesta <- ""
+while (respuesta != "sí") {
+  respuesta <- readline(prompt = "¿Quieres continuar? (escribe 'sí'): ")
+}
+cat("¡Gracias por confirmar!\n")
+```
+
+--------------------------------------------------------------------------------
+
+:::{.nonincremental}
+
+<div style = "text-align: center; font-size:1.2em;color: #28A745;">
+¡Actividad Bonificada!
+</div>
+
+<div style = "font-size:0.9em;">
+
+Resuelva cada caso utilizando procedimientos vectorizados y utilizando control de flujo (`if-else` y/o `for`)
+
+1. Construya una función que reciba un vector de notas e imprima un mensaje indicando si alguien obtuvo una nota 7.0 o no.
+
+2. Usando el archivo `Clase03_notas.R` y las notas calculadas previamente, escriba un código que recorra el vector de notas e imprima un mensaje para cada una, según estos casos:
+  * Si Nota < 4.0 $\rightarrow$ "No se exime de examen".
+  * Si Nota está entre 4.0 y 6.0 $\rightarrow$ "Posible eximición examen".
+  * Si Nota > 6.0 4.0 $\rightarrow$ "Eximido de examen".
+
+
+</div>
+
+:::
