@@ -1,0 +1,3174 @@
+---
+title: '<img src="imagenes/LogoMATUC.png" alt="Logo Facultad de Matemáticas" style="width: 450px; margin-bottom: -40px;"/> <br>
+        <span style="font-size:0.6em; color:#2E86C1;"> EPG3308: Computación Estadística </span> <br>
+         <span style="font-size:0.8em; color:#313131;display:block;margin-bottom:40px;"> Clase 01: Introducción a R</span>' 
+subtitle: '**Profesor**: Hernán Robledo Araya (harobledo@uc.cl) <br>
+           **Ayudante**: Josefa Silva Muñoz (josefa.silva@alumni.uc.cl) <br> <br> 
+           Primer Semestre - 2025'
+format:
+  revealjs: 
+    incremental: true 
+    slide-number: true
+    preview-links: auto
+    css: styles.css 
+
+---
+
+------------------------------------------------------------------------------------------------------------
+
+<div style="text-align: center;font-size:2em">
+<b> ¡Bienvenidos al Magíster en Estadística! </b>
+</div>
+
+<img src="imagenes/magister.jpg" alt="magister" style="width: 450px; margin-bottom: -40px; display: block; margin-left: auto; margin-right: auto;"/>
+
+------------------------------------------------------------------------------------------------------------
+
+<div style="text-align: center;font-size:2em">
+<b> ¡Y al Curso de Computación Estadística! </b>
+</div>
+
+<img src="imagenes/malla.png" alt="malla" style="width:200px; display: block; margin-left: auto; margin-right: auto;"/>
+
+------------------------------------------------------------------------------------------------------------
+
+<div style="text-align: center;font-size:1.5em">
+<b> EPG3308 Computación Estadística </b>
+</div>
+
+::: columns
+::: {.column width="45%"}
+
+<div style="text-align: center;font-size:1em"> <b> Profesor  </b> <br> Hernán Robledo Araya </div>
+
+<img src="imagenes/Hernan.jpg" alt="hernan" style="width:210px; display: block; margin-left: auto; margin-right: auto;"/>
+
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="45%"}
+
+<div style="text-align: center;font-size:1em"> <b> Ayudante </b> <br>  Josefa Silva Muñoz</div>
+
+<img src="imagenes/Josefa.jpeg" alt="josefa" style="width:300px; display: block; margin-left: auto; margin-right: auto;"/>
+
+:::
+:::
+
+------------------------------------------------------------------------------------------------------------
+
+<div style="text-align: center; font-size: 1.2em;"> 
+  ¿<em>Computación Estadística</em>?
+</div>
+
+. . .
+
+<div id="txbox" style="text-align: center; font-size: 1.7em;"> 
+  <b> <span> Aprender a utilizar un Programa para realizar Análisis Estadísticos. </b>
+</div>
+
+
+
+------------------------------------------------------------------------------------------------------------
+
+<br><br>
+<div style="text-align: center;font-size:1.5em"> [<b> Página Web del Curso</b>](https://cursos.canvas.uc.cl/courses/83931) </div>
+<br>
+
+[<img src="imagenes/canvas.jpeg" style="width:700px; display: block; margin-left: auto; margin-right: auto;"/>](https://cursos.canvas.uc.cl/courses/83931)
+
+
+
+------------------------------------------------------------------------------------------------------------
+
+<div style="font-size: 1.5em;"> 
+  <b> Metodología de Aprendizaje </b>
+</div>
+
+1. Asistir a clases.
+2. Participar de las actividades en clases para practicar.
+3. Prepararse para rendir laboratorios con mínimo apoyo.
+4. Realizar tareas desde la casa con todo el material disponible.
+
+
+## {background="#43464B" background-image="imagenes/statisticalcomputing.jpg"}
+
+<div style="display: flex; text-align:center; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 3.5em;">
+  <b>Computación <br> Estadística</b>
+</div>
+
+
+------------------------------------------------------------------------------------------------------------
+
+En **Estadística**,
+
+* Recolectamos datos
+* Organizamos datos
+* Analizamos datos
+* Interpretamos datos
+* Inferimos sobre los fenómenos
+
+. . .
+
+¿Para qué?
+
+. . .
+
+<div style="text-align: center; font-size: 1.5em;"> 
+  <b> Tomar Decisiones </b>
+</div>
+
+
+. . .
+
+<div style="text-align: center; font-size: 1.2em;"> 
+  ¡Necesitamos un programa para hacer todo esto!
+</div>
+
+
+
+------------------------------------------------------------------------------------------------------------
+
+<div style="position: relative; height: 100vh; width: 100%; display: flex; justify-content: center; align-items: center;">
+  ![](imagenes/spss){.absolute top="20" left="30" width="400" style="transform: rotate(-30deg);"}
+  ![](imagenes/minitab){.absolute top="450" left="120" width="400" style="transform: rotate(-10deg);"}
+  ![](imagenes/excel){.absolute top="-50" left="400" width="300" style="transform: rotate(5deg);"}
+  ![](imagenes/python){.absolute top="250" left="80" width="500" style="transform: rotate(15deg);"}
+  ![](imagenes/rstudio){.absolute top="520" left="520" width="450" style="transform: rotate(30deg);"}
+  ![](imagenes/sas){.absolute top="200" left="560" width="400" style="transform: rotate(-30deg);"}
+  ![](imagenes/stata){.absolute top="0" left="670" width="500" style="transform: rotate(35deg);"}
+</div>
+
+------------------------------------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+[**Formulario  de conocimientos de programas para estadística**](https://forms.office.com/r/eJrLidHJPu)
+</div>
+
+
+[<img src="imagenes/forms.png" style="width:700px; display: block; margin-left: auto; margin-right: auto;"/>](https://cursos.canvas.uc.cl/courses/83931)
+
+------------------------------------------------------------------------------------------------------------
+
+**En este curso veremos:** <br><br>
+
+. . .
+
+<img src="imagenes/Rlogo.png" style="width:700px; display: block; margin-left: auto; margin-right: auto;"/>
+
+------------------------------------------------------------------------------------------------------------
+
+<img src="imagenes/Rlogo.png" style="width:300px; display: block; margin-left: auto; margin-right: auto;"/>
+<br>
+
+<div style = "text-align: center; font-size:1.5em">
+**R** es un *Lenguaje de Programación* diseñado específicamente para análisis estadístico.
+</div>
+
+
+------------------------------------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+Glosario de Programación
+</div>
+
+<section style="font-size: 0.9em;">
+
+* ***Programación***: Acción y efecto de programar. 
+
+* ***Programar***: Proceso de crear instrucciones para un computador de modo que este ejecute las instrucciones establecidas.
+
+* ***Lenguaje de Programación***: dialecto específico utilizado para programar. 
+  * *En Chile se habla español, como en R se habla en lenguaje... ¡R!*
+  * El lienzo donde el programador escribe sus instrucciones es denominado ***Código*** o ***Script***.
+
+* ***Sintaxis***: son las reglas del lenguaje de programación sobre cómo estructurar las *palabras* de este lenguaje para que sea funcional.
+
+</section>
+
+------------------------------------------------------------------------------------------------------------
+
+**Dinámica de Programación**
+
+<div style = "font-size:0.8em">
+* Humano escribe código, 
+  * Humano entrega código al programa (R en este caso),
+    * Programa ejecuta las instrucciones correctamente.
+      * Humano es feliz 😁
+</div>
+
+. . .
+
+**Dinámica *Realista* de Programación**
+
+<div style = "font-size:0.7em">
+* Humano escribe código, 
+  * Humano entrega código al programa,
+    * Programa lo <span style = "color: red"> rechaza </span> por contener errores de escritura,
+        * Humano entrega código corregido,
+          * Programa vuelve a <span style = "color: red"> rechazar </span>,
+            * Humano entrega código corregido,
+              * Programa vuelve a <span style = "color: red"> rechazar </span>,
+                * Humano entrega código corregido,
+                  * Programa vuelve a <span style = "color: red"> rechazar </span>,
+                    * Humano entrega código corregido,
+</div>
+
+------------------------------------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+Ejemplo de un **código** en R
+</div>
+
+<br>
+
+. . . 
+
+```{r echo = TRUE, eval = FALSE, class.source = "large-code"}
+notas <- c(5.1, 4.2, 6.3, 5.9)
+promedio <- mean(notas)
+print(paste("Nota Final en EPG3308:", promedio))
+
+if(promedio < 4.0){
+  print("¡Oh no! He reprobado el curso :( ")
+} else{
+  print("Facilito el curso :) ")
+}
+```
+
+<br>
+
+. . . 
+
+<div style = "text-align: center; font-size:1.5em">
+¿Qué hará este código?
+</div>
+
+
+------------------------------------------------------------------------------------------------------------
+
+<img src="imagenes/Rlogo.png" style="width:200px; display: block; margin-left: auto; margin-right: auto;"/>
+<div style = "text-align: center; font-size:1.5em">
+**¿Por qué usar R?**
+</div>
+
+<div style = "font-size:0.7em">
+1. **Es gratis.**
+2. Liviano y disponible en múltiples plataformas.
+3. Flexibilidad para construir procesos complejos.
+4. Rápido y eficiente en ejecutar sus tareas.
+5. Programa de *Código abierto*.
+6. Herramientas básicas y avanzadas para manipulación de datos.
+7. Herramientas básicas y avanzadas para estadística.
+7. Comunidad construye nuevas librerías.
+8. Poderosas herramientas gráficas.
+</div>
+
+------------------------------------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+¿Cómo se aprende a programar en <img src="imagenes/Rlogo.png" style="width:80px;"/> u otro lenguaje?
+</div>
+<br>
+
+
+<div style = "font-size:0.9em">
+1.  Aprendiendo la *sintaxis* y el dialecto del lenguaje de programación.
+2. Familiarizándonos resolviendo tareas sencillas.
+3. Resolviendo problemas interesantes.
+4. <div style = "font-size:1.2em"> **¡Equivocándonos mil y un veces!** </div>
+</div>
+
+. . .
+
+<div style="text-align: center; font-size:1.5em; color: #2E86C1;">
+  **Corregir los errores enseña más que cien cursos**
+</div>
+
+
+------------------------------------------------------------------------------------------------------------
+
+<div style="text-align: center; font-size: 1.5em;">
+**Hoy aprender a programar es más fácil que nunca**
+</div>
+
+. . .
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="imagenes/youtube.png" style="width: 350px; margin: 10px; align-self: center;">
+  <img src="imagenes/w3school.png" style="width: 200px; margin: 10px; align-self: center;">
+  <img src="imagenes/datacamp.png" style="width: 400px; margin: 10px; align-self: center;">
+</div>
+
+. . .
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="imagenes/chatgpt.png" style="width: 320px; margin: 10px; align-self: center;">
+  <img src="imagenes/copilot.png" style="width: 250px; margin: 10px; align-self: center;">
+  <img src="imagenes/gemini.png" style="width: 300px; margin: 10px; align-self: center;">
+</div>
+
+------------------------------------------------------------------------------------------------------------
+
+<div style="text-align: center; font-size: 1.5em;">
+**¿Por qué usar R y no Python, o Julia, u otro lenguaje?**
+</div>
+
+::: {style="font-size:0.8em;"}
+- Python requiere *librerías* extras para algunos procedimientos estadísticos básicos.
+- R dispone de métodos estadísticos avanzados:
+  - Modelos Lineales Generalizados
+  - Análisis de Series de Tiempo
+  - Métodos Bayesianos
+:::
+
+. . .
+
+::: {.callout-note}
+## Nota
+Python o Julia siguen siendo excelentes opciones para estadística *clásica*.
+:::
+
+------------------------------------------------------------------------------------------------------------
+
+<div style="text-align: center; font-size: 1.5em;">
+**Instalar <img src="imagenes/Rlogo.png" style="width:90px;"/>**
+</div>
+
+<div style="text-align: center; font-size: 1.5em;">
+[**Página Oficial**](https://www.r-project.org/)
+</div>
+
+<br>
+
+<img src="imagenes/paginar.jpg" style="width:900px; display: block; margin-left: auto; margin-right: auto;"/>
+
+. . .
+
+![](imagenes/flecha.png){.absolute top="460" left="560" width="100" style="transform: rotate(-90deg);"}
+
+------------------------------------------------------------------------------------------------------------
+
+Escoger el *repositorio* chileno para descargar R. 
+
+. . .
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="imagenes/cran1.png" style="width: 600px; margin: 10px; align-self: center;">
+</div>
+
+. . .
+
+![](imagenes/flecha.png){.absolute top="410" left="500" width="60" style="transform: rotate(90deg);"}
+
+. . .
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="imagenes/cran2.png" style="width: 700px; margin: 10px; align-self: center;">
+</div>
+
+. . .
+
+![](imagenes/flecha.png){.absolute top="580" left="700" width="60" style="transform: rotate(-90deg);"}
+
+------------------------------------------------------------------------------------------------------------
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="imagenes/paginar2.png" style="width: 900px; margin: 10px; align-self: center;">
+</div>
+
+. . .
+
+![](imagenes/flecha.png){.absolute top="140" left="360" width="120" style="transform: rotate(-90deg);"}
+
+
+<br>
+
+* Tras la descarga, instalar programa dejando opciones por defecto.
+* En macOS, el procedimiento es equivalente.
+
+------------------------------------------------------------------------------------------------------------
+
+* Para abrir R, ingresar *R 4.3* en el buscador.
+
+. . .
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="imagenes/rbasico.png" style="width: 1200px; margin: 10px; align-self: center;">
+</div>
+
+
+------------------------------------------------------------------------------------------------------------
+
+<div style="text-align: center; font-size: 1.5em;">
+**Interfaz Gráfica mejorada para R**
+</div>
+
+![](https://posit.co/wp-content/themes/Posit/dist/images/site-share-image-25.png){.absolute top="70" left="250" width="600" style="transform: rotate(0deg);"}
+
+![](https://bookdown.org/andersson_vargas/aprendiendo_r_studio_-_avm/Imagenes/RStudio-Logo-Flat.png){.absolute top="400" left="10" width="420" style="transform: rotate(0deg);"}
+
+![](https://posit.cloud/images/posit-cloud.jpg){.absolute top="400" left="550" width="470" style="transform: rotate(0deg);"}
+
+<br><br><br><br><br><br><br><br><br>
+<div style="text-align: center; font-size: 1em;">
+[**Página Web**](https://posit.co/download/rstudio-desktop/) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;    [**Página Web**](https://client.login.posit.cloud/oauth/register?redirect=https%3A%2F%2Fclient.login.posit.cloud%2Foauth%2Flogin%3Fshow_auth%3D0%26show_login%3D0)
+</div>
+
+------------------------------------------------------------------------------------------------------------
+
+![](https://bookdown.org/andersson_vargas/aprendiendo_r_studio_-_avm/Imagenes/RStudio-Logo-Flat.png){.absolute top="-20" left="400" width="200" style="transform: rotate(0deg);"}
+
+![](imagenes/rstudio10.png){.absolute top="70" left="50" width="1000" style="transform: rotate(0deg);"}
+
+. . .
+
+![](imagenes/rstudio11.png){.absolute top="70" left="50" width="1000" style="transform: rotate(0deg);"}
+
+------------------------------------------------------------------------------------------------------------
+
+![](https://bookdown.org/andersson_vargas/aprendiendo_r_studio_-_avm/Imagenes/RStudio-Logo-Flat.png){.absolute top="-20" left="400" width="200" style="transform: rotate(0deg);"}
+
+![](imagenes/rstudio2.png){.absolute top="80" left="100" width="900" style="transform: rotate(0deg);"}
+
+. . .
+
+![](imagenes/rstudio3.png){.absolute top="80" left="100" width="900" style="transform: rotate(0deg);"}
+
+. . .
+
+![](imagenes/rstudio4.png){.absolute top="80" left="100" width="900" style="transform: rotate(0deg);"}
+
+
+## <span style="color: #28A745;">¡Actividad Bonificada!</span> {auto-animate="true"}
+<div class="small-font"> <!-- Clase definida en styles.css -->
+
+::: {.nonincremental}
+1. Instale R y R Studio.
+2. Desde R Studio, crear un nuevo código y guardarlo bajo algún nombre en alguna carpeta.
+3. Dentro del código creado, escriba <b> comentarios </b> anteponiendo cada una con un símbolo #.
+
+``` r
+# !Esto es un comentario!
+##### ¡Esto tambien es un comentario!
+# Copiar desde el boton en la esqina superior derecha de este cuadro.
+```
+
+4. Escriba en el código lo que ha aprendido durante esta sesión y aquello que le causa curiosidad del curso.
+5. Guarde el archivo y subir a Actividad Bonificada 1 en la sección de Tareas de Canvas.
+
+:::
+
+</div>
+
+--------------------------------------------------------------------------------
+
+
+![](imagenes/LogoMATUC.png){width=950 fig-align="center"}
+
+
+<div style = "text-align: center; font-size:1.5em;color:#2E86C1">
+**EPG3308: Computación Estadística**
+</div>
+<div style = "text-align: center; font-size:1.9em;color:#313131">
+**Clase 02: Uso de R Básico**
+</div>
+
+
+<div style = "text-align: center; font-size:1em;color:#313131">
+**Profesor**: Hernán Robledo Araya (harobledo@uc.cl)<br> 
+**Ayudante**: Josefa Silva Muñoz (josefa.silva@alumni.uc.cl) <br> <br> 
+Primer Semestre - 2025
+
+</div>
+           
+         
+----------
+
+<div style = "text-align: center; font-size:1.5em">
+¿Cómo se aprende a programar en <img src="imagenes/Rlogo.png" style="width:80px;"/> u otro lenguaje?
+</div>
+<br>
+
+::: {.nonincremental}
+<div style = "font-size:0.9em">
+1.  Aprendiendo la *sintaxis* y el dialecto del lenguaje de programación.
+2. Familiarizándonos resolviendo tareas sencillas.
+3. Resolviendo problemas interesantes.
+4. <div style = "font-size:1.2em"> **¡Equivocándonos mil y un veces!** </div>
+</div>
+:::
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**Como ejecutar código en R**
+</div>
+<br> 
+
+![](imagenes/0020_CodigoR.png){.absolute top="110" left="100" width="600" style="transform: rotate(0deg);"}
+
+. . .
+
+![](imagenes/0021_CodigoR.png){.absolute top="110" left="100" width="600" style="transform: rotate(0deg);"}
+
+<br><br><br><br><br><br><br><br><br>
+
+. . . 
+
+<div style = "text-align: center; font-size:0.8em">
+* **Atajo del Teclado: ** Control + Enter
+* Para código escrito en Consola tan solo presionar Enter.
+</div>
+
+
+## {background="#43464B" background-image="imagenes/statisticalcomputing2.jpg"}
+
+<div style="display: flex; text-align:center; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 3.5em;">
+  <b>  R La Calculadora </b>
+</div>
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**R como Calculadora**
+</div>
+
+**Suma con + y Resta con -**
+```{r eval = TRUE, echo = TRUE}
+1 + 1
+
+10 + 20
+
+-5 + 50
+
+10 - 2
+
+5 - 5
+
+-1 - 10 - 100
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**R como Calculadora**
+</div>
+
+**Multiplicación y División**
+```{r eval = TRUE, echo = TRUE}
+-5 * 6
+
+3 / -2
+```
+
+**Potencias y Raíces**
+```{r eval = TRUE, echo = TRUE, error = TRUE}
+2**2 
+
+-1^2
+
+2^(1/2) # Raíz cuadrada
+
+sqrt(-1) # NaN = Not a Number
+```
+
+-------------------------------------------------------------------------------- 
+
+<div style = "text-align: center; font-size:1.5em">
+**R como Calculadora**
+</div>
+
+<div style = "font-size:0.8em">
+* El orden en que se aplican las operaciones sigue las reglas de la matemática.
+  * Usar paréntesis `()` para agrupar sus operaciones y salir de duda.
+  
+<br>
+
+* Orden:
+  1. Paréntesis
+  2. Exponenciación y raíces
+  3. Multiplicación y división (de izquierda a derecha)
+  4. Suma y resta
+</div>
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**R como Calculadora**
+</div>
+
+::: {.nonincremental}
+
+<div style = "font-size:0.8em">
+* El orden en que se aplican las operaciones sigue las reglas de la matemática.
+  * Usar paréntesis `()` para agrupar sus operaciones y salir de duda.
+</div>
+
+:::
+
+. . .
+
+```{r eval = TRUE, echo = TRUE, error = TRUE}
+1 + 2 * 2
+1 + (2 * 2)
+```
+
+<br>
+
+. . .
+
+```{r eval = TRUE, echo = TRUE, error = TRUE}
+-1 * 2^3
+-1 * (2^3)
+```
+
+-------------------------------------------------------------------------------- 
+
+::: {.nonincremental}
+
+<div style = "text-align: center; font-size:1.5em">
+**R como Calculadora**
+</div>
+
+<div style = "font-size:0.8em">
+* El orden en que se aplican las operaciones sigue las reglas de la matemática.
+  * Usar paréntesis `()` para agrupar sus operaciones y salir de duda.
+</div>
+:::
+
+```{r eval = TRUE, echo = TRUE, error = TRUE}
+3 - 2 / 5 * 5
+3 - ( (2 / 5) * 5 )
+```
+
+. . .
+
+<br>
+
+```{r eval = TRUE, echo = TRUE, error = TRUE}
+-5 / 7 + 2 * 2
+(-5 / 7) + (2 * 2)
+
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.3em">
+**¡Actividad de Cinco Minutos!**
+</div>
+
+::: {.nonincremental}
+
+<div style = "font-size:0.8em">
+1. Transforme a grados Farenheit los 26 grados Celsius pronosticados para mañana.
+
+$$F = 32 + C \times \frac{9}{5}$$
+2. Si usted obtuvo un promedio de notas de laboratorios de $3.5$, un promedio de tareas de $4.2$, y un examen de $4.5$, ¿aprueba el curso?
+
+</div>
+
+:::
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.3em">
+**¡Actividad de Cinco Minutos!**
+</div>
+
+::: {.nonincremental}
+
+<div style = "font-size:0.7em">
+
+3. Sea $p$ el puntaje obtenido en una evaluación que tiene $p_{max}$ puntos como máximo. La nota que un estudiante obtiene bajo cualquier porcentaje de exigencia $Ex$ se calcula como sigue:
+
+* Si se obtiene un puntaje $p < E\cdot p_{max}$, 
+$$\text{Nota} = 1 + 3\cdot\frac{1}{Ex}\cdot\frac{p}{p_{max}}.$$
+
+* Mientras que si se obtiene un puntaje $p \geq E \cdot p_{max}$,
+$$\text{Nota} = 4 + 3\cdot\frac{p - Ex \cdot p_{max}}{p_{max}\cdot ( 1- Ex)}.$$
+
+¿Qué nota obtuvo usted si obtuvo 25 puntos en una prueba de 30 puntos como máximo bajo una exigencia del 80%?
+
+</div>
+
+:::
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.3em">
+**¡Actividad de Cinco Minutos!**
+</div>
+
+::: {.nonincremental}
+
+<div style = "font-size:0.8em">
+
+4. (para conocedores de funciones y condicionales) Construya una función que entregue la nota obtenida en una evaluación tras recibir como argumentos el puntaje obtenido, el puntaje total de la evaluación, y el porcentaje de exigencia.  
+
+* Explore las escalas de notas bajo el 50%, 60%, y 70%.
+
+</div>
+
+:::
+
+--------------------------------------------------------------------------------
+
+![](imagenes/0022_NotasEx.png){.absolute top="110" left="100" width="900" style="transform: rotate(0deg);"}
+Fuente: [J. Pumarino](https://escaladenotas.cl/)
+
+
+## {background="#43464B" background-image="imagenes/statisticalcomputing2.jpg"}
+
+<div style="display: flex; text-align:center; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 3.5em;">
+  <b> Texto en R</b>
+</div>
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**Escribir e Imprimir Texto en Consola**
+</div>
+
+. . .
+
+```{r eval = FALSE, echo = TRUE}
+### ¡Este codigo hace calculos muy importantes!
+
+# Operacion 1
+#                    Operacion 2
+#         Operacion 3
+#             .
+#             .     Operacion hecha con IA
+#  Error parcheado           
+#             .
+#             .
+#          Operacion 500.
+
+ 
+# Anunciar finalizacion con exito del proceso:
+print("¡Proceso terminado!")
+
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.5em">
+Sintaxis para **texto**
+</div>
+
+
+
+* Todo carácter que deseen utilizarse como texto se escribe entre **comillas dobles** o entre comillas simples.
+
+. . .
+
+```{r eval = FALSE, echo = TRUE}
+"¡Hola mundo!"
+
+'¡Tambien sirvo con comillas simples!'
+
+"19.792.578-5"
+
+"(5 + 3/2)^2"
+
+'print("¡Hola mundo!")'
+
+```
+
+. . .
+
+- Texto así no tiene mayor uso.
+- Comunicar a un lector de código a través de comentario:
+
+. . .
+
+```{r echo = TRUE}
+## ¡Recorre este código cuan ave aletea en la vastedad!
+```
+
+
+--------------------------------------------------------------------------------
+
+**Impresión de texto en consola**
+
+* **Función `cat()`**: concatena texto e imprime en la consola.
+  * `cat` de concatena.
+  
+. . .
+
+```{r eval = TRUE, echo = TRUE}
+cat("¡Hola mundo!")
+```
+
+. . .
+
+<br>
+
+```{r eval = TRUE, echo = TRUE}
+# Una coma separa cada texto, que luego la funcion los une en uno solo.
+cat("Este es uno de" , "mis primeros textos" , "impresos.") 
+
+```
+
+. . .
+
+<br>
+
+```{r eval = TRUE, echo = TRUE}
+cat("(5 + 3/2)^2")
+```
+
+<br>
+
+--------------------------------------------------------------------------------
+
+```{r eval = TRUE, echo = TRUE, error = TRUE}
+cat(No se me ocurre qué más decir)
+```
+
+. . . 
+
+<br>
+
+```{r eval = TRUE, echo = TRUE, error = TRUE}
+cat("Mi nota es \n 1 + 6*(7.2/10) =", 1 + 6*(7.2/10))
+```
+
+<div style = "font-size: 0.8em">
+* Notar que `\n` hace un salto de línea.
+* Notar que puede recibir una operación e imprime el resultado.
+</div>
+
+. . . 
+
+
+```{r eval = TRUE, echo = TRUE, error = TRUE}
+cat('El resultado de la operacion es = ', mil)
+```
+
+. . . 
+
+
+```{r eval = TRUE, echo = TRUE, error = TRUE}
+cat('El resultado de la operacion es =', 1000
+```
+
+--------------------------------------------------------------------------------
+
+`cat()` es una *función*.
+
+  * Internamente ejecuta un procedimiento que puede depender o no de los elementos entregados por el usuario. 
+    * **Argumentos de una función**: lo que debe recibir para que una función funcione.
+
+. . . 
+
+```{r eval = FALSE, echo = TRUE, error = TRUE}
+cat(Argumento 1, Argumento 2, Argumento 3, ...)
+```
+
+<br>
+
+. . . 
+
+```{r eval = TRUE, echo = TRUE, error = TRUE}
+cat("En", "la", "clase","de", "hoy", "veremos", "la", "funcion","cat")
+```
+
+--------------------------------------------------------------------------------
+
+**Función `print(x)`**: si `x` es texto, (sólo) lo imprime. Si `x` es otro objeto, imprime los atributos definidos a ser impresos.
+
+* Es menos flexible que `cat` para manipular texto.
+
+. . .
+
+```{r eval = TRUE, echo = TRUE, error = TRUE}
+print("¡Jelou Mundo!")
+```
+
+<br>
+
+. . .
+
+```{r eval = FALSE, echo = TRUE, error = TRUE}
+print(cat) # Imprime el codigo de cat.
+```
+
+<br>
+
+. . . 
+
+```{r eval = TRUE, echo = TRUE, error = TRUE}
+print("Este es uno de" , "mis primeros textos" , "impresos.")
+```
+
+--------------------------------------------------------------------------------
+
+**Función `paste(x, y,...)`**: pega los textos `x` y `y` separándolos por un espacio.
+
+<div style = "font-size: 0.8em">
+* Similar a `cat`, pero `cat` sólo imprime y devuelve texto impreso.
+</div>
+
+. . .
+
+```{r eval = TRUE, echo = TRUE, error = TRUE}
+Texto1 <- "Este es mi texto"
+Texto2 <- "y de nadie más!"
+```
+
+<br>
+
+. . .
+
+```{r eval = TRUE, echo = TRUE, error = TRUE}
+TextoUnido <- cat(Texto1, Texto2)
+
+print(TextoUnido) # No lo guarda!!
+```
+
+. . .
+
+```{r eval = TRUE, echo = TRUE, error = TRUE}
+TextoUnido <- paste(Texto1, Texto2)
+print(TextoUnido)
+```
+
+
+--------------------------------------------------------------------------------
+
+::: {.nonincremental}
+
+<div style = "text-align: center; font-size:1.3em">
+**¡Actividad de Cinco Minutos!**
+</div>
+
+1. Usando `cat`, concatene en una única frase el siguiente poema de Pablo Neruda:
+
+<div style = "text-align: center; font-size:0.9em">
+**Punto**
+
+*No hay espacio más ancho que el dolor,*
+
+*no hay universo como aquel que sangra.*
+</div>
+
+2. En un único `cat` y con todo el poema en un único texto, use `\n` para que al imprimir el poema en la consola se haga un salto de línea tras la coma del poema. Observe qué ocurre si usa `print` para imprimir el mismo texto.
+
+:::
+
+--------------------------------------------------------------------------------
+
+::: {.nonincremental}
+
+<div style = "text-align: center; font-size:1.3em">
+**¡Actividad de Cinco Minutos!**
+</div>
+
+3. En un único `cat` y con todo el poema en un único texto, use `\n` para que al imprimir el poema en la consola se haga un salto de línea tras cada salto incluido por el poeta.
+
+<div style = "text-align: center; font-size:0.9em">
+**Océano**
+
+*Cuerpo más puro que una ola,*
+
+*sal que lava la línea,*
+
+*y el ave lúcida*
+
+*volando sin raíces.*
+</div>
+:::
+
+## {background="#43464B" background-image="imagenes/statisticalcomputing2.jpg"}
+
+<div style="display: flex; text-align:center; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 3.5em;">
+  <b> Creando Objetos en R</b>
+</div>
+
+--------------------------------------------------------------------------------
+
+* Definir cantidades que puedan ser operadas posteriormente en el código.
+* Sintaxis:
+
+. . .
+
+<div style = "text-align: center; font-size:1em">
+
+`Nombre <- Elemento Almacenado como "Nombre" `
+
+</div>
+
+. . .
+
+```{r eval = FALSE, echo = TRUE}
+FondosTotales <- 2234031
+##    Se gasto 120000 en impresiones
+##                     Se gastaron 120000 en renovacion de equipos
+##                     Se gastaron 30000 en chocmans
+##   Ingresaron 944000 por pago de clientes
+##              .
+##              .
+##        Otras operaciones importantes
+##              .
+print(FondosTotales)
+```
+
+```{r echo = FALSE}
+FondosTotales <- -25900
+print(FondosTotales)
+```
+
+* Objeto ```FondosTotales``` recibió cambios (ficticios) y tiene nuevo valor.
+
+--------------------------------------------------------------------------------
+
+* Se puede usar `=` en vez de `<-` pero puede llevar a confusiones.
+
+* Definir objetos **mejora la legibilidad del código.**
+
+. . .
+
+
+<div style = "text-align: center; font-size:1em">
+Sin objetos definidos
+</div>
+
+```{r eval = TRUE, echo = TRUE}
+print(4 + 3 * (25 - 0.80*30)/(30 * (1 - 0.80)))
+```
+
+. . .
+
+
+<div style = "text-align: center; font-size:1em">
+Con objetos definidos
+</div>
+
+```{r echo = TRUE}
+puntaje <- 25
+puntajeMax <- 30
+Exigencia <- 0.80
+
+Nota <- 4 + 3 * (puntaje - Exigencia*puntajeMax)/(puntajeMax * (1 - Exigencia))
+print(Nota)
+```
+
+
+--------------------------------------------------------------------------------
+
+Acerca nombres para objetos:
+
+* No pueden tener espacios dentro del nombre. Ej: `mi objeto <- 5`
+
+* No pueden llevar ciertos carácteres especiales. Ej: `valor$ <- 5`, `valor& <- 5`
+
+* No pueden iniciar con un número. ej: `1objeto <- 5`
+
+* Se recomienda no usar palabras reservadas para otras funciones u otros objetos. Ej: `print <- 5`
+
+--------------------------------------------------------------------------------
+
+¡Nombres de los objetos son sensible a mayúsculas y otras puntuaciones!
+
+. . .
+
+```{r echo = TRUE, eval = TRUE, error = TRUE}
+Valor <- 1000
+TEXTO <- "Esto es un texto!"
+datos_2 <- mtcars # Tabla de Datos guardada en R.
+lstas <- list()
+secuencias  <- c(10, 400, 200, 500)
+
+print(valor)
+print(texto)
+print(datos2)
+print(listas)
+print(secuencia)
+```
+
+
+
+--------------------------------------------------------------------------------
+
+**Buenas prácticas para asignación de nombres**
+
+1. Usar nombres descriptivos.
+
+. . .
+
+```{r echo = TRUE}
+a <- 4.3 # ¿?
+NotaTarea1 <- 4.3
+```
+
+2. Usar sólo una convención de nombramiento para todo el código:
+
+* *Camel Case*: `nombreObjeto`
+* *Snake Case*: `nombre_objeto`
+* *Pascal Case*: `NombreObjeto`
+
+3. Evitar abreviaciones vagamente informativas. Ej: `var1`, `a1`, etc.
+
+--------------------------------------------------------------------------------
+
+4. Usar patrones coherentes en el código.
+
+. . .
+
+```{r echo = TRUE}
+total_ventas <- 1000
+ventas_totales <- 1000 # Se rotó la posición de totales! Malo.
+```
+
+
+
+5. Añadir contexto si hace falta.
+
+. . .
+
+```{r echo = TRUE}
+venta <- 200  # ¿?
+ventaDiaria <- 2
+ventaAnual <- 1000
+```
+
+6. Usar prefijos o sufijos para caracterizar.
+
+. . .
+
+```{r echo = TRUE, eval = FALSE}
+tabla_ventas
+vector_productosVendidos
+valor_dineroRestante
+```
+
+7. ¡Cualquier otra cosa que ayude a le legibilidad!
+
+
+## {background="#43464B" background-image="imagenes/statisticalcomputing2.jpg"}
+
+<div style="display: flex; text-align:center; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 3.5em;">
+  <b> Funciones en R</b>
+</div>
+
+
+--------------------------------------------------------------------------------
+
+**Funciones**: bloque de código que posee un nombre asignado y realiza una tarea específica.
+
+
+[<span style = "font-size:0.7em"> Fuente de Imágen </span> ](https://www.saludolearning.in/topics/c/user-defined-functions-in-c/)
+![](https://scaler.com/topics/images/what-is-a-function.webp){width=70% fig-align="center"}
+
+. . .
+
+
+<div style = "font-size:0.8em">
+  * Usualmente recibe de entrada elementos que definen el proceso a realizar.
+    * Los *Argumentos* de la función son estos objetos.
+  * Puede o no entregar un objeto de salida.
+</div>
+
+
+
+
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.4em">
+
+**Sintaxis para crear funciones**
+
+</div>
+
+<div style = "font-size:1.3em">
+
+```{r eval = FALSE, echo = TRUE}
+NombreFuncion <- function(Argumento1, Argumento2, ..., ArgumentoK){
+  
+  return(Objeto) # Opcional
+}
+
+## Ejecutando la funcion:
+NombreFuncion(Argumento1 = ..., Argumento2 = ...)
+```
+
+</div>
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.4em">
+
+**Sintaxis para crear funciones**
+
+</div>
+
+<div style = "font-size:1.3em">
+
+```{r eval = FALSE, echo = TRUE}
+NombreFuncion <- function(Argumento1, Argumento2, ...){
+  
+  ## No dar ningun argumento tambien es opcion.
+  
+  ## Aqui dentro se escriben todo el procedimiento
+  ## que se desea ejecutar cuando NombreFuncion es llamada.
+  
+  ## Si se desea que la funcion retorne un 
+  ## objeto tras su ejecucion:
+  return(Objeto)
+  
+  ## Tambien es opcion que no entregue nada.
+}
+```
+
+</div>
+
+--------------------------------------------------------------------------------
+
+* Considere la función `Funcion(Argumento, X_Y, Z)`. 
+
+* Suponga, para este caso, que para que la función *funcione*, los tres argumentos deben recibir valores numéricos. 
+
+* Cualquiera de las siguientes opciones son sintaxis válidas en R:
+
+. . .
+
+```{r eval = FALSE, echo = TRUE}
+Funcion(100, 200, 300)
+
+Funcion(Argumento = 100, X_Y = 200, Z = 300)
+
+Funcion(Arg = 100, X = 200, Z = 300)
+
+Funcion(A = 100, 200, 300)
+```
+
+--------------------------------------------------------------------------------
+
+**Ejemplos:**
+
+. . .
+
+::: {.nonincremental}
+
+1. Función que imprime el poema de Neruda cuando es llamada.
+
+
+```{r eval = TRUE, echo = TRUE}
+Poema <- function(){
+  cat("No hay espacio más ancho que el dolor, \nno hay universo como aquel que sangra.")
+}
+```
+<br>
+
+```{r eval = TRUE, echo = TRUE}
+Poema()
+```
+
+:::
+
+
+--------------------------------------------------------------------------------
+
+::: {.nonincremental}
+
+**Ejemplos:**
+
+2. Función que transforma grados Celsius a Farenheit.
+
+```{r eval = TRUE, echo = TRUE}
+CelsiusFarenheit <- function(Celsius){
+  Farenheit <- 32 + Celsius * 9/5
+  
+  Salida <- paste(Celsius, "grados Celsius son", Farenheit, "grados Farenheit.")
+  return(Salida)
+  
+}
+```
+
+```{r echo = TRUE}
+CelsiusFarenheit(0) # Congelamiento del agua
+CelsiusFarenheit(Celsius = 30)
+CelsiusFarenheit(C = 100)  # Ebullicion  del agua
+CelsiusFarenheit(C = 220)  # Temperatura para hornear un pancito
+```
+
+:::
+
+--------------------------------------------------------------------------------
+
+::: {.nonincremental}
+
+**Ejemplos:**
+
+3. Funcion que calcula el promedio entre los cuatro laboratorios de este curso.
+
+```{r eval = TRUE, echo = TRUE}
+PromedioLaboratorios <- function(Lab1, Lab2, Lab3, Lab4){
+  
+  Promedio <- (Lab1 + Lab2 + Lab3 + Lab4)/4
+  
+  Promedio # Equivalente a solo escribir return(Promedio)
+}
+```
+
+```{r echo = TRUE}
+PromedioLaboratorios(1.0, 7.0, 6.0, 5.5)
+PromedioLaboratorios(6.0, 5.4, 7.0, 4.3)
+PromedioLaboratorios(7.0, 7.0, 6.0, 7.0)
+```
+:::
+
+
+--------------------------------------------------------------------------------
+
+<span style="font-size:1.4em; color: #28A745;"> **¡Actividad Bonificada!** </span> 
+
+<div style="font-size:0.9em"> 
+1. Construya una función que reciba de argumentos las notas de la Tarea 1 y 2 y entregue como salida el mensaje *Promedio de Laboratorios = NOTA OBTENIDA*.
+
+2. Construya una funcion que reciba de argumentos las notas de los laboratorios 1, 2, 3, y 4, las tareas 1 y 2, y el examen, y que calcule la nota final del curso. La nota final debe entregarla junto a un mensaje acorde.
+
+3. Muestre evidencia de que realizó el resto de actividades de esta clase.
+
+  * *Basta responder hasta aquí para haber completado la actividad bonificada.*
+
+. . .
+
+Continúa....
+
+</div>
+
+--------------------------------------------------------------------------------
+
+<span style="font-size:1.4em; color: #28A745;"> **¡Actividad Bonificada!** </span> 
+
+<div style="font-size:0.9em"> 
+3. Escriba una función que tome como argumentos una nota y un porcentaje de exigencia, y que devuelva la nota ajustada a un nuevo porcentaje de exigencia, asumiendo que la nota original corresponde a un 50% de exigencia.
+
+4. Escriba una función que reciba tantos argumentos como evaluaciones haya en el curso, además de un porcentaje de exigencia. La función deberá recalcular la nota final del curso ajustándola al porcentaje de exigencia indicado, asumiendo que las evaluaciones originales corresponden a un 50% de exigencia.
+
+</div>
+
+## {background="#43464B" background-image="imagenes/statisticalcomputing2.jpg"}
+
+<div style="display: flex; text-align:center; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 3.5em;">
+  <b> Estructura de Datos en R </b>
+</div>
+
+--------------------------------------------------------------------------------
+
+* Sabemos añadir un único elemento a un objeto
+
+. . .
+
+```{r echo = TRUE}
+notaEstudiante1 <- 5.4
+notaEstudiante2 <- 6.0
+```
+
+* Quisiéramos añadir múltiples elementos a un único objeto.
+
+. . .
+
+<div style = "text-align:center;font-size:1.2em">
+**Vectores de Datos**
+</div>
+
+* Función `c()` (combine) para crear y guardar un vector:
+
+. . .
+
+<div style = "text-align: center; font-size:1em">
+`Nombre <- c(Elemento1, Elemen2, Elem3, ...)`
+</div>
+
+* Ejemplo:
+
+. . .
+
+```{r echo = TRUE}
+NotasEPG3308 <- c(7.0, 6.9, 7.0, 6.9, 6.8, 7.0)
+Estudiantes <- c("Hernan", "Andrea", "Ximena", "Miguel")
+```
+
+
+--------------------------------------------------------------------------------
+
+* Es posible asignarle un nombre a los elementos del vector:
+
+. . .
+
+```{r echo = TRUE}
+Asistencia <- c("Hernan" = 1, "Andrea" = 0, 1, 1)
+print(Asistencia)
+```
+
+* Si un vector trae sólo números, R lo identificará como un *vector numérico*:
+
+. . .
+
+```{r echo = TRUE}
+NotasEPG3308 <- c(7.0, 6.9, 7.0, 6.9, 6.8, 7.0)
+class(NotasEPG3308) # Funcion class() devuelve la "clase" (tipo de objeto).
+```
+
+* Basta con que haya un elemento que sea carácter/texto para que el vector completo se transforme a texto.
+
+. . .
+
+```{r echo = TRUE}
+NotasEPG3308 <- c(7.0, 6.9, 7.0, 6.9, 6.8, "7.0")
+class(NotasEPG3308) 
+```
+
+--------------------------------------------------------------------------------
+
+**Funciones útiles de R para crear vectores**:
+
+* `a:b`: crea secuencia de números enteros desde `a` hasta `b`.
+
+. . .
+
+```{r echo = TRUE,eval = FALSE}
+1:10
+0:5
+-10:-2
+-5:-8
+```
+
+* `seq(from, to, by, ...)`: crea secuencia numérica desde `from` hasta `to` dando saltos de según `by`.
+
+. . . 
+```{r echo = TRUE, eval = FALSE}
+seq(from = 1, to = 10, by = 1)
+seq(from = 1, to = 100, by = 10)
+seq(from = 1, to = -10, by = -2)
+seq(from = 1, to = 100, length.out = 15) # length.out en vez de by para solicitar largo de secuencia
+```
+
+--------------------------------------------------------------------------------
+
+**Funciones útiles de R para crear vectores**:
+
+* `rep(x, times, length.out, each)`: repite el o los valores `x` dependiendo de si se entrega `times`, `length.out`, o `each`.
+  * `times`: repite `x` un número `times` de veces.
+
+. . .   
+
+<br>
+
+```{r echo = TRUE, eval = TRUE}
+rep(x = 1, times = 4)
+rep(x = c(1,2), times = 4)
+```
+
+--------------------------------------------------------------------------------
+
+`rep(x, times, length.out, each)`: 
+
+  * `each`: repite cada elemento de `x` un número `each` de veces.
+
+. . .
+
+```{r echo = TRUE, eval = TRUE}
+rep(x = 1, each = 4)
+rep(x = c(1,2), each = 4)
+```
+
+<br>
+
+* `length.out`: repite `x` hasta que vector sea de largo `length.out`.
+  
+. . .
+
+```{r echo = TRUE, eval = TRUE}
+rep(x = 1, length.out = 4)
+rep(x = c(1,2), length.out = 4)
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**Ayuda de R**
+</div>
+
+<div style = "text-align: center; font-size:1em">
+`help(funcion)` - `?funcion`
+</div>
+
+
+
+![](imagenes/0024_ayudaR.png){width=800 fig-align="center"}
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.1em">
+**Estructura de Documentación de Ayuda**
+</div>
+
+
+![](imagenes/0025_ayudaR2.png){width=150% fig-align="center"}
+
+
+
+----------------------------------
+
+![](imagenes/LogoMATUC.png){width=950 fig-align="center"}
+
+
+<div style = "text-align: center; font-size:1.5em;color:#2E86C1">
+**EPG3308: Computación Estadística**
+</div>
+<div style = "text-align: center; font-size:1.9em;color:#313131">
+**Clase 03: Estructura de Datos**
+</div>
+
+
+<div style = "text-align: center; font-size:1em;color:#313131">
+**Profesor**: Hernán Robledo Araya (harobledo@uc.cl)<br> 
+**Ayudante**: Josefa Silva Muñoz (josefa.silva@alumni.uc.cl) <br> <br> 
+Primer Semestre - 2025
+
+</div>
+           
+         
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.5em">
+**Hoy veremos:**
+</div>
+
+1. Operaciones con Vectores
+2. Matrices y Operaciones con Matrices
+3. Listas y Operaciones con Matrices
+4. Cuadros de Datos (Data Frames)
+5. Lectura de Datos
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align:center;font-size:1.2em">
+**1. Vectores de Datos**
+</div>
+
+* Función `c()` (combine) para crear y guardar un vector:
+
+. . .
+
+<div style = "text-align: center; font-size:1em">
+`Nombre <- c(Elemento1, Elemen2, Elem3, ...)`
+</div>
+
+. . .
+
+* Funciones: `seq` y `rep`.
+
+. . .
+
+**Veremos:**
+
+1. Acceder a elementos
+2. Funciones para vectores
+3. Matemática Vectorizada
+4. Cálculos Matemáticos
+
+--------------------------------------------------------------------------------
+
+* Acceso a elementos de vector con `vector[posicion]`:
+
+* Acceder a un único elemento:
+
+. . .
+
+```{r eval = TRUE, echo = TRUE}
+Notas <- c(4.0, 4.5, 4.7, 5.2, 6.0, 7.0)
+
+Notas[1] # Primer elemento
+Notas[2] # Segundo elemento
+```
+
+* Acceder a múltiples elementos: vector de índices.
+
+. . .
+
+```{r eval = TRUE, echo = TRUE}
+indices <- c(1,2)
+Notas[indices]
+
+indices <- c(3,6)
+Notas[indices]
+```
+
+--------------------------------------------------------------------------------
+
+::: {.nonincremental}
+
+* Acceso a elementos de vector con `vector[posicion]`:
+
+:::
+
+* Todos excepto un elemento: `vector[-posicion]`
+
+. . .
+
+```{r eval = TRUE, echo = TRUE}
+Notas[-1] # Todos excepto primer elemento
+Notas[-6] # Todos excepto sexto elemento
+```
+
+* Acceder a todos excepto un subconjunto:
+
+. . .
+
+```{r eval = TRUE, echo = TRUE}
+indices <- c(1,2)
+Notas[-indices] # Elementos 3, 4, 5 y 6 
+
+pares <- seq(2,6,2)
+Notas[pares]
+
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.2em">
+**Modificar o añadir elementos de un vector**
+</div>
+
+. . .
+
+<div style = "text-align: center; font-size:1em">
+vector[indices] <- vector2
+</div>
+
+. . .
+
+```{r echo = TRUE}
+vec <- c() # Vector vacío
+vec # Equivalente a hacer print(vec1)
+vec[1] <- 4.5
+vec
+```
+
+. . .
+
+```{r echo = TRUE}
+vec[5] <- 6.0
+vec
+```
+
+. . .
+
+```{r echo = TRUE}
+vec[2:4] <- c(5.0, 5.1, 5.2)
+vec
+```
+
+. . .
+
+```{r echo = TRUE}
+vec[c(1, 5, 8:9)] <- 1 # Reemplazar todo por valor 1
+vec
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.2em">
+**Funciones útiles**:
+</div>
+
+<div style = "font-size:0.8em">
+* `length(vector)`: entrega el numero de elementos contando NAs.
+* `sort(vector)`: ordena los elementos del vector.
+* `rank(vector)`: entrega el ranking de los elementos según su valor.
+* `rev(vector)`: invierte el orden de los elementos del vector.
+* `unique(vector)`: entrega un vector en que se eliminan los valores repetidos de `vector`.
+* `table(vector)`: tabla de frecuencia de los elementos de `vector`.
+</div>
+
+
+. . .
+
+::: {.callout-tip}
+Tip: Cuando necesiten hacer algo específico pregúntense: 
+
+<div style = "text-align:center;font-size:1.2em">
+***¿existe una función que ya lo haga?***
+</div>
+
+:::
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.2em">
+**Matemática con Vectores**:
+</div>
+
+<div style = "font-size:0.8em">
+* Sumas, restas, productos, divisiones, potencias y otras operaciones sí funcionan entre vectores.
+
+* **Operación entre Vector y Escalar**
+
+</div>
+
+. . .
+
+```{r echo = TRUE}
+vec <- c(1, 2, 4)
+vec^2
+```
+
+<div style = "font-size:0.8em">
+* **Operación entre Escalar y Vector**
+</div>
+. . .
+
+```{r echo = TRUE}
+vec <- c(1, 2, 4)
+5^vec
+```
+
+<div style = "font-size:0.8em">
+* **Operación entre Vector y Vector**
+</div>
+. . .
+
+```{r echo = TRUE}
+vec1 <- c(1, 2, 3);   vec2 <- c(0, 1, 2)
+vec1 ^ vec2
+```
+
+
+--------------------------------------------------------------------------------
+
+* Esta cualidad de R es llamada *Cálculos Vectorizados*.
+
+* Más eficientes que recorrer cada elemento, aplicar la operación deseada, y continuar con el siguiente elemento.
+
+. . .
+
+```{r echo = TRUE, eval = FALSE}
+mivector <- c(4.8, 5.3, 3.8, 6.1, 3.9, 4.4, 2.6, 1.8, 0.4, 0.5)
+
+## Funcion que eleva al cuadrado cada elemento de un vector
+vectoralcuadrado <- function(){
+  resultado <- c()
+  for(i in 1:10){
+    resultado[i] <- mivector[i]^2
+  }
+  return(resultado)
+}
+
+## Comparacion en nanosegundos de tiempos de computo entre
+## calculo vectorizado y escalar
+microbenchmark::microbenchmark(mivector^2, vectoralcuadrado(), times = 1000)
+```
+
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.2em">
+**Reciclaje de elementos**:
+</div>
+
+* Cuando se aplica una operación entre vectores de distintos tamaños, R comienza a reciclar elementos del vector más corto.
+
+. . .
+
+```{r echo = TRUE}
+vec1 <- 1:20 # Vector de largo 20
+vec2 <- rep(c(0,1), times = 5) # Vector de largo 10
+
+length(vec1*vec2)
+vec1*vec2
+
+```
+
+. . .
+
+::: {.callout-warning}
+## Advertencia
+Preferir no reciclar. Operar con vectores de igual tamaño.
+:::
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.2em">
+**Matemática con Vectores**
+</div>
+
+<div style = "font-size:0.8em">
+* `sum(vector)`: Calcula la suma de todos los elementos.
+* `prod(vector)`: Calcula el producto de todos los elementos.
+* `mean(vector)`: Calcula el promedio entre los elementos.
+* `median(vector)`: Encuentra la mediana de los elementos.
+* `var(vector)`: Calcula la varianza del vector.
+* `sd(vector)`: Calcula la desviación estándar.
+* `summary(vector)`: calcula múltiples estadísticas descriptivas.
+* `min(vector)`: Encuentra el valor mínimo.
+* `max(vector)`: Encuentra el valor máximo.
+* `quartile(vector, prob)`: entrega el cuartil que acumula `prob` del vector dado.
+</div>
+
+
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.3em">
+**¡Actividad de Diez Minutos!**
+</div>
+
+::: {.nonincremental}
+
+<div style = "font-size:0.8em">
+
+El archivo `DataC03.RData` se carga con el comando `load("DataC03.RData")` y contiene tres vectores con información de una muestra de estudiantes y sus puntajes en una prueba de competencias matemáticas. Los vectores tienen los nombres `edad`, `comuna` y `puntuacion`.
+
+1. Corrija el registro de la posición 97 en edad. Cree un nuevo cetor llamado `edad2`. ¿Habrá otro valor mal codificado?
+
+2. Siguiendo las recomendaciones de asignaciones de nombres a objetos, cree tres vectores con las edades de los estudiantes y tres vectores con las puntuaciones, agrupados por comuna.
+
+</div>
+:::
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.3em">
+**¡Actividad de Diez Minutos!**
+</div>
+
+::: {.nonincremental}
+
+3. Calcule estadísticas descriptivas (promedio, mediana, desviación estándar, mínimo y máximo) de las edades de los estudiantes agrupadas por comuna.
+
+4. Calcule estadísticas descriptivas (promedio, mediana, desviación estándar, mínimo y máximo) de las puntuaciones obtenidas por los estudiantes agrupadas por comuna.
+
+:::
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**2. Matrices**
+</div>
+
+* Arreglo bidimensional (tienen filas y columnas) de datos.
+
+. . .
+
+<div style = "text-align: center; font-size:0.8em">
+
+$$
+\begin{pmatrix}
+3 & 17 & 8 & 12 \\
+15 & 4 & 22 & 7 \\
+9 & 6 & 13 & 19 \\
+\end{pmatrix}
+$$
+
+</div>
+
+* Usadas en matemáticas (y estadística) para formalizar cálculos de múltiples números.
+
+. . .
+
+::: {.callout-note}
+Un vector es una matriz de una única columna.
+:::
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**2. Matrices**
+</div>
+
+. . .
+
+`matrix(vector, nrow, ncol, byrow)`: crea una función en base a `vector` con `nrow` filas, `ncol` columnas, y rellenada por filas o columnas según `byrow`.
+
+. . .
+
+$$
+\begin{pmatrix}
+ 3 & 17 \\
+15 &  4 \\
+\end{pmatrix}
+$$
+
+. . .
+
+```{r echo = TRUE}
+matrix(c(3, 15, 17, 4), nrow = 2) # Basta con indicar numero de filas
+```
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**2. Matrices**
+</div>
+
+. . .
+
+Ejemplo 1:
+
+. . .
+
+```{r echo = TRUE}
+matrix(c(3, 15, 9, 21,
+        17, 4, 6, 10,
+        8, 22, 13, 5,
+        12, 7, 19, 16), 
+        nrow = 4, ncol = 4, byrow = TRUE)
+```
+
+. . .
+
+Ejemplo 2:
+
+. . .
+
+```{r echo = TRUE}
+matrix(1:24, nrow = 2, byrow = TRUE)
+```
+
+--------------------------------------------------------------------------------
+
+* Nombre para filas o columnas: `row.names` y `col.names`
+
+. . .
+```{r echo = TRUE}
+A <- matrix(1:24, nrow = 2, byrow = TRUE)
+colnames(A) <- paste0("C", 1:12)
+rownames(A) <- c("Fila1", "Fila2")
+A
+```
+
+
+* Construir matrices pegando vectores: `cbind` y `rbind`
+
+. . . 
+
+```{r echo = TRUE}
+NotasL1 <- c(5.0, 3.4, 6.0, 5.0)
+NotasL2 <- c(4.5, 3.9, 5.8, 5.3)
+Notas <- cbind(NotasL1, NotasL2) # Column bind
+Notas
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**¡Actividad de Cinco Minutos!**
+</div>
+
+Utilice los datos del archivo `Data03.RData` para hacer lo siguiente:
+
+1. Crear una matriz de dos columnas usando la función `matrix` que contenga los datos de los vectores `edad` y `puntuacion`. Coloque nombres adecuados a las columnas de la matriz.
+
+2. Crear una matriz de tres columnas usando la función `cbind` que contenga los datos de los vectores `edad`, `comuna`, y `puntuacion`. Coloque nombres adecuados a las columnas de la matriz. ¿Qué se observa en la matriz resultante?
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.2em">
+**Matemática elemental con matrices**
+</div>
+
+* Igual que con vectores, se pueden aplicar las operaciones matemáticas elementales entre matrices.
+
+. . .
+
+```{r echo = TRUE, eval = FALSE}
+A <- matrix(c(1,0,1,1), nrow = 2)
+B <- matrix(c(-2,-1,0,1), nrow = 2)
+vec <- c(1,2)
+
+1 + A
+2*A
+A^2
+
+A + vec # Aplica operacion a cada columna de A
+A * vec
+A+B
+```
+* Más operaciones en la Clase 08: Álgebra Lineal
+
+--------------------------------------------------------------------------------
+
+
+<div style = "font-size:1.2em">
+**Funciones por columnas o filas con matrices**
+</div>
+
+* `colSums(matriz)`: Sumar datos por cada columna.
+* `rowSums(matriz)`: Sumar datos por fila columna.
+* `colMeans(matriz)`: Promediar datos por cada columna.
+* `rowMeans(matriz)`: Promediar datos por cada fila.
+* `apply`: Aplicar una función cualquier por fila o columnas.
+
+. . .
+
+<div style = "text-align: center; font-size:1em">
+
+`apply(matriz, fila_o_columna, funcion)`
+
+</div>
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.2em">
+**Funciones por columnas o filas con matrices**
+</div>
+
+
+<div style = "text-align: center; font-size:1em">
+`apply(matriz, fila_o_columna, funcion_a_aplicar)`
+</div>
+
+. . .
+
+```{r echo = TRUE}
+A <- matrix(c(1,0,1,1,-1,2), ncol = 2) 
+
+apply(A, 
+      MARGIN = 1, # 1 = aplicar operacion por filas
+      FUN = mean) # Equivalente a hacer rowMeans
+```
+
+. . .
+
+```{r echo = TRUE}
+apply(A, 
+      MARGIN = 2, # 2 = aplicar operacion por columnas
+      FUN = sd) # Calcular desviacion estandar por columnas
+```
+
+. . .
+
+```{r echo = TRUE}
+apply(A, 
+      MARGIN = 2, # 2 = aplicar operacion por columnas
+      FUN = sd) # Calcular desviacion estandar por columnas
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.2em">
+**Acceder a elementos de matrices**
+</div>
+
+* `matriz[filas, columnas]`
+  * Misma idea que con vectores.
+
+* Ejemplos:
+
+. . .
+
+```{r echo = TRUE, eval = FALSE}
+A <- matrix(c(1,0,1,1,-1,2), ncol = 2) 
+
+A[1,1]
+A[2,1]
+A[1:3, 1]
+A[c(1,3), c(1,2)]
+A[1,] # Primera fila
+A[,2] # Segunda columna
+A[-1,] # Todo menos primera fila
+A[-2,-3] # Todo menos segunda fila y segunda columna
+```
+
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.2em">
+**Funciones útiles para matrices**
+</div>
+
+* `dim(matriz)`: entrega el número de filas y columnas de una matriz.
+* `nrow(matriz)` y `ncol(matriz)`: lo mismo que la función anterior.
+* `diag(matriz)`: entrega un vector con los elementos ubicados en la diagonal de la matriz.
+
+--------------------------------------------------------------------------------
+
+<span style="font-size:1.4em; color: #28A745;"> **¡Actividad Bonificada!** </span> 
+
+El archivo `Clase03_notas.RData` contiene una matriz con las notas de los estudiantes de cierto curso. 
+
+1. Calcule el promedio de las evaluaciones para cada estudiante.
+2. Calcule para cada evaluación el promedio de notas.
+3. Calcule mínimo, máximo, y desviación estándar de las notas de cada evaluación.
+4. Muestre evidencia de haber realizado el resto de actividades de la clase.
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**Listas**
+</div>
+
+<div style = "font-size:0.9em">
+* Colección de elementos de distinta naturaleza (numérico, texto, tablas, etc.)
+
+* Crear lista con `list()`
+* Acceder a los elementos con `Lista[[ elemento ]]`
+
+* Si elementos tienen nombres, pueden ser llamados con `Lista$Nombre`.
+
+</div>
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**3. Listas**
+</div>
+
+```{r echo = TRUE, eval = TRUE}
+Lista <- list(Notas = c(5.0, 5.5, 6.5, 7.0),
+              Alumnos = 4,
+              Nombres = c("H", "A", "R", "T"))
+```
+
+* Acceder a elementos de la lista:
+
+. . .
+
+```{r echo = TRUE, eval = TRUE}
+Lista$Nota
+Lista[[2]]
+Lista$Nombres
+```
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**3. Listas**
+</div>
+
+* Añadir elemento a la lista:
+
+. . .
+
+```{r echo = TRUE, eval = TRUE}
+Lista[[4]] <- c(1,1,1,0) 
+Lista[[4]]
+```
+
+. . .
+
+```{r echo = TRUE, eval = TRUE}
+# Añadir elemento con nombre
+Lista$TieneBonificacion <- c(1,1,1,1) 
+Lista$TieneBonificacion
+```
+
+* Se pueden combinar elementos de cualquier naturaleza.
+
+. . .
+
+```{r echo = TRUE, eval = TRUE}
+# Añadir elemento con nombre
+Lista$TablaDatos <- cars
+Lista$TablaDatos
+```
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**3. Listas**
+</div>
+
+* `lapply(Lista, Funcion)` para aplicar una función a los elementos de una lista.
+
+. . .
+
+```{r echo = TRUE, eval = TRUE}
+Lista$TablaDatos <- cars # Añadiendo tabla de nombre cars a la lista
+
+lapply(Lista, class) # Aplica funcion "class" a elementos de la lista
+```
+  
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**4. Data Frames**
+</div>
+
+* Matrices que combinan columnas de distintas naturalezas.
+* Comparte sintaxis de listas para acceder a columnas. 
+
+. . .
+
+```{r echo = TRUE}
+class(mtcars) # Tabla de datos cars
+class(ToothGrowth) # Tabla de datos ToothGrowth
+class(iris) # Tabla de datos iris
+```
+
+. . .
+
+```{r echo = TRUE}
+head(iris) # head() imprime primeras seis filas de la tabla
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**4. Data Frames**
+</div>
+
+* Acceder a clases de cada columna con `str` (structure):
+
+. . .
+
+```{r echo = TRUE}
+str(iris) 
+```
+
+* Acceder a variables con sintaxis `tabla$variable`
+
+. . .
+
+```{r echo = TRUE}
+head(iris$Sepal.Length)
+head(iris$Species)
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**5. Lectura de Datos**
+</div>
+
+* Archivos `.RData` se leen con `load("archivo.RData")`.
+
+* Otros archivos: asistente de carga de datos.
+
+. . .
+
+
+![](imagenes/0026_CargaDatos1.png){.absolute top="300" left="100" width="800" style="transform: rotate(0deg);"}
+
+. . .
+
+![](imagenes/0026_CargaDatos2.png){.absolute top="300" left="100" width="800" style="transform: rotate(0deg);"}
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**5. Lectura de Datos**
+</div>
+
+![](imagenes/0026_CargaDatos3.png){.absolute top="100" left="50" width="950" style="transform: rotate(0deg);"}
+
+<br><br><br><br><br><br><br><br><br><br>
+
+* `From Text (readr)` para archivos .txt y .csv.
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**5. Lectura de Datos**
+</div>
+
+
+![](imagenes/0027_readr.png){.absolute top="100" left="100" width="900" style="transform: rotate(0deg);"}
+
+. . .
+
+![](imagenes/0027_readr2.png){.absolute top="100" left="100" width="900" style="transform: rotate(0deg);"}
+
+. . .
+
+![](imagenes/0027_readr3.png){.absolute top="100" left="100" width="900" style="transform: rotate(0deg);"}
+
+<br><br><br><br><br><br><br><br><br>
+
+. . .
+
+<div style = "font-size:0.9em">
+
+::: {.callout-tip}
+Copiar código de carga y pegarlo en el script.
+:::
+
+</div>
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+**5. Lectura de Datos**
+</div>
+
+
+![](imagenes/0028_readr1.png){.absolute top="140" left="30" width="1100" style="transform: rotate(0deg);"}
+
+. . .
+
+![](imagenes/0028_readr2.png){.absolute top="140" left="30" width="1100" style="transform: rotate(0deg);"}
+
+. . .
+
+![](imagenes/0028_readr3.png){.absolute top="140" left="30" width="1100" style="transform: rotate(0deg);"}
+
+. . .
+
+![](imagenes/0028_readr4.png){.absolute top="140" left="30" width="1100" style="transform: rotate(0deg);"}
+
+
+--------------------------------------------------------------------------------
+
+
+![](imagenes/LogoMATUC.png){width=950 fig-align="center"}
+
+
+<div style = "text-align: center; font-size:1.5em;color:#2E86C1">
+**EPG3308: Computación Estadística**
+</div>
+<div style = "text-align: center; font-size:1.9em;color:#313131">
+**Clase 04: Operaciones Lógicas y Control de Flujo**
+</div>
+
+
+<div style = "text-align: center; font-size:1em;color:#313131">
+**Profesor**: Hernán Robledo Araya (harobledo@uc.cl)<br> 
+**Ayudante**: Josefa Silva Muñoz (josefa.silva@alumni.uc.cl) <br> <br> 
+Primer Semestre - 2025
+
+</div>
+           
+         
+## {background="#43464B" background-image="imagenes/statisticalcomputing2.jpg"}
+
+<div style="display: flex; text-align:center; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 3.5em;">
+  <b>  Operaciones Lógicas </b>
+</div>
+
+
+--------------------------------------------------------------------------------
+
+```{r echo = TRUE}
+load("DataC04.RData")
+head(base)
+```
+
+* ¿Cómo filtramos esta tabla según los estudiantes de `La Florida`?
+
+. . .
+
+```{r echo = TRUE}
+baseLaFlorida <- base[base$Comuna == "La Florida", ]
+head(baseLaFlorida,3)
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Operación Lógica**
+</div>
+
+. . .
+
+<div style = "text-align: center; font-size:1.2em">
+`base$Comuna == "La Florida"`
+</div>
+
+
+* Operador lógico `==` evalúa qué elementos de `base$Comuna` son iguales a ` La Florida`. 
+
+. . .
+
+```{r echo = TRUE}
+head(base$Comuna == "La Florida")
+```
+
+* Resultado: vector de `TRUE` y `FALSE` indicando en qué se cumple la condición. 
+
+* Un vector de `TRUE` y `FALSE` puede usarse en conjunto con `[]` para filtrar.
+
+--------------------------------------------------------------------------------
+
+**Observaciones**
+
+* `TRUE` y `FALSE` se pueden abreviar como `T` y `F`.
+
+* R interpreta `TRUE` y `FALSE` como un valor 1 y 0.
+
+. . .
+
+```{r}
+TRUE*TRUE + FALSE - TRUE
+
+vector_logico <- c(T, T, T, F, F)
+sum(vector_logico)
+mean(vector_logico)
+```
+* Vector de valores 0 y 1 a `TRUE` y `FALSE`
+
+. . .
+
+```{r}
+as.logical(c(1,0,0,1,1))
+```
+
+
+--------------------------------------------------------------------------------
+
+**Operadores Lógicos más comunes de R**
+
+. . .
+
+<div style = "text-align: center; font-size:0.7em">
+| Operador | Descripción |
+|:-|:------------|
+| `==`     | Igual a. Devuelve `TRUE` si ambos operandos son iguales. |
+| `!=`     | Diferente de. Devuelve `TRUE` si los operandos son distintos. |
+| `>`      | Mayor que. Devuelve `TRUE` si el operando de la izquierda es mayor. |
+| `<`      | Menor que. Devuelve `TRUE` si el operando de la izquierda es menor. |
+| `>=`     | Devuelve `TRUE` si el operando de la izquierda es mayor o igual. |
+| `<=`     | Devuelve `TRUE` si el operando de la izquierda es menor o igual. |
+| `&`      | AND lógico. Devuelve `TRUE` si ambos operandos son `TRUE` en cada posición. |
+| `|`      | OR lógico. Devuelve `TRUE` si al menos uno de los operandos es `TRUE` en cada posición. | 
+| `!`      | Negación lógica. Devuelve `TRUE` si el operando es `FALSE`, y viceversa. |
+</div>
+
+--------------------------------------------------------------------------------
+
+**Ejemplos**
+
+* Operador `==` y `!=`
+
+. . .
+
+```{r echo = TRUE}
+a <- 5
+a == 5
+a != 5
+```
+* Operación `objeto == objeto` está vectorizada.
+
+. . .
+
+```{r}
+c(14, 14, 13, 13, 13, 14, 13, 13, 12, 14) == 13
+```
+. . .
+
+```{r}
+Edades1 <- c(12, 14, 13); Edades2 <- c(13, 14, 15)
+Edades1 == Edades2
+```
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+
+::: {.callout-warning}
+## ¡Advertencia!
+
+A pesar de que teóricamente dos números sean iguales, ¡¡computacionalmente pueden no serlo!!
+
+:::
+</div>
+
+. . .
+
+$$(\sqrt{2})^2 = 2$$
+
+. . .
+
+```{r echo = TRUE}
+a <- sqrt(2)^2
+a == 2
+```
+😱😱😱
+
+. . .
+
+<div style = "text-align: center; font-size:1.2em">
+**Error de Redondeo**
+</div>
+
+--------------------------------------------------------------------------------
+
+**Casos comunes de Errores de Redondeo**
+
+* Uso de números irracionales
+
+. . .
+
+```{r echo = TRUE}
+sqrt(3)^3 == 3
+```
+* Sumas o restas entre números muy grandes y muy pequeños
+
+. . .
+
+```{r echo = TRUE}
+1e16 + 1 - 1e16 # 1e16 = 1 * 10 ^ (16)
+```
+
+* Números con representación binaria inexacta.
+
+. . .
+
+```{r echo = TRUE}
+0.1 + 0.2 == 0.3
+```
+
+--------------------------------------------------------------------------------
+
+::: {.callout-note}
+## ¿Por qué pasa esto?
+<div style = "font-size:1.2em">
+* Ciertos números (como 0.1 o 1/3) no tienen representación exacta en código binario.
+* No se pueden registrar los infinitos números decimales de un número irracional en un computador.
+</div>
+
+:::
+
+. . .
+
+
+```{r echo = TRUE}
+options(digits = 20) # digits por defecto = 7
+sqrt(2)^2
+sqrt(3)^2
+0.1 + 0.2
+0.3
+```
+```{r echo = FALSE}
+options(digits = 7)
+```
+
+--------------------------------------------------------------------------------
+
+::: {.callout-tip}
+## Solución
+<div style = "text-align: center; font-size:1.5em">
+Comparar números según una ***tolerancia***.
+</div>
+:::
+
+. . .
+
+$$\text{Si } |a - b| < \text{Tolerancia} \quad \Rightarrow \quad a \approx b $$
+
+. . .
+
+```{r echo = TRUE}
+tolerancia <- 1e-10 # 1 * 10^(-10) = 0.0000000001
+abs(sqrt(2)^2 - 2) # |a - b|: valor absoluto entre a y b
+
+# ¿Es a lo suficientemente similar a b?
+abs(sqrt(2)^2 - 2) < tolerancia
+```
+
+--------------------------------------------------------------------------------
+
+* Operadores `>`, `<`, `>=`, `<=`.
+
+. . .
+
+```{r echo = TRUE}
+3 > 2       # TRUE
+5 <= 5      # TRUE
+7 < 1       # FALSE
+```
+
+. . .
+
+<br>
+
+```{r}
+Edades <- c(20, 25, 28, 28, 30, 40, 41)
+Edades >= 25
+```
+
+. . .
+
+<br>
+
+```{r}
+Edades <- c(20, 25, 28, 28, 30, 40, 41)
+Edades > mean(Edades) # ¿Que edades son mayores a su promedio?
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.0em">
+¿Cómo evaluar que se cumplan múltiples condiciones?
+</div>
+
+. . .
+
+<div style = "text-align: center; font-size:1.2em">
+**Operador `&`**
+
+`Condicion1 & Condicion2`
+</div>
+
+. . .
+
+```{r}
+## Aprueba curso si PromedioLab > 5.0   Y   PromedioTarea > 4.0
+PromedioLab <- 5.2;    PromedioTarea <- 3.9
+(PromedioLab > 5.0) & (PromedioTarea > 4.0)
+```
+
+. . .
+
+<br>
+```{r}
+PromedioLab <- 5.7;    PromedioTarea <- 4.1
+(PromedioLab > 5.0) & (PromedioTarea > 4.0)
+```
+
+. . .
+
+<br>
+```{r}
+FALSE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.0em">
+¿Cómo evaluar que se cumplan **al menos** una condición?
+</div>
+
+. . .
+
+<div style = "text-align: center; font-size:1.2em">
+**Operador `|`**
+
+`Condicion1 | Condicion2`
+</div>
+
+. . .
+
+```{r}
+## Se exime Examen si PromedioLab > 5.5   O   PromedioTarea > 4.0
+PromedioLab <- 5.2;    PromedioTarea <- 3.9
+(PromedioLab > 5.5) | (PromedioTarea > 4.0)
+```
+
+. . .
+
+<br>
+```{r}
+PromedioLab <- 5.7;    PromedioTarea <- 4.1
+(PromedioLab > 5.5) | (PromedioTarea > 4.0)
+```
+
+. . .
+
+<br>
+```{r}
+TRUE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Negación Lógica con `!`**
+</div>
+
+. . .
+
+::: {.nonincremental}
+
+* Suponer filtramos datos tales que
+
+<div style = "text-align: center; font-size:1.0em">
+`Comuna == "San Joaquin" & Edad >= 14`
+</div>
+
+:::
+
+. . .
+
+```{r}
+head(base[base$Comuna == "San Joaquin" & base$Edad >= 14,],4)
+```
+
+* ¿Cómo filtramos por todos excepto los casos anteriores?
+  * *Negando* la condición
+
+. . .
+
+<div style = "text-align: center; font-size:1.0em">
+`!(Comuna == "San Joaquin" & Edad >= 14)`
+</div>
+
+--------------------------------------------------------------------------------
+
+* Operador `!` invierte todos los `TRUE` y `FALSE`:
+
+. . .
+
+```{r}
+tabla <- rbind(base$Comuna == "San Joaquin", 
+               !(base$Comuna == "San Joaquin"))
+tabla[,1:12]
+```
+
+. . .
+
+<br>
+
+¿Qué buscan realizar estas operaciones?
+
+. . .
+
+<div style = "text-align: center; font-size:1.0em">
+`14 < Edad & Edad < 16`
+
+`!(14 < Edad & Edad < 16)` 
+
+`!(Comuna == "San Joaquin" & Comuna == "Macul")`
+</div>
+
+
+--------------------------------------------------------------------------------
+
+**Funciones útiles**
+
+* `which(vector_logico)`: entrega las posiciones en que se encuentran los `TRUE`.
+
+. . .
+
+```{r}
+which(c(TRUE, TRUE, FALSE, TRUE))
+```
+
+* `which.min(numeros)` y `which.max(numeros)`: da posición del menor y mayor valor, respectivamente.
+
+. . .
+
+```{r}
+which.min(c(4,3,2,1))
+which.max(c(4,3,2,1))
+```
+
+--------------------------------------------------------------------------------
+
+**Funciones útiles**
+
+* Operador `vec1 %in% vec2`: evalúa si los elementos de `vec1` se encuentran en `vec2`.
+
+. . . 
+```{r}
+vec1 <- c("SJ", "SM", "Stgo", "Macul"); vec2 <- c("Stgo", "Macul")
+vec1 %in% vec2
+```
+
+* `all(cond1, cond2, ...)`: entrega `TRUE` si todas las condiciones se cumplen y `FALSE` si no.
+
+* `any(cond1, cond2, ...)`: entrega `TRUE` si al menos una de las condiciones se cumplen y `FALSE` si no.
+
+* `all.equal(x,y)`: evalúa si dos objetos son idénticos o no (incluye grado de tolerancia).
+
+--------------------------------------------------------------------------------
+
+::: {.nonincremental}
+<div style = "text-align: center; font-size:1.2em">
+**Actidad de Práctica**
+</div>
+
+Cargue en R la tabla del archivo `pokemon.csv`.
+
+1. Filtre la tabla según las filas que cumplan `type1 == "water"` usando `tabla[tabla$type1 == "water,]`.
+
+2. Filtre la tabla según las filas que cumplan `type1 == "fire"`.
+
+3. Filtre la tabla según las filas que cumplan `type1 == "fire"` y `type2 == "flying"`.
+
+4. Filtre la tabla según las filas que cumplan `type1 == "fire"` o `type1 == "water"`.
+
+:::
+
+## {background="#43464B" background-image="imagenes/statisticalcomputing2.jpg"}
+
+<div style="display: flex; text-align:center; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 3.5em;">
+  <b>  Control de Flujo </b>
+</div>
+
+--------------------------------------------------------------------------------
+
+* Considere la siguiente situación:
+  * Si un estudiante viene de la comuna de San Joaquín, recibirá una prueba de 20 preguntas.
+  * Si un estudiante viene de otra comuna, recibirá una prueba de 30 preguntas.
+  
+* Queremos una función que de el número de preguntas según la comuna.
+
+. . .
+
+
+![](imagenes/0029_DFlujo.png){width=600 fig-align="center"}
+
+
+--------------------------------------------------------------------------------
+
+```{r eval = FALSE}
+NPreguntas <- function(comuna){
+  # Si comuna es "San Joaquin", entonces
+       nitems <- 20
+       return(nitems)
+  
+  # Si comuna NO es "San Joaquin", entonces
+       nitems <- 30
+       return(nitems)
+}
+```
+
+. . .
+
+<div style = "text-align: center; font-size:1.2em">
+**Control de Flujo: `if-else`**
+</div>
+
+. . .
+
+<div style = "text-align: center; font-size:1.2em">
+```
+if(condicion a evaluar){ 
+
+  # Código evaluado si se cumple condición
+  
+}else{
+
+  # Código evaluado si NO se cumple condición
+  
+}
+```
+</div>
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Control de Flujo: `if-else`**
+</div>
+
+```{r}
+NPreguntas <- function(comuna){
+  if(comuna == "San Joaquin"){
+    nitem <- 20
+    return(nitem)
+  }else{
+    nitem <- 30
+    return(nitem)
+  }
+}
+
+NPreguntas("San Joaquin")
+NPreguntas("San Miguel")
+NPreguntas("Comuna que no es San Joaquin")
+```
+
+
+--------------------------------------------------------------------------------
+
+**Ejemplo**: calculadora de notas según exigencia.
+
+<div style = "text-align: center; font-size:0.8em">
+
+$$
+\text{Nota} =
+\begin{cases}
+1 + 3\frac{p}{Ex\cdot p_{max}}, & \text{si } p < Ex\cdot p_{max}, \\
+4 + 3\frac{p - Ex \cdot p_{max}}{p_{max}(1 - Ex)}, & \text{si } p \geq Ex\cdot p_{max}.
+\end{cases}
+$$
+
+</div>
+
+. . .
+
+```{r}
+NotaEPG3308 <- function(p, pMax, Ex){
+  if(p < Ex * pMax){
+    Nota <- 1 + 3*p/(Ex*pMax)
+    return( round(Nota,1) )
+  }else{ # En caso contrario, p >= Ex * pMax
+    Nota <- 4 + 3*(p - Ex*pMax)/(pMax*(1- Ex))
+    return( round(Nota,1) )
+  }
+}
+```
+
+. . .
+
+```{r}
+NotaEPG3308(p = 15, pMax = 30, Ex = 0.5)
+NotaEPG3308(p = 15, pMax = 30, Ex = 0.65)
+```
+
+
+--------------------------------------------------------------------------------
+
+**Observaciones**
+
+* Dentro de la condición del `if` puede venir cualquier operación lógica de interés.
+
+. . .
+
+<div style = "text-align: center; font-size:0.8em">
+`if(comuna == "A" & edad > 50 & ptje == 10 & ...)`
+</div>
+
+* Si se desean ejecutar más de dos casos usar `else if()`:
+
+. . .
+
+```{r eval = FALSE}
+if(condicion1){
+  
+}else if(condicion2){
+  
+}else if(condicion3){
+  
+}else{
+  ...
+}
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Bucles `for`**
+</div>
+
+* Permiten recorrer cada elemento de un vector y realizar una acción con cada uno de ellos.
+
+  * Realizar procedimientos repetitivos.
+
+* Sintaxis:
+
+. . .
+
+<div style = "text-align: center; font-size:1.4em">
+```{r eval = FALSE}
+for(elemento in vector){ # Para cada elemento en el vector:
+  # Usar "elemento" para ejecutar (o no) algo. 
+}
+```
+</div>
+
+--------------------------------------------------------------------------------
+
+**Ejemplos**
+
+* Imprimir cada elemento de un vector:
+
+. . .
+
+```{r eval= FALSE}
+Alumnos <- c("H", "A", "R", "B", "J", "F")
+for(a in Alumnos){ # Para cada elemento de Alumnos
+  print(a)
+}
+```
+
+* Aplicar operación matemática a cada elemento:
+
+. . .
+
+```{r eval= FALSE}
+Secuencia <- 1:10
+for(potencia in Secuencia){ 
+  print(pi^potencia)
+}
+```
+
+--------------------------------------------------------------------------------
+
+* Lo más común es usar vector de índices:
+
+. . .
+
+```{r eval = FALSE}
+indices <- 1:nrow(base)
+for(i in indices){
+  print(base$Edad[i])
+  
+  Sys.sleep(1) # Añade un segundo de tiempo entre iteraciones
+}
+```
+
+* Notación simplificada:
+
+. . .
+
+```{r eval = FALSE}
+for(i in 1:10){
+  print(base[i,])
+}
+```
+
+* Usar `for` para ir rellenando variables:
+
+. . .
+
+```{r eval = FALSE}
+vector <- c() # Vector vacío
+for(i in 1:20){
+  vector[i] <- exp(i) # número de euler elevado a i = 2.718^i
+}
+```
+
+--------------------------------------------------------------------------------
+
+
+<div style = "text-align: center; font-size:1.2em">
+::: {.callout-important}
+## Importante
+
+Usar `for` cuando no haya una función vectorizada en R que haga lo mismo, o cuando necesite hacer muchos cálculos dentro de cada iteración.
+
+**Cálculos vectorizados son siempre más rápidos**
+
+:::
+
+</div>
+
+* Sumar con `for` vs sumar con función `sum`:
+
+. . .
+
+```{r}
+vector <- 1:10
+suma <- 0
+for(i in 1:length(vector)) suma <- suma + vector[i]
+
+sum(vector)
+```
+
+--------------------------------------------------------------------------------
+
+**Aplicación combinando `if-else` y `for`**
+
+. . .
+
+:::{.nonincremental}
+
+Calcular nota de alumnos donde la exigencia cambia según comuna:
+
+  * San Joaquín: 50\% exigencia
+
+  * Macul: 60\% exigencia
+
+  * La Florida: 65\% exigencia
+
+:::
+
+--------------------------------------------------------------------------------
+
+**Solución**:
+
+. . .
+```{r eval = FALSE}
+Notas <- c()
+for(i in 1:nrow(base)){
+  if(base$Comuna[i] == "San Joaquin"){
+    Notas[i] <- NotaEPG3308(p = base$puntuacion[i],
+                            pMax = 100,
+                            Ex = 0.50)
+  }else if(base$Comuna[i] == "Macul"){
+        Notas[i] <- NotaEPG3308(p = base$puntuacion[i],
+                            pMax = 100,
+                            Ex = 0.60)
+  }else{
+        Notas[i] <- NotaEPG3308(p = base$puntuacion[i],
+                            pMax = 100,
+                            Ex = 0.65)
+  }
+}
+
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+Bucle `while`
+</div>
+
+* Estructura que ejecuta un bloque de código de forma repetitiva mientras una condición sea verdadera. 
+
+. . .
+
+<div style = "text-align: center; font-size:1.4em">
+```{r eval = FALSE}
+while(condicion){ # Mientras se cumpla la condición ejecutar:
+
+  # Código
+  
+}
+```
+</div>
+
+* Antes de iniciar cada iteración, se reevalúa la condición.
+
+* Dentro del código debe ocurrir algo que modifique el estado de la condición.  
+
+--------------------------------------------------------------------------------
+
+Ejemplos:
+
+* Sumar números hasta que la suma sea mayor a 100.
+
+. . .
+
+```{r}
+suma <- 0
+n <- 1 # Contador
+while (suma <= 100) {
+  suma <- suma + n
+  n <- n + 1
+}
+print(n)
+```
+
+* Validar la respueta de un usuario:
+
+. . .
+
+```{r eval = FALSE}
+respuesta <- ""
+while (respuesta != "sí") {
+  respuesta <- readline(prompt = "¿Quieres continuar? (escribe 'sí'): ")
+}
+cat("¡Gracias por confirmar!\n")
+```
+
+--------------------------------------------------------------------------------
+
+:::{.nonincremental}
+
+<div style = "text-align: center; font-size:1.2em;color: #28A745;">
+¡Actividad Bonificada!
+</div>
+
+<div style = "font-size:0.9em;">
+
+Resuelva cada caso utilizando procedimientos vectorizados y utilizando control de flujo (`if-else` y/o `for`)
+
+1. Construya una función que reciba un vector de notas e imprima un mensaje indicando si alguien obtuvo una nota 7.0 o no.
+
+2. Usando el archivo `Clase03_notas.R` y las notas calculadas previamente, escriba un código que recorra el vector de notas e imprima un mensaje para cada una, según estos casos:
+  * Si Nota < 4.0 $\rightarrow$ "No se exime de examen".
+  * Si Nota está entre 4.0 y 6.0 $\rightarrow$ "Posible eximición examen".
+  * Si Nota > 6.0 4.0 $\rightarrow$ "Eximido de examen".
+
+
+</div>
+
+:::
