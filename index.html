@@ -3925,6 +3925,737 @@ Levels: setosa versicolor virginica</code></pre>
 </ul>
 </div>
 </div>
+</section>
+<section class="slide level2">
+
+
+<img data-src="imagenes/LogoMATUC.png" class="quarto-figure quarto-figure-center r-stretch" width="950"><div style="text-align: center; font-size:1.5em;color:#2E86C1">
+<p><strong>EPG3308: Computación Estadística</strong></p>
+</div>
+<div style="text-align: center; font-size:1.9em;color:#313131">
+<p><strong>Clase 05: Herramientas Gráficas</strong></p>
+</div>
+<div style="text-align: center; font-size:1em;color:#313131">
+<p><strong>Profesor</strong>: Hernán Robledo Araya (harobledo@uc.cl)<br> <strong>Ayudante</strong>: Josefa Silva Muñoz (josefa.silva@alumni.uc.cl) <br> <br> Primer Semestre - 2025</p>
+</div>
+</section>
+<section id="section-8" class="slide level2" data-background="#43464B" data-background-image="imagenes/statisticalcomputing2.jpg">
+<h2></h2>
+<div style="display: flex; text-align:center; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 3.5em;">
+<p><b> Gráficos en R Base </b></p>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Análisis de Estadísticas descriptivas:</strong></p>
+<div class="fragment">
+<p><br></p>
+<div style="text-align: center; font-size:0.8em">
+<p><strong>Concentraciones de Tratamientos Biológicos bajo 4 Experimentos</strong></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Experimento</th>
+<th>Media</th>
+<th>Desv. estándar</th>
+<th>Mínimo</th>
+<th>Máximo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Exp 1</td>
+<td>0.20</td>
+<td>0.40</td>
+<td>0.00</td>
+<td>1.00</td>
+</tr>
+<tr class="even">
+<td>Exp 2</td>
+<td>0.40</td>
+<td>0.05</td>
+<td>0.10</td>
+<td>0.70</td>
+</tr>
+<tr class="odd">
+<td>Exp 3</td>
+<td>0.60</td>
+<td>0.08</td>
+<td>0.20</td>
+<td>1.00</td>
+</tr>
+<tr class="even">
+<td>Exp 4</td>
+<td>0.80</td>
+<td>0.25</td>
+<td>0.30</td>
+<td>1.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<p>¿Qué podemos decir de estos resultados?</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.3em">
+<p><strong>¿Por qué usar graficos para visualizar información?</strong></p>
+</div>
+<div class="fragment">
+<p><img data-src="imagenes/0030_intro1.png" class="absolute" style="transform: rotate(0deg);top: 200px; left: 150px; width: 800px; "></p>
+</div>
+<div class="fragment">
+<p><img data-src="imagenes/0030_intro2.png" class="absolute" style="transform: rotate(0deg);top: 200px; left: 150px; width: 800px; "></p>
+</div>
+<div class="fragment">
+<p><img data-src="imagenes/0030_intro3.png" class="absolute" style="transform: rotate(0deg);top: 200px; left: 150px; width: 800px; "></p>
+</div>
+<div class="fragment">
+<p><img data-src="imagenes/0030_intro4.png" class="absolute" style="transform: rotate(0deg);top: 200px; left: 150px; width: 800px; "></p>
+</div>
+<div class="fragment">
+<p><img data-src="imagenes/0030_intro5.png" class="absolute" style="transform: rotate(0deg);top: 200px; left: 150px; width: 800px; "></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Cómo NO graficarán los alumnos de este curso:</strong></p>
+<p>🤨🤨🤨</p>
+</div>
+<p><img data-src="imagenes/0031_HistogramaFeo.png" class="absolute" style="transform: rotate(0deg);top: 150px; left: 150px; width: 650px; "></p>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Cómo sí graficarán los alumnos de este curso:</strong></p>
+<p>🧐🧐😇😇</p>
+</div>
+<p><img data-src="imagenes/0031_HistogramaBonito.png" class="absolute" style="transform: rotate(0deg);top: 200px; left: 200px; width: 600px; "></p>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Consideraciones</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li class="fragment"><p>Dedicar tiempo a la confección de gráficos.</p></li>
+<li class="fragment"><p>Presentar gráficos en base a una historia que se desea contar.</p>
+<ul>
+<li class="fragment">¿Qué quiero decir con este gráfico?</li>
+</ul></li>
+<li class="fragment"><p>No todo gráfico es interesante de ver.</p></li>
+<li class="fragment"><p>No sobrecargar los gráficos.</p></li>
+<li class="fragment"><p>Reflexionar: ¿de cuántas maneras puedo presentar los mismos resultados?</p></li>
+<li class="fragment"><p>R puede no ser la mejor herramienta para hacer un gráfico.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Veremos:</p>
+<ol type="1">
+<li class="fragment">Histogramas</li>
+<li class="fragment">Gráficos de Densidad</li>
+<li class="fragment">Gráficos de Dispersión</li>
+<li class="fragment">Gráficos de Línea</li>
+<li class="fragment">Diagrama de Caja</li>
+<li class="fragment">Diagrama de Torta</li>
+</ol>
+</section>
+<section class="slide level2">
+
+<div>
+<div style="text-align: center; font-size:1.2em">
+<p>¿Cómo estudiamos la <em>distribución</em> de una variable?</p>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><em>Distribución de una variable numérica</em></strong></p>
+</div>
+<div class="callout-content">
+<p>Con qué forma y dónde se distribuyen los valores observados de una variable.</p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">¿Centro de los datos?</li>
+<li class="fragment">¿Dispersión en torno al centro?</li>
+<li class="fragment">Simétricos o asimétricos en torno a un centro?</li>
+<li class="fragment">¿Unimodal o multimodal?</li>
+<li class="fragment">¿Datos extremos?</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.8em">
+<p><strong>Histogramas</strong></p>
+</div>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-133-1.png" class="quarto-figure quarto-figure-center r-stretch" width="576"></section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Histogramas con </strong> <code>hist(x)</code></p>
+</div>
+<div class="fragment">
+<div style="font-size:0.8em">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Advertencia</strong></p>
+</div>
+<div class="callout-content">
+<p>Imagen sensible (disculpas correspondientes)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb326"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb326-1"><a href=""></a><span class="fu">load</span>(<span class="st">"Clase05_Datos.RData"</span>)</span>
+<span id="cb326-2"><a href=""></a><span class="fu">hist</span>(datos[,<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-134-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:0.8em">
+<div class="cell" data-layout-align="center" height="8">
+<div class="sourceCode cell-code" id="cb327"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb327-1"><a href=""></a><span class="fu">hist</span>(datos[,<span class="dv">1</span>],</span>
+<span id="cb327-2"><a href=""></a>     <span class="at">main =</span> <span class="st">"main asigna un titulo al grafico"</span>,</span>
+<span id="cb327-3"><a href=""></a>     <span class="at">xlab =</span> <span class="st">"xlab modifica etiqueta del Eje X"</span>,</span>
+<span id="cb327-4"><a href=""></a>     <span class="at">ylab =</span> <span class="st">"ylab modifica etiqueta del Eje Y"</span>,</span>
+<span id="cb327-5"><a href=""></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>), <span class="co"># Modificar rango de eje X</span></span>
+<span id="cb327-6"><a href=""></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">120</span>), <span class="co"># Modificar rango de eje y.</span></span>
+<span id="cb327-7"><a href=""></a>     <span class="at">freq =</span> <span class="cn">TRUE</span>, <span class="co"># ¿Frecuencia absoluta (TRUE) o relativa/densidad (FALSE)?</span></span>
+<span id="cb327-8"><a href=""></a>     <span class="at">col =</span> <span class="st">"lightblue2"</span>, <span class="co"># Color de relleno</span></span>
+<span id="cb327-9"><a href=""></a>     <span class="at">border =</span> <span class="st">"lightblue4"</span>, <span class="co"># Color de borde</span></span>
+<span id="cb327-10"><a href=""></a>     <span class="at">las =</span> <span class="dv">1</span>, <span class="co"># Etiquetas eje Y rotadas</span></span>
+<span id="cb327-11"><a href=""></a>     <span class="at">breaks =</span> <span class="dv">15</span> <span class="co"># Numero de barras</span></span>
+<span id="cb327-12"><a href=""></a>     )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-135-1.png" class="quarto-figure quarto-figure-center" width="1152"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment">Superponer dos histogramas con <code>add = TRUE</code>.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb328"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb328-1"><a href=""></a><span class="fu">hist</span>(datos[,<span class="dv">1</span>], <span class="at">col =</span> <span class="st">"red3"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span>,<span class="dv">10</span>), <span class="at">main =</span> <span class="st">"Superponer histogramas"</span>, <span class="at">xlab =</span> <span class="st">"eje X"</span>, <span class="at">ylab =</span> <span class="st">"Frecuencia Relativa"</span>)</span>
+<span id="cb328-2"><a href=""></a><span class="fu">hist</span>(datos[,<span class="dv">2</span>], <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"orange2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center" height="7">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-137-1.png" class="quarto-figure quarto-figure-center" width="1056"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment">En estadística suponemos que datos surgen de un modelo.</li>
+</ul>
+<div class="fragment">
+<div class="cell" data-layout-align="center" height="10">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-138-1.png" class="quarto-figure quarto-figure-center" width="1152"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">¿Graficar histograma suavizado que se parezca a la teoría?</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Histograma suavizado:</strong> <code>density(x)</code></p>
+</div>
+<div class="fragment">
+<div style="text-align: center; font-size:0.8em">
+<div class="cell" data-layout-align="center" height="10">
+<div class="sourceCode cell-code" id="cb329"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb329-1"><a href=""></a><span class="fu">par</span>(<span class="at">cex =</span> <span class="fl">1.4</span>) <span class="co"># Aumenta todo el tamaño del grafico</span></span>
+<span id="cb329-2"><a href=""></a><span class="fu">hist</span>(datos[,<span class="dv">1</span>], <span class="at">main =</span> <span class="st">"Densidad de Kernel con density(x)"</span>, <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">ylab =</span> <span class="st">""</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>), <span class="at">freq =</span> F, <span class="at">col =</span> <span class="st">"lightblue2"</span>, <span class="at">border =</span> <span class="st">"lightblue4"</span>, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">breaks =</span> <span class="dv">15</span> )</span>
+<span id="cb329-3"><a href=""></a></span>
+<span id="cb329-4"><a href=""></a><span class="fu">lines</span>(<span class="fu">density</span>(datos[,<span class="dv">1</span>]), <span class="at">col =</span> <span class="st">"blue2"</span>,</span>
+<span id="cb329-5"><a href=""></a>      <span class="at">lwd =</span> <span class="dv">2</span>,  <span class="co"># Linea de ancho 2</span></span>
+<span id="cb329-6"><a href=""></a>      <span class="at">lty =</span> <span class="dv">2</span>   <span class="co"># Linea punteada</span></span>
+<span id="cb329-7"><a href=""></a>      ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-139-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Histograma suavizado:</strong> <code>density(x)</code></p>
+</div>
+<ul>
+<li class="fragment">Útiles cuando se desea simplificar el gráfico. Requiere comprender una densidad.</li>
+</ul>
+<div class="fragment">
+<div class="cell" data-layout-align="center" height="12">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-140-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Gráfico de Caja:</strong> <code>boxplot(x)</code></p>
+</div>
+<div class="fragment">
+<p><img data-src="https://miro.medium.com/max/9000/1*2c21SkzJMf3frPXPAR_gZA.png"></p>
+<p><a href="https://miro.medium.com/max/9000/1*2c21SkzJMf3frPXPAR_gZA.png">Fuente de Imagen</a></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Gráfico de Caja:</strong> <code>boxplot(x)</code></p>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb330"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb330-1"><a href=""></a><span class="fu">boxplot</span>(datos[,<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-142-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="text-align: center; font-size:1.2em">
+<p>😱😱😱🙈🙈🙈</p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Gráfico de Caja:</strong> <code>boxplot(x)</code></p>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb331"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb331-1"><a href=""></a><span class="fu">par</span>(<span class="at">cex =</span> <span class="fl">1.5</span>)</span>
+<span id="cb331-2"><a href=""></a><span class="fu">boxplot</span>(datos[,<span class="dv">1</span>], <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>),</span>
+<span id="cb331-3"><a href=""></a>        <span class="at">main =</span> <span class="st">"Titulo del Diagrama de Caja"</span>,</span>
+<span id="cb331-4"><a href=""></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb331-5"><a href=""></a>        <span class="at">col =</span> <span class="st">"lightblue2"</span>,       <span class="co"># Relleno</span></span>
+<span id="cb331-6"><a href=""></a>        <span class="at">border =</span> <span class="st">"lightblue4"</span>,    <span class="co"># Borde de la caja</span></span>
+<span id="cb331-7"><a href=""></a>        <span class="at">boxwex =</span> <span class="fl">1.2</span>,            <span class="co"># Ancho de la caja</span></span>
+<span id="cb331-8"><a href=""></a>        <span class="at">pch =</span> <span class="dv">19</span>); <span class="fu">grid</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-143-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment">Diagramas de caja según categorías con sintaxis <code>y ~ x</code></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb332"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb332-1"><a href=""></a><span class="fu">boxplot</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> iris, <span class="at">las =</span> <span class="dv">1</span>,</span>
+<span id="cb332-2"><a href=""></a>        <span class="at">xlab =</span> <span class="st">"Especie"</span>, <span class="at">ylab =</span> <span class="st">"Largo del Sepal"</span>, <span class="at">col =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">pch =</span> <span class="dv">19</span>)</span>
+<span id="cb332-3"><a href=""></a><span class="fu">grid</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-145-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment"><p>Histograma, gráfico de densidad, y boxplot permiten analizar o comparar distribuciones.</p></li>
+<li class="fragment"><p>Usaremos gráficos de dispersión para comparar relación entre dos variables:</p>
+<ul>
+<li class="fragment">¿Peso corporal predice la presión arterial?</li>
+<li class="fragment">¿A mayor cantidad de estudio, mejor rendimiento?</li>
+<li class="fragment">¿Evoluciona una variable en función del tiempo?</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Gráfico de Dispersión:</strong> <code>plot(x, y)</code></p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Gráfico de Dispersión:</strong> <code>plot(x, y)</code></p>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb333"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb333-1"><a href=""></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"Clase05_Datos3.RData"</span>)</span>
+<span id="cb333-2"><a href=""></a><span class="fu">plot</span>(y1 <span class="sc">~</span> y2, <span class="at">data =</span> datos3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-146-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="text-align: center; font-size:1.2em">
+<p>🤢🤢🤢💀💀💀</p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size:0.8em">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb334"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb334-1"><a href=""></a><span class="fu">par</span>(<span class="at">cex =</span> <span class="fl">1.2</span>)</span>
+<span id="cb334-2"><a href=""></a><span class="fu">plot</span>(y2 <span class="sc">~</span> y1, <span class="at">data =</span> datos3,</span>
+<span id="cb334-3"><a href=""></a>     <span class="at">main =</span> <span class="st">"Relacion entre variable y1 y y2"</span>, <span class="at">xlab =</span> <span class="st">"Variable y1"</span>, <span class="at">ylab =</span> <span class="st">"Variable y2"</span>,</span>
+<span id="cb334-4"><a href=""></a>     <span class="at">type =</span> <span class="st">"p"</span>,</span>
+<span id="cb334-5"><a href=""></a>     <span class="at">col =</span> <span class="st">"red3"</span>,</span>
+<span id="cb334-6"><a href=""></a>     <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb334-7"><a href=""></a>     <span class="at">las =</span> <span class="dv">1</span></span>
+<span id="cb334-8"><a href=""></a>)</span>
+<span id="cb334-9"><a href=""></a><span class="fu">grid</span>(<span class="at">col =</span> <span class="fu">rgb</span>(<span class="fl">0.2</span>,<span class="fl">0.2</span>,<span class="fl">0.2</span>,<span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<div style="font-size:0.8em">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-148-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size:0.8em">
+<ul>
+<li class="fragment">Gráfico de líneas con <code>type = "l"</code></li>
+</ul>
+</div>
+<div class="fragment">
+<div style="font-size:0.8em">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb335"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb335-1"><a href=""></a><span class="fu">par</span>(<span class="at">cex =</span> <span class="fl">1.2</span>)</span>
+<span id="cb335-2"><a href=""></a><span class="fu">plot</span>(y1 <span class="sc">~</span> tiempo, <span class="at">data =</span> datos3,</span>
+<span id="cb335-3"><a href=""></a>     <span class="at">main =</span> <span class="st">"Serie de Tiempo"</span>, <span class="at">xlab =</span> <span class="st">"tiempo"</span>, <span class="at">ylab =</span> <span class="st">"Variable y1"</span>,</span>
+<span id="cb335-4"><a href=""></a>     <span class="at">type =</span> <span class="st">"l"</span>,</span>
+<span id="cb335-5"><a href=""></a>     <span class="at">col =</span> <span class="st">"red3"</span>,</span>
+<span id="cb335-6"><a href=""></a>     <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb335-7"><a href=""></a>     <span class="at">las =</span> <span class="dv">1</span></span>
+<span id="cb335-8"><a href=""></a>)</span>
+<span id="cb335-9"><a href=""></a><span class="fu">grid</span>(<span class="at">col =</span> <span class="fu">rgb</span>(<span class="fl">0.2</span>,<span class="fl">0.2</span>,<span class="fl">0.2</span>,<span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-149-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Apartado técnico de gráficos en R.</strong></p>
+</div>
+<div style="font-size:0.9em">
+<ul>
+<li class="fragment"><p>Crear un gráfico es abrir un <em>dispositivo gráfico</em>.</p></li>
+<li class="fragment"><p>Funciones de alto nivel como <code>plot()</code> abren el dispositivo.</p></li>
+</ul>
+</div>
+<div style="font-size:0.8em">
+<ul>
+<li class="fragment">Funciones de bajo nivel: permiten añadir elementos al dispostivo abierto. No sirven por si solas.
+<ul>
+<li class="fragment"><code>lines</code>: graficar líneas adicionales.</li>
+<li class="fragment"><code>points</code>: graficar puntos adicionales.</li>
+<li class="fragment"><code>text</code>: imprimir texto en gráfico.</li>
+<li class="fragment"><code>legend</code>: añadir leyenda.</li>
+<li class="fragment"><code>grid</code>, <code>axis</code>, <code>segments</code>, <code>title</code>, <code>polygon</code>, etc.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Reconstruyamos el siguiente gráfico:</p>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-150-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb336"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb336-1"><a href=""></a><span class="co"># Iniciar dispositivo grafico</span></span>
+<span id="cb336-2"><a href=""></a><span class="fu">plot</span>(<span class="cn">NULL</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">200</span>), <span class="at">las =</span> <span class="dv">1</span>, <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">ylab =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Apartado técnico de gráficos en R.</strong></p>
+</div>
+<ul>
+<li class="fragment">Función <code>par()</code> contiene la configuración global de los dispositivos gráficos.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb337"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb337-1"><a href=""></a><span class="fu">par</span>()[<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>] <span class="sc">|&gt;</span> <span class="fu">unlist</span>()  <span class="co"># Ver ayuda para todos los parametros: ?par</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   xlog    ylog     adj     ann     ask      bg     bty     cex 
+"FALSE" "FALSE"   "0.5"  "TRUE" "FALSE" "white"     "o"     "1" </code></pre>
+</div>
+</div>
+<div style="text-align: center; font-size:0.8em">
+<ul>
+<li class="fragment">Podemos modificar alguno de estos parámetros para que se aplique a todos los gráficos.
+<ul>
+<li class="fragment"><code>par(pch = 19)</code>: puntos rellenos en gráficos de puntos.</li>
+<li class="fragment"><code>par(cex.main = 2)</code>: agrandar títulos de gráficos.</li>
+<li class="fragment"><code>par(mfrow = c(filas, columnas))</code>: dividir la ventana en una matriz para imprimir multiples gráficos.</li>
+<li class="fragment"><code>?par</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment">Ejemplo de uso de <code>par()</code></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb339"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb339-1"><a href=""></a><span class="fu">plot</span>(Sepal.Length <span class="sc">~</span> Sepal.Width, <span class="at">data =</span> iris)</span>
+<span id="cb339-2"><a href=""></a><span class="fu">plot</span>(Sepal.Length <span class="sc">~</span> Petal.Length, <span class="at">data =</span> iris)</span>
+<span id="cb339-3"><a href=""></a><span class="fu">plot</span>(Sepal.Width <span class="sc">~</span> Petal.Width, <span class="at">data =</span> iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li class="fragment">Ejecutar código anterior antes y después de ejecutar</li>
+</ul>
+</div>
+<div class="fragment">
+<div style="text-align: center; font-size:0.9em">
+<p><code>par(las = 1, bty = "n", pch = 19, mfrow = c(1,3), cex.lab = 1.2, cex.axis = 1.2)</code></p>
+</div>
+<ul>
+<li class="fragment">Volver a configuración por defecto cerrando el dispositivo gráfico con <code>dev.off()</code></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Graficar funciones matemáticas:</strong> <code>curve()</code></p>
+</div>
+<ul>
+<li class="fragment">Graficar la función <span class="math inline">\(f(x|k,v,\dots)\)</span> en <span class="math inline">\(a &lt; x &lt; b\)</span>.
+<ul>
+<li class="fragment">Se evalúa en <span class="math inline">\(x\)</span> y tiene posibles parámetros <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(\dots\)</span> que la modifican.</li>
+</ul></li>
+<li class="fragment">Sintaxis:</li>
+</ul>
+<div class="fragment">
+<div style="text-align: center; font-size:1.0em">
+<p><code>curve(f(x, k, v), from = a, to = b)</code></p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment"><strong>Ejemplo</strong>: distribución Normal Estándar</li>
+</ul>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb340"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb340-1"><a href=""></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">exp</span>(<span class="sc">-</span>x<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>pi)</span>
+<span id="cb340-2"><a href=""></a><span class="fu">curve</span>(<span class="fu">f</span>(x), <span class="at">from =</span> <span class="sc">-</span><span class="dv">3</span>, <span class="at">to =</span> <span class="dv">3</span>, <span class="at">las =</span> <span class="dv">1</span>, </span>
+<span id="cb340-3"><a href=""></a><span class="at">main =</span> <span class="st">"Distribucion Normal Estandar"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-154-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment"><strong>Ejemplo</strong>: distribución Gamma<span class="math inline">\((k,v)\)</span>:</li>
+</ul>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb341"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb341-1"><a href=""></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x, k, v) v<span class="sc">^</span>k<span class="sc">/</span><span class="fu">gamma</span>(k)<span class="sc">*</span>x<span class="sc">^</span>(k<span class="dv">-1</span>)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>v<span class="sc">*</span>x)</span>
+<span id="cb341-2"><a href=""></a><span class="fu">curve</span>(<span class="fu">f</span>(x,<span class="at">k =</span> <span class="dv">3</span>, <span class="at">v =</span> <span class="fl">0.5</span>), <span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">20</span>, </span>
+<span id="cb341-3"><a href=""></a>      <span class="at">las =</span> <span class="dv">1</span>, </span>
+<span id="cb341-4"><a href=""></a>      <span class="at">main =</span> <span class="st">"Distribucion Gamma"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-155-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment"><strong>Ejemplo</strong>: graficar funciones que ya vienen en R</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb342"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb342-1"><a href=""></a><span class="fu">curve</span>(<span class="fu">exp</span>(x), <span class="at">from =</span> <span class="sc">-</span><span class="dv">3</span>, <span class="at">to =</span> <span class="dv">3</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb342-2"><a href=""></a></span>
+<span id="cb342-3"><a href=""></a><span class="fu">curve</span>(<span class="fu">sin</span>(x), <span class="at">from =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="at">to =</span> <span class="dv">10</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb342-4"><a href=""></a></span>
+<span id="cb342-5"><a href=""></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x,<span class="dv">0</span>,<span class="dv">4</span>), <span class="at">from =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="at">to =</span> <span class="dv">10</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb342-6"><a href=""></a></span>
+<span id="cb342-7"><a href=""></a><span class="fu">curve</span>(<span class="fu">pexp</span>(x,<span class="dv">1</span>), <span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">10</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb342-8"><a href=""></a></span>
+<span id="cb342-9"><a href=""></a><span class="fu">curve</span>(<span class="fu">ppois</span>(x,<span class="dv">4</span>), <span class="at">from =</span> <span class="dv">0</span>, <span class="dv">10</span>)</span>
+<span id="cb342-10"><a href=""></a></span>
+<span id="cb342-11"><a href=""></a><span class="fu">curve</span>(<span class="fu">pbinom</span>(x,<span class="at">size=</span><span class="dv">20</span>,<span class="at">prob=</span><span class="fl">0.2</span>), <span class="at">from =</span> <span class="dv">0</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<ul>
+<li class="fragment">Una herramienta gráfica más amigable es <a href="https://www.desmos.com/calculator?lang=es">Desmos</a></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Gráficos feos que no quiero mostrar:</p>
+<ul>
+<li class="fragment"><p>Gráfico de barra con <code>barplot(x)</code></p></li>
+<li class="fragment"><p>Gráfico de torta con <code>pie(x)</code></p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb343"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb343-1"><a href=""></a>frutas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Manzana"</span>, <span class="st">"Plátano"</span>, <span class="st">"Naranja"</span>, <span class="st">"Fresa"</span>, <span class="st">"Uva"</span>)</span>
+<span id="cb343-2"><a href=""></a>cantidades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>)</span>
+<span id="cb343-3"><a href=""></a></span>
+<span id="cb343-4"><a href=""></a><span class="fu">pie</span>(cantidades, <span class="at">labels =</span> frutas,</span>
+<span id="cb343-5"><a href=""></a>    <span class="at">main =</span> <span class="st">"Preferencia por tipo de fruta"</span>,</span>
+<span id="cb343-6"><a href=""></a>    <span class="at">col =</span> <span class="fu">rainbow</span>(<span class="fu">length</span>(frutas)))</span>
+<span id="cb343-7"><a href=""></a></span>
+<span id="cb343-8"><a href=""></a><span class="fu">barplot</span>(cantidades,</span>
+<span id="cb343-9"><a href=""></a>        <span class="at">names.arg =</span> frutas,</span>
+<span id="cb343-10"><a href=""></a>        <span class="at">main =</span> <span class="st">"Preferencia por tipo de fruta"</span>,</span>
+<span id="cb343-11"><a href=""></a>        <span class="at">ylab =</span> <span class="st">"Cantidad de personas"</span>,</span>
+<span id="cb343-12"><a href=""></a>        <span class="at">col =</span> <span class="st">"skyblue"</span>,</span>
+<span id="cb343-13"><a href=""></a>        <span class="at">border =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment">Demostración real de cómo hacer un gráfico complejo:</li>
+</ul>
+<div class="fragment">
+<p><img data-src="imagenes/0033_chatgpt.png" style="display: block; margin: 80px auto 0 auto;" width="700"></p>
+</div>
+</section>
+<section id="section-9" class="slide level2" data-background="#43464B" data-background-image="imagenes/statisticalcomputing2.jpg">
+<h2></h2>
+<div style="display: flex; text-align:center; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 3.5em;">
+<p><b> Gráficos con ggplot2 </b></p>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Próxima clase!</p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 

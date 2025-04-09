@@ -3180,3 +3180,760 @@ Resuelva cada caso utilizando procedimientos vectorizados y utilizando control d
 </div>
 
 :::
+
+
+--------------------------------------------------------------------------------
+
+![](imagenes/LogoMATUC.png){width=950 fig-align="center"}
+
+
+<div style = "text-align: center; font-size:1.5em;color:#2E86C1">
+**EPG3308: Computación Estadística**
+</div>
+<div style = "text-align: center; font-size:1.9em;color:#313131">
+**Clase 05: Herramientas Gráficas**
+</div>
+
+
+<div style = "text-align: center; font-size:1em;color:#313131">
+**Profesor**: Hernán Robledo Araya (harobledo@uc.cl)<br> 
+**Ayudante**: Josefa Silva Muñoz (josefa.silva@alumni.uc.cl) <br> <br> 
+Primer Semestre - 2025
+
+</div>
+           
+         
+## {background="#43464B" background-image="imagenes/statisticalcomputing2.jpg"}
+
+<div style="display: flex; text-align:center; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 3.5em;">
+  <b>  Gráficos en R Base </b>
+</div>
+
+
+
+
+--------------------------------------------------------------------------------
+
+**Análisis de Estadísticas descriptivas:**
+
+. . .
+
+<br>
+
+<div style = "text-align: center; font-size:0.8em">
+
+**Concentraciones de Tratamientos Biológicos bajo 4 Experimentos**
+
+| Experimento | Media | Desv. estándar | Mínimo | Máximo |
+|-------------|-------|----------------|--------|--------|
+| Exp 1       | 0.20  | 0.40           | 0.00   | 1.00   |
+| Exp 2       | 0.40  | 0.05           | 0.10   | 0.70   |
+| Exp 3       | 0.60  | 0.08           | 0.20   | 1.00   |
+| Exp 4       | 0.80  | 0.25           | 0.30   | 1.00   |
+
+</div>
+
+<br>
+
+¿Qué podemos decir de estos resultados?
+
+--------------------------------------------------------------------------------
+
+
+<div style = "text-align: center; font-size:1.3em">
+
+**¿Por qué usar graficos para visualizar información?**
+
+</div>
+
+. . .
+
+![](imagenes/0030_intro1.png){.absolute top="200" left="150" width="800" style="transform: rotate(0deg);"}
+
+. . .
+
+![](imagenes/0030_intro2.png){.absolute top="200" left="150" width="800" style="transform: rotate(0deg);"}
+
+. . .
+
+![](imagenes/0030_intro3.png){.absolute top="200" left="150" width="800" style="transform: rotate(0deg);"}
+
+. . .
+
+![](imagenes/0030_intro4.png){.absolute top="200" left="150" width="800" style="transform: rotate(0deg);"}
+
+. . .
+
+![](imagenes/0030_intro5.png){.absolute top="200" left="150" width="800" style="transform: rotate(0deg);"}
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+
+**Cómo NO graficarán los alumnos de este curso:** 
+
+🤨🤨🤨
+
+</div>
+
+
+![](imagenes/0031_HistogramaFeo.png){.absolute top="150" left="150" width="650" style="transform: rotate(0deg);"}
+
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+
+**Cómo sí graficarán los alumnos de este curso:** 
+
+🧐🧐😇😇
+
+</div>
+
+
+![](imagenes/0031_HistogramaBonito.png){.absolute top="200" left="200" width="600" style="transform: rotate(0deg);"}
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+
+
+::: {.callout-tip}
+## Consideraciones
+
+* Dedicar tiempo a la confección de gráficos.
+
+* Presentar gráficos en base a una historia que se desea contar.
+  * ¿Qué quiero decir con este gráfico?
+
+* No todo gráfico es interesante de ver.
+
+* No sobrecargar los gráficos.
+
+* Reflexionar: ¿de cuántas maneras puedo presentar los mismos resultados?
+
+* R puede no ser la mejor herramienta para hacer un gráfico.
+:::
+
+</div>
+
+--------------------------------------------------------------------------------
+
+Veremos:
+
+1. Histogramas
+2. Gráficos de Densidad 
+3. Gráficos de Dispersión
+4. Gráficos de Línea 
+5. Diagrama de Caja
+6. Diagrama de Torta
+
+
+--------------------------------------------------------------------------------
+
+::: {.nonincremental}
+
+<div style = "text-align: center; font-size:1.2em">
+¿Cómo estudiamos la *distribución* de una variable?
+</div>
+
+:::
+
+. . .
+
+
+::: {.callout-note}
+## *Distribución de una variable numérica*
+Con qué forma y dónde se distribuyen los valores observados de una variable.
+:::
+
+* ¿Centro de los datos?
+* ¿Dispersión en torno al centro?
+* Simétricos o asimétricos en torno a un centro?
+* ¿Unimodal o multimodal?
+* ¿Datos extremos?
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.8em">
+**Histogramas**
+</div>
+
+```{r echo = FALSE, fig.align = "center", fig.width = 6, fig.height = 4}
+set.seed(123)
+x <- rgamma(300, shape = 5, rate = 0.8)
+par(cex = 1.2)
+hist(x, freq = F, las = 1, main = "Tiempos de Funcionamiento", xlab = "Tiempo", col = "gold2", ylab = "Densidad")
+grid(lwd = 2)
+hist(x, freq = F, las = 1, main = "Tiempos de Funcionamiento", xlab = "Tiempo", add = TRUE, col = "gold2")
+```
+
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Histogramas con ** `hist(x)`
+</div>
+
+. . .
+
+<div style = "font-size:0.8em">
+
+::: {.callout-important}
+## Advertencia
+Imagen sensible (disculpas correspondientes)
+:::
+
+</div>
+
+
+. . .
+
+```{r fig.align = "center", fig.width = 8, fig.height = 4}
+load("Clase05_Datos.RData")
+hist(datos[,1])
+```
+
+--------------------------------------------------------------------------------
+
+
+<div style = "text-align: center; font-size:0.8em">
+```{r fig.align = "center", fig.width = 12, height =  8}
+hist(datos[,1],
+     main = "main asigna un titulo al grafico",
+     xlab = "xlab modifica etiqueta del Eje X",
+     ylab = "ylab modifica etiqueta del Eje Y",
+     xlim = c(-4,4), # Modificar rango de eje X
+     ylim = c(0,120), # Modificar rango de eje y.
+     freq = TRUE, # ¿Frecuencia absoluta (TRUE) o relativa/densidad (FALSE)?
+     col = "lightblue2", # Color de relleno
+     border = "lightblue4", # Color de borde
+     las = 1, # Etiquetas eje Y rotadas
+     breaks = 15 # Numero de barras
+     )
+```
+</div>
+
+
+
+--------------------------------------------------------------------------------
+
+* Superponer dos histogramas con `add = TRUE`.
+
+. . .
+
+```{r echo = TRUE, eval = FALSE}
+hist(datos[,1], col = "red3", xlim = c(-5,10), main = "Superponer histogramas", xlab = "eje X", ylab = "Frecuencia Relativa")
+hist(datos[,2], add = TRUE, col = "orange2")
+```
+
+. . .
+
+```{r echo = FALSE, fig.align = "center", fig.width = 11, height =  7}
+par(cex = 1.2)
+hist(datos[,1], col = "red3", xlim = c(-5,10), main = "Superponer histogramas", xlab = "eje X", ylab = "Frecuencia Relativa")
+hist(datos[,2], add = TRUE, col = "orange2")
+```
+
+
+
+--------------------------------------------------------------------------------
+
+* En estadística suponemos que datos surgen de un modelo.
+
+. . .
+
+```{r echo = FALSE, fig.align = "center", fig.width = 12, height = 10}
+par(mfrow = c(1,2), cex = 1.2)
+curve(dnorm, from = -3, to = 3, xlab = "", bty = "n", yaxt = "n", ylab = "", lwd = 2, ylim = c(0,0.5),
+      main = "Distribucion Normal")
+grid()
+curve(dnorm, from = -3, to = 3, xlab = "", bty = "n", yaxt = "n", ylab = "", lwd = 2, add = TRUE)
+
+curve(dnorm, from = -3, to = 3, xlab = "", bty = "n", yaxt = "n", ylab = "", lwd = 2, ylim = c(0,0.5),
+      main = "Datos de Poblacion Normal")
+grid()
+set.seed(123)
+hist(rnorm(500), freq = F, add = TRUE)
+curve(dnorm, from = -3, to = 3, xlab = "", bty = "n", yaxt = "n", ylab = "", lwd = 2, add = TRUE)
+
+```
+
+* ¿Graficar histograma suavizado que se parezca a la teoría?
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Histograma suavizado:** `density(x)`
+</div>
+
+. . .
+
+<div style = "text-align: center; font-size:0.8em">
+```{r echo = TRUE, fig.align = "center", fig.width = 10, height = 10}
+par(cex = 1.4) # Aumenta todo el tamaño del grafico
+hist(datos[,1], main = "Densidad de Kernel con density(x)", xlab = "", ylab = "", xlim = c(-4,4), freq = F, col = "lightblue2", border = "lightblue4", las = 1, breaks = 15 )
+
+lines(density(datos[,1]), col = "blue2",
+      lwd = 2,  # Linea de ancho 2
+      lty = 2   # Linea punteada
+      ) 
+
+```
+</div>
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Histograma suavizado:** `density(x)`
+</div>
+
+* Útiles cuando se desea simplificar el gráfico. Requiere comprender una densidad.
+
+. . .
+
+```{r echo = FALSE, fig.align = "center", fig.width = 10, height = 12}
+load(file = "DatosEjemplo.RData")
+# Colores con transparencia (usamos rgb con alpha)
+colores <- c("E1" = rgb(31, 119, 180, maxColorValue = 255, alpha = 100),
+             "E2" = rgb(44, 160, 44,  maxColorValue = 255, alpha = 100),
+             "E3" = rgb(214, 39, 40,  maxColorValue = 255, alpha = 100),
+             "E4" = rgb(148, 103, 189, maxColorValue = 255, alpha = 100))
+
+# Densidad para la primera curva
+d1 <- density(datos$valores[datos$variable == "E1"])
+
+# Crear gráfico vacío y trazar la primera densidad con relleno
+plot(d1,
+     main = "Densidad de concentración en los 4 tratamientos",
+     xlab = "Concentración (mg/ml)",
+     ylab = "Densidad",
+     xlim = c(0, 1),
+     ylim = c(0, 8),
+     type = "n")
+
+polygon(d1, col = colores["E1"], border = NA)
+
+# Agregar las otras curvas con relleno
+for (var in c("E2", "E3", "E4")) {
+  d <- density(datos$valores[datos$variable == var])
+  polygon(d, col = colores[var], border = NA)
+}
+
+# Opcional: volver a dibujar las líneas de contorno por encima
+lines(d1, col = "#1f77b4", lwd = 2)
+lines(density(datos$valores[datos$variable == "E2"]), col = "#2ca02c", lwd = 2)
+lines(density(datos$valores[datos$variable == "E3"]), col = "#d62728", lwd = 2)
+lines(density(datos$valores[datos$variable == "E4"]), col = "#9467bd", lwd = 2)
+
+legend("topright", legend = c("E1", "E2", "E3", "E4"),
+       col = c("#1f77b4", "#2ca02c", "#d62728", "#9467bd"),
+       lwd = 2, bty = "n")
+
+```
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Gráfico de Caja:** `boxplot(x)`
+</div>
+
+. . .
+
+![](https://miro.medium.com/max/9000/1*2c21SkzJMf3frPXPAR_gZA.png)
+
+[Fuente de Imagen](https://miro.medium.com/max/9000/1*2c21SkzJMf3frPXPAR_gZA.png)
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Gráfico de Caja:** `boxplot(x)`
+</div>
+
+. . .
+
+. . .
+
+```{r echo = FALSE}
+load("Clase05_Datos.RData")
+```
+
+
+```{r fig.align = "center", fig.height=4, fig.width = 8}
+boxplot(datos[,1])
+```
+<div style = "text-align: center; font-size:1.2em">
+😱😱😱🙈🙈🙈
+</div>
+
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Gráfico de Caja:** `boxplot(x)`
+</div>
+
+
+
+
+```{r fig.align = "center"}
+par(cex = 1.5)
+boxplot(datos[,1], ylim = c(-4,4),
+        main = "Titulo del Diagrama de Caja",
+        horizontal = TRUE,
+        col = "lightblue2",       # Relleno
+        border = "lightblue4",    # Borde de la caja
+        boxwex = 1.2,            # Ancho de la caja
+        pch = 19); grid()
+```
+
+
+--------------------------------------------------------------------------------
+
+* Diagramas de caja según categorías con sintaxis `y ~ x`
+
+. . .
+
+```{r eval = FALSE}
+boxplot(Sepal.Length ~ Species, data = iris, las = 1,
+        xlab = "Especie", ylab = "Largo del Sepal", col = 2:4, pch = 19)
+grid()
+```
+
+. . .
+
+```{r echo = FALSE,  fig.align = "center"}
+par(cex = 1.3)
+boxplot(Sepal.Length ~ Species, data = iris, las = 1,
+        xlab = "Especie", ylab = "Largo del Sepal", col = 2:4, pch = 19)
+grid()
+boxplot(Sepal.Length ~ Species, data = iris, las = 1,
+        xlab = "Especie", ylab = "Largo del Sepal", col = 2:4, pch = 19, add = TRUE)
+```
+
+
+--------------------------------------------------------------------------------
+
+* Histograma, gráfico de densidad, y boxplot permiten analizar o comparar distribuciones.
+
+* Usaremos gráficos de dispersión para comparar relación entre dos variables:
+  * ¿Peso corporal predice la presión arterial?
+  * ¿A mayor cantidad de estudio, mejor rendimiento?
+  * ¿Evoluciona una variable en función del tiempo?
+  
+
+. . .
+
+<div style = "text-align: center; font-size:1.2em">
+**Gráfico de Dispersión:** `plot(x, y)`
+</div>
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Gráfico de Dispersión:** `plot(x, y)`
+</div>
+
+. . .
+
+```{r fig.align = "center", fig.height=4, fig.width = 6}
+load(file = "Clase05_Datos3.RData")
+plot(y1 ~ y2, data = datos3)
+```
+<div style = "text-align: center; font-size:1.2em">
+🤢🤢🤢💀💀💀
+</div>
+
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:0.8em">
+
+```{r eval = FALSE, fig.align = "center", fig.width = 8, fig.height= 5}
+par(cex = 1.2)
+plot(y2 ~ y1, data = datos3,
+     main = "Relacion entre variable y1 y y2", xlab = "Variable y1", ylab = "Variable y2",
+     type = "p",
+     col = "red3",
+     pch = 19,
+     las = 1
+)
+grid(col = rgb(0.2,0.2,0.2,0.5))
+
+```
+</div>
+
+
+. . .
+
+<div style = "font-size:0.8em">
+```{r echo = FALSE, fig.align = "center", fig.width = 7, fig.height= 4}
+par(cex = 1.2)
+plot(y2 ~ y1, data = datos3,
+     main = "Relacion entre variabel y1 y y2", xlab = "Variable y1", ylab = "Variable y2",
+     type = "p",
+     col = "red3",
+     pch = 19,
+     las = 1
+)
+grid(col = rgb(0.2,0.2,0.2,0.5))
+
+```
+</div>
+
+
+--------------------------------------------------------------------------------
+
+
+<div style = "font-size:0.8em">
+* Gráfico de líneas con `type = "l"`
+</div>
+
+. . .
+
+<div style = "font-size:0.8em">
+```{r fig.align = "center", fig.width = 8, fig.height= 4}
+par(cex = 1.2)
+plot(y1 ~ tiempo, data = datos3,
+     main = "Serie de Tiempo", xlab = "tiempo", ylab = "Variable y1",
+     type = "l",
+     col = "red3",
+     pch = 19,
+     las = 1
+)
+grid(col = rgb(0.2,0.2,0.2,0.5))
+
+```
+</div>
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Apartado técnico de gráficos en R.**
+</div>
+
+<div style = "font-size:0.9em">
+* Crear un gráfico es abrir un *dispositivo gráfico*.
+
+* Funciones de alto nivel como `plot()` abren el dispositivo.
+
+</div>
+
+<div style = "font-size:0.8em">
+* Funciones de bajo nivel: permiten añadir elementos al dispostivo abierto. No sirven por si solas.
+  * `lines`: graficar líneas adicionales.
+  * `points`: graficar puntos adicionales. 
+  * `text`: imprimir texto en gráfico.
+  * `legend`: añadir leyenda.
+  * `grid`, `axis`, `segments`, `title`, `polygon`, etc.
+</div>
+
+
+--------------------------------------------------------------------------------
+
+
+Reconstruyamos el siguiente gráfico:
+
+. . .
+
+```{r echo = FALSE, fig.align = "center"}
+
+# Iniciar dispositivo grafico
+plot(NULL, xlim = c(0,100), ylim = c(0,200), las = 1, xlab = "", ylab = "")
+
+# Adiciones al dispositivo:
+points(y1 ~ y2, data = datos3, pch = 19) 
+lines(y1 ~ tiempo, data = datos3, col = "red", lwd = 2)
+grid()
+title(main = "(y1 vs y2) y (y1 vs tiempo)", line = 1, cex.main = 2)
+title(xlab = "Eje X", ylab = "Eje Y")
+text(x =  20, y = 100, label = "¡Texto de prueba!", cex = 2, col = "green4")
+legend("topleft", legend = c("Serie de Tiempo", "Relacion y1 vs y2"), col = c("red", "black"),
+       lty = c(1,0), pch = c(NA, 19), lwd = 4, cex = 1.2)
+
+
+```
+
+```{r eval = FALSE}
+# Iniciar dispositivo grafico
+plot(NULL, xlim = c(0,100), ylim = c(0,200), las = 1, xlab = "", ylab = "")
+```
+
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Apartado técnico de gráficos en R.**
+</div>
+
+* Función `par()` contiene la configuración global de los dispositivos gráficos.
+
+. . .
+
+```{r}
+par()[1:8] |> unlist()  # Ver ayuda para todos los parametros: ?par
+```
+
+<div style = "text-align: center; font-size:0.8em">
+
+* Podemos modificar alguno de estos parámetros para que se aplique a todos los gráficos.
+  * `par(pch = 19)`: puntos rellenos en gráficos de puntos.
+  * `par(cex.main = 2)`: agrandar títulos de gráficos.
+  * `par(mfrow = c(filas, columnas))`: dividir la ventana en una matriz para imprimir multiples gráficos.
+  * `?par`
+
+</div>
+
+--------------------------------------------------------------------------------
+
+* Ejemplo de uso de `par()`
+
+. . .
+
+```{r eval = FALSE}
+plot(Sepal.Length ~ Sepal.Width, data = iris)
+plot(Sepal.Length ~ Petal.Length, data = iris)
+plot(Sepal.Width ~ Petal.Width, data = iris)
+```
+
+* Ejecutar código anterior antes y después de ejecutar
+
+. . .
+
+<div style = "text-align: center; font-size:0.9em">
+`par(las = 1, bty = "n", pch = 19, mfrow = c(1,3), cex.lab = 1.2, cex.axis = 1.2)`
+</div>
+
+* Volver a configuración por defecto cerrando el dispositivo gráfico con `dev.off()`
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Graficar funciones matemáticas:** `curve()`
+</div>
+
+* Graficar la función $f(x|k,v,\dots)$ en $a < x < b$.
+  * Se evalúa en $x$ y tiene posibles parámetros $a$, $b$, $\dots$ que la modifican.
+
+* Sintaxis:
+
+. . .
+
+<div style = "text-align: center; font-size:1.0em">
+```curve(f(x, k, v), from = a, to = b)```
+</div>
+
+--------------------------------------------------------------------------------
+
+* **Ejemplo**: distribución Normal Estándar
+
+. . .
+
+```{r fig.align = "center"}
+f <- function(x) exp(-x^2/2)/sqrt(2*pi)
+curve(f(x), from = -3, to = 3, las = 1, 
+main = "Distribucion Normal Estandar", lwd = 2)
+```
+
+
+--------------------------------------------------------------------------------
+
+* **Ejemplo**: distribución Gamma$(k,v)$:
+
+. . .
+
+```{r fig.align = "center"}
+f <- function(x, k, v) v^k/gamma(k)*x^(k-1)*exp(-v*x)
+curve(f(x,k = 3, v = 0.5), from = 0, to = 20, 
+      las = 1, 
+      main = "Distribucion Gamma", lwd = 2)
+
+```
+
+
+--------------------------------------------------------------------------------
+
+
+* **Ejemplo**: graficar funciones que ya vienen en R
+
+. . .
+
+```{r eval = FALSE}
+curve(exp(x), from = -3, to = 3, lwd = 2)
+
+curve(sin(x), from = -10, to = 10, lwd = 2)
+
+curve(dnorm(x,0,4), from = -10, to = 10, lwd = 2)
+
+curve(pexp(x,1), from = 0, to = 10, lwd = 2)
+
+curve(ppois(x,4), from = 0, 10)
+
+curve(pbinom(x,size=20,prob=0.2), from = 0, 10)
+```
+
+<br>
+
+* Una herramienta gráfica más amigable es [Desmos](https://www.desmos.com/calculator?lang=es)
+
+--------------------------------------------------------------------------------
+
+Gráficos feos que no quiero mostrar:
+
+  * Gráfico de barra con `barplot(x)`
+  
+  * Gráfico de torta con `pie(x)`
+
+. . .
+
+```{r eval = FALSE}
+frutas <- c("Manzana", "Plátano", "Naranja", "Fresa", "Uva")
+cantidades <- c(25, 15, 20, 10, 30)
+
+pie(cantidades, labels = frutas,
+    main = "Preferencia por tipo de fruta",
+    col = rainbow(length(frutas)))
+
+barplot(cantidades,
+        names.arg = frutas,
+        main = "Preferencia por tipo de fruta",
+        ylab = "Cantidad de personas",
+        col = "skyblue",
+        border = "white")
+```
+
+
+--------------------------------------------------------------------------------
+
+
+* Demostración real de cómo hacer un gráfico complejo:
+
+. . .
+
+![](imagenes/0033_chatgpt.png){width="700" style="display: block; margin: 80px auto 0 auto;"}
+
+
+
+
+
+--------------------------------------------------------------------------------
+
+## {background="#43464B" background-image="imagenes/statisticalcomputing2.jpg"}
+
+<div style="display: flex; text-align:center; justify-content: center; align-items: center; height: 100vh; color: white; font-size: 3.5em;">
+  <b>  Gráficos con ggplot2 </b>
+</div>
+
+
+--------------------------------------------------------------------------------
+
+Próxima clase!
