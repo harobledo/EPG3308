@@ -1,7 +1,7 @@
 ---
 title: '<img src="imagenes/LogoMATUC.png" alt="Logo Facultad de Matemáticas" style="width: 450px; margin-bottom: -40px;"/> <br>
         <span style="font-size:0.6em; color:#2E86C1;"> EPG3308: Computación Estadística </span> <br>
-         <span style="font-size:0.8em; color:#313131;display:block;margin-bottom:40px;"> Clase 01: Introducción a R</span>' 
+         <span style="font-size:0.8em; color:#313131;display:block;margin-bottom:40px;"> Diapositivas del Curso </span>' 
 subtitle: '**Profesor**: Hernán Robledo Araya (harobledo@uc.cl) <br>
            **Ayudante**: Josefa Silva Muñoz (josefa.silva@alumni.uc.cl) <br> <br> 
            Primer Semestre - 2025'
@@ -20,9 +20,51 @@ knitr::opts_chunk$set(
 )
 ```
 
+## Índice
+
+::: {.nonincremental}
+
+- [Clase 1: Introducción a R](#clase1)
+- [Clase 2: Uso de R Básico](#clase2)
+- [Clase 3: Estructura de Datos](#clase3)
+- [Clase 4: Operaciones Lógicas y Control de Flujo](#clase4)
+- [Clase 5: Herramientas Gráficas](#clase5)
+
+:::
 
 
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+::: {#clase1}
+
+<img src="imagenes/LogoMATUC.png"
+     style="position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;" />
+  
+<br><br><br><br><br>
+
+<div style = "text-align: center; font-size:1.5em;color:#2E86C1">
+**EPG3308: Computación Estadística**
+</div>
+<div style = "text-align: center; font-size:1.9em;color:#313131">
+**Clase 01: Introducción a R**
+</div>
+
+<div style = "text-align: center; font-size:1em;color:#313131">
+**Profesor**: Hernán Robledo Araya (harobledo@uc.cl)<br> 
+**Ayudante**: Josefa Silva Muñoz (josefa.silva@alumni.uc.cl) <br> <br> 
+Primer Semestre - 2025
+
+</div>
+           
+:::
+
+--------------------------------------------------------------------------------
+
+
 
 <div style="text-align: center;font-size:2em">
 <b> ¡Bienvenidos al Magíster en Estadística! </b>
@@ -30,7 +72,8 @@ knitr::opts_chunk$set(
 
 <img src="imagenes/magister.jpg" alt="magister" style="width: 450px; margin-bottom: -40px; display: block; margin-left: auto; margin-right: auto;"/>
 
-------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
 
 <div style="text-align: center;font-size:2em">
 <b> ¡Y al Curso de Computación Estadística! </b>
@@ -473,9 +516,16 @@ Escoger el *repositorio* chileno para descargar R.
 
 --------------------------------------------------------------------------------
 
+::: {#clase2}
 
-![](imagenes/LogoMATUC.png){width=950 fig-align="center"}
-
+<img src="imagenes/LogoMATUC.png"
+     style="position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;" />
+  
+<br><br><br><br><br>
 
 <div style = "text-align: center; font-size:1.5em;color:#2E86C1">
 **EPG3308: Computación Estadística**
@@ -484,13 +534,14 @@ Escoger el *repositorio* chileno para descargar R.
 **Clase 02: Uso de R Básico**
 </div>
 
-
 <div style = "text-align: center; font-size:1em;color:#313131">
 **Profesor**: Hernán Robledo Araya (harobledo@uc.cl)<br> 
 **Ayudante**: Josefa Silva Muñoz (josefa.silva@alumni.uc.cl) <br> <br> 
 Primer Semestre - 2025
 
 </div>
+           
+:::
            
          
 ----------
@@ -1526,8 +1577,16 @@ rep(x = c(1,2), length.out = 4)
 
 ----------------------------------
 
-![](imagenes/LogoMATUC.png){width=950 fig-align="center"}
+::: {#clase3}
 
+<img src="imagenes/LogoMATUC.png"
+     style="position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;" />
+  
+<br><br><br><br><br>
 
 <div style = "text-align: center; font-size:1.5em;color:#2E86C1">
 **EPG3308: Computación Estadística**
@@ -1536,7 +1595,6 @@ rep(x = c(1,2), length.out = 4)
 **Clase 03: Estructura de Datos**
 </div>
 
-
 <div style = "text-align: center; font-size:1em;color:#313131">
 **Profesor**: Hernán Robledo Araya (harobledo@uc.cl)<br> 
 **Ayudante**: Josefa Silva Muñoz (josefa.silva@alumni.uc.cl) <br> <br> 
@@ -1544,6 +1602,8 @@ Primer Semestre - 2025
 
 </div>
            
+:::
+            
          
 --------------------------------------------------------------------------------
 
@@ -2334,8 +2394,16 @@ Copiar código de carga y pegarlo en el script.
 --------------------------------------------------------------------------------
 
 
-![](imagenes/LogoMATUC.png){width=950 fig-align="center"}
+::: {#clase4}
 
+<img src="imagenes/LogoMATUC.png"
+     style="position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;" />
+  
+<br><br><br><br><br>
 
 <div style = "text-align: center; font-size:1.5em;color:#2E86C1">
 **EPG3308: Computación Estadística**
@@ -2344,13 +2412,15 @@ Copiar código de carga y pegarlo en el script.
 **Clase 04: Operaciones Lógicas y Control de Flujo**
 </div>
 
-
 <div style = "text-align: center; font-size:1em;color:#313131">
 **Profesor**: Hernán Robledo Araya (harobledo@uc.cl)<br> 
 **Ayudante**: Josefa Silva Muñoz (josefa.silva@alumni.uc.cl) <br> <br> 
 Primer Semestre - 2025
 
 </div>
+           
+:::
+           
            
          
 ## {background="#43464B" background-image="imagenes/statisticalcomputing2.jpg"}
@@ -3181,10 +3251,18 @@ Resuelva cada caso utilizando procedimientos vectorizados y utilizando control d
 
 :::
 
+---------------------------------------------------------------
 
+::: {#clase5}
 
-![](imagenes/LogoMATUC.png){width=950 fig-align="center"}
-
+<img src="imagenes/LogoMATUC.png"
+     style="position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;" />
+  
+<br><br><br><br><br>
 
 <div style = "text-align: center; font-size:1.5em;color:#2E86C1">
 **EPG3308: Computación Estadística**
@@ -3193,7 +3271,6 @@ Resuelva cada caso utilizando procedimientos vectorizados y utilizando control d
 **Clase 05: Herramientas Gráficas**
 </div>
 
-
 <div style = "text-align: center; font-size:1em;color:#313131">
 **Profesor**: Hernán Robledo Araya (harobledo@uc.cl)<br> 
 **Ayudante**: Josefa Silva Muñoz (josefa.silva@alumni.uc.cl) <br> <br> 
@@ -3201,6 +3278,8 @@ Primer Semestre - 2025
 
 </div>
            
+:::
+            
          
 ## {background="#43464B" background-image="imagenes/statisticalcomputing2.jpg"}
 
