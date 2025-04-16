@@ -3182,7 +3182,6 @@ Resuelva cada caso utilizando procedimientos vectorizados y utilizando control d
 :::
 
 
---------------------------------------------------------------------------------
 
 ![](imagenes/LogoMATUC.png){width=950 fig-align="center"}
 
@@ -3936,4 +3935,470 @@ barplot(cantidades,
 
 --------------------------------------------------------------------------------
 
-Próxima clase!
+<div style="text-align: center;">
+  <img src="https://ggplot2.tidyverse.org/logo.png" width="300"/>
+</div>
+
+
+<div style="text-align: center;">
+  **Paquete para creación de gráficos**
+  
+  
+  **Enfoque *declarativo* para construir gráficos**
+</div>
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+Ejemplos `ggplot2`
+</div>
+
+<div style="text-align: center;">
+  <img src="https://www.datanovia.com/en/wp-content/uploads/dn-tutorials/ggplot2/figures/128-ggplot-examples-density-ridgeline-1.png" width="800"/>
+</div>
+
+<div style = "text-align: center; font-size:1em">
+[Fuente de Imagen](https://www.datanovia.com/en/blog/ggplot-examples-best-reference/)
+</div>
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+Ejemplos `ggplot2`
+</div>
+
+<div style="text-align: center;">
+  <img src="https://www.datanovia.com/en/wp-content/uploads/dn-tutorials/ggplot2/figures/128-ggplot-examples-marginal-density-plots-1.png" width="600"/>
+</div>
+
+<div style = "text-align: center; font-size:1em">
+[Fuente de Imagen](https://www.datanovia.com/en/blog/ggplot-examples-best-reference/)
+</div>
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+Ejemplos `ggplot2`
+</div>
+
+<div style="text-align: center;">
+  <img src="https://www.datanovia.com/en/wp-content/uploads/dn-tutorials/ggplot2/figures/128-ggplot-examples-horizontal-bar-plot-1.png" width="600"/>
+</div>
+
+<div style = "text-align: center; font-size:1em">
+[Fuente de Imagen](https://www.datanovia.com/en/blog/ggplot-examples-best-reference/)
+</div>
+
+
+
+<div style = "text-align: center; font-size:1.5em">
+Ejemplos `ggplot2`
+</div>
+
+<div style="text-align: center;">
+  <img src="https://select-statistics.co.uk/wp-content/uploads/2019/07/BBC-ggplot-examples.png" width="600"/>
+</div>
+
+<div style = "text-align: center; font-size:1em">
+[Fuente de Imagen](https://select-statistics.co.uk/blog/data-visualisation-with-rs-ggplot2-package/)
+</div>
+
+* Extensiones de ggplot2: https://exts.ggplot2.tidyverse.org/gallery/
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.5em">
+`ggplot2` es una librería (o paquete) de R
+</div>
+
+* **Librería**: conjunto de funciones para objetivo particular.
+
+  * Librería `dplyr`: funciones para manipular datos.
+  * Librería `moments`: trae funciones para calcular estadísticas descriptivas
+
+* Instalar librería:
+
+. . .
+
+```{r eval = FALSE}
+install.packages("NOMBRE DE LIBRERIA")
+```
+
+* Cargar la librería:
+
+. . .
+
+```{r eval = FALSE}
+library(NOMBRE DE LIBRERIA)
+```
+
+
+--------------------------------------------------------------------------------
+
+
+<div style = "text-align: center; font-size:1.5em">
+`ggplot2`
+
+```{r eval = FALSE}
+install.packages("ggplot2")
+library(ggplot2)
+```
+</div>
+
+* Sintaxis basada en la composición de capas.
+
+* Se indica qué se quiere visualizar (y no cómo)
+
+. . .
+
+<div style = "text-align: center; font-size:1.2em">
+
+```{r eval = FALSE}
+ggplot(Datos) +
+  aes(Variables a Graficar) +
+  geom_TipodeGrafico() +
+  Adiciones_Extras_al_grafico.
+```
+</div>
+
+* Distintas capas son conectadas con `+`
+
+--------------------------------------------------------------------------------
+
+Ejemplo:
+
+```{r fig.align = "center", fig.width = 5, fig.height= 2}
+library(ggplot2)
+
+ggplot(data = mtcars) +                         # 1. Especificar datos
+  aes(x = wt, y = mpg, color = factor(cyl)) +   # 2. "Mapear" variables 
+  geom_point(size = 3) +                        # 3. Graficar puntos
+  labs(title = "Consumo vs Peso del Vehículo",  # 4. Etiquetas
+       x = "Peso (wt)", y = "Consumo (mpg)") +
+  theme_minimal()                               # 5. Aplicacion de un tema
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "font-size:1.2em">
+Elementos de ggplot:
+</div>
+
+* `aes(x,y)`: "aesthetics mappings" o atributos estéticos. Especificar cómo variables se conectan con elementos visuales (estéticas) del gráfico.
+
+. . .
+
+<div style = "text-align: center; font-size:1.2em">
+```{r eval = FALSE}
++ aes(x = Edad,       # variable Edad en eje x
+      y = Ingresos,   # variable Ingresos en eje y
+      color = Genero, # asignar colores segun Genero
+      shape = Comuna # graficar puntos distintos segun Comuna
+    )
+```
+</div>
+
+* `geom_X()`: especificar la geometría del gráfico, es decir, la forma gráfica para visualizar los datos.
+
+. . .
+
+<div style = "text-align: center; font-size:1.2em">
+```{r eval = FALSE}
+geom_point()     # Gráfico de Dispersión
+geom_bar()       # Gráfico de Barras
+geom_histogram() # Histogramas
+```
+
+</div>
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Ejemplos**
+</div>
+
+* Datos de la tarea:
+
+. . .
+
+```{r}
+load("ENS2017.RData")
+```
+
+* Histograma de Edades
+
+. . .
+
+```{r fig.align = "center", fig.width = 5, fig.height= 3}
+ggplot(ENS) +       # Inicializa datos
+  aes(Edad) +       # Especificar variables
+  geom_histogram()  # Indicar geometria (grafico)
+
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Ejemplos**
+</div>
+
+* Gráfico de Densidad de Edades
+
+. . .
+
+```{r fig.align = "center", fig.width = 5, fig.height= 3}
+ggplot(ENS) +       # Inicializa datos
+  aes(Edad) +       # Especificar variables
+  geom_density()
+
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Ejemplos**
+</div>
+
+::: {.nonincremental}
+
+* Gráfico de Densidad de Edades
+
+:::
+
+```{r fig.align = "center", fig.width = 5, fig.height= 3}
+ggplot(ENS) +       # Inicializa datos
+  aes(Edad) +       # Especificar variables
+  geom_density(fill = "lightblue", color = "lightblue4", alpha = 0.5)
+
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Ejemplos**
+</div>
+
+* Gráfico de Violín
+
+. . .
+
+```{r fig.align = "center", fig.width = 5, fig.height= 3}
+ENS <- na.omit(ENS)
+ENS <- ENS[ENS$Peso < 250 & ENS$Altura < 220 & ENS$Altura > 100 ,]
+
+ggplot(ENS) +       
+  aes(y = Peso, x = "") + 
+  geom_violin()
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Ejemplos**
+</div>
+
+::: {.nonincremental}
+
+* Gráfico de Violín
+
+:::
+
+```{r fig.align = "center", fig.width = 5, fig.height= 3}
+ggplot(ENS) +       
+  aes(y = Peso, x = Sexo, fill = Sexo) + 
+  geom_violin()
+```
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.2em">
+**Ejemplos**
+</div>
+
+* Gráfico de Dispersión
+
+. . .
+
+```{r fig.align = "center", fig.width = 5, fig.height= 3}
+ggplot(ENS) +
+  aes(x = Peso, y = Altura) + 
+  geom_point()
+
+```
+
+--------------------------------------------------------------------------------
+
+
+<div style = "text-align: center; font-size:1.2em">
+**Ejemplos**
+</div>
+
+::: {.nonincremental}
+
+* Gráfico de Dispersión
+
+:::
+
+```{r fig.align = "center", fig.width = 5, fig.height= 3}
+ggplot(ENS) +
+  aes(x = Peso, y = Altura, color = Sexo) + 
+  geom_point()
+
+```
+
+--------------------------------------------------------------------------------
+
+
+<div style = "text-align: center; font-size:1.2em">
+**Ejemplos**
+</div>
+
+* Gráfico de Caja
+
+. . .
+
+<div style = "text-align: center; font-size:0.8em">
+
+```{r fig.align = "center", fig.width = 5, fig.height= 3}
+ggplot(ENS) +
+  aes(x = Peso, y = Altura, color = Sexo) + 
+  geom_boxplot(fill = "grey95")
+```
+
+</div>
+
+--------------------------------------------------------------------------------
+
+
+<div style = "text-align: center; font-size:1.2em">
+**Ejemplos**
+</div>
+
+::: {.nonincremental}
+
+* Gráfico de Caja
+
+:::
+
+
+<div style = "text-align: center; font-size:0.8em">
+
+```{r fig.align = "center", fig.width = 5, fig.height= 3}
+ggplot(ENS) +
+  aes(x = Peso, y = Altura, color = Sexo) + 
+  geom_boxplot(fill = "grey95") +
+  
+  coord_flip() +        # Rota coordenadas
+  labs(title = "Mi primer Grafico de Caja en ggplot2",
+       x = "Peso en Kg",
+       y = "Altura en cm") + 
+  theme_minimal()
+```
+
+</div>
+
+
+--------------------------------------------------------------------------------
+
+
+<div style = "text-align: center; font-size:1.2em">
+**Ejemplos**
+</div>
+
+* Gráfico de Barras
+
+. . .
+
+<div style = "text-align: center; font-size:0.8em">
+
+```{r fig.align = "center", fig.width = 5, fig.height= 3}
+ggplot(ENS) +
+  aes(x = Sexo) + 
+  geom_bar(fill = "steelblue", width = 0.7)
+```
+
+</div>
+
+
+--------------------------------------------------------------------------------
+
+* Suponer deseamos cambirle los colores a este gráfico:
+
+. . .
+
+```{r fig.align = "center", fig.width = 5, fig.height= 3}
+ggplot(ENS) +
+  aes(x = Peso, y = Altura, color = Sexo) + 
+  geom_point()
+```
+
+--------------------------------------------------------------------------------
+
+* Solución: modificar la "escala" del atributo "color" 
+
+. . .
+
+```{r fig.align = "center", fig.width = 6, fig.height= 4}
+ggplot(ENS) +
+  aes(x = Peso, y = Altura, color = Sexo) + 
+  geom_point() +
+  scale_color_manual(values = c("F" = "red", "M" = "blue"))
+```
+
+--------------------------------------------------------------------------------
+
+**Escalas en ggplot2: `scale_`**
+
+* Controlan cómo los valores de las variables se traducen en elementos gráficos.
+
+. . .
+
+<div style = "text-align: center; font-size:1.1em">
+` scale_ElementoEstetico_Tipo()`
+</div>
+
+. . .
+
+* Ejemplos:
+
+. . .
+
+<div style = "text-align: center; font-size:1.1em">
+
+```{r eval = FALSE}
+scale_x_continuous()     # eje x con datos numéricos
+scale_color_manual()
+scale_shape_manual()
+```
+
+</div>
+
+--------------------------------------------------------------------------------
+
+* Ejemplo: modificar etiquetas de los ejes:
+
+. . .
+
+```{r eval = FALSE}
+ggplot(ENS) +
+  aes(x = Peso, y = Altura, color = Sexo) + 
+  geom_point() +
+  scale_y_continuous(breaks = seq(0,200,10)) + # Modifica numeros del eje y
+  scale_x_continuous(breaks = c(40,60,80,100,120,140))
+```
+
+* Ejemplo: modificar colores y tamaño de puntos:
+
+. . .
+
+```{r eval = FALSE}
+ggplot(ENS) +
+  aes(x = Peso, y = Altura, color = Sexo, shape = Sexo) + 
+  geom_point() +
+  scale_color_manual(values = c("F" = "red", "M" = "blue")) +
+  scale_shape_manual(values = c("F" = 15, "M" = 3))
+```
+
+

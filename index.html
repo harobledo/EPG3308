@@ -3925,9 +3925,6 @@ Levels: setosa versicolor virginica</code></pre>
 </ul>
 </div>
 </div>
-</section>
-<section class="slide level2">
-
 
 <img data-src="imagenes/LogoMATUC.png" class="quarto-figure quarto-figure-center r-stretch" width="950"><div style="text-align: center; font-size:1.5em;color:#2E86C1">
 <p><strong>EPG3308: Computación Estadística</strong></p>
@@ -4655,10 +4652,494 @@ Levels: setosa versicolor virginica</code></pre>
 </section>
 <section class="slide level2">
 
-<p>Próxima clase!</p>
+<div style="text-align: center;">
+<p><img src="https://ggplot2.tidyverse.org/logo.png" width="300"></p>
+</div>
+<div style="text-align: center;">
+<p><strong>Paquete para creación de gráficos</strong></p>
+<p><strong>Enfoque <em>declarativo</em> para construir gráficos</strong></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p>Ejemplos <code>ggplot2</code></p>
+</div>
+<div style="text-align: center;">
+<p><img src="https://www.datanovia.com/en/wp-content/uploads/dn-tutorials/ggplot2/figures/128-ggplot-examples-density-ridgeline-1.png" width="800"></p>
+</div>
+<div style="text-align: center; font-size:1em">
+<p><a href="https://www.datanovia.com/en/blog/ggplot-examples-best-reference/">Fuente de Imagen</a></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p>Ejemplos <code>ggplot2</code></p>
+</div>
+<div style="text-align: center;">
+<p><img src="https://www.datanovia.com/en/wp-content/uploads/dn-tutorials/ggplot2/figures/128-ggplot-examples-marginal-density-plots-1.png" width="600"></p>
+</div>
+<div style="text-align: center; font-size:1em">
+<p><a href="https://www.datanovia.com/en/blog/ggplot-examples-best-reference/">Fuente de Imagen</a></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p>Ejemplos <code>ggplot2</code></p>
+</div>
+<div style="text-align: center;">
+<p><img src="https://www.datanovia.com/en/wp-content/uploads/dn-tutorials/ggplot2/figures/128-ggplot-examples-horizontal-bar-plot-1.png" width="600"></p>
+</div>
+<div style="text-align: center; font-size:1em">
+<p><a href="https://www.datanovia.com/en/blog/ggplot-examples-best-reference/">Fuente de Imagen</a></p>
+</div>
+<div style="text-align: center; font-size:1.5em">
+<p>Ejemplos <code>ggplot2</code></p>
+</div>
+<div style="text-align: center;">
+<p><img src="https://select-statistics.co.uk/wp-content/uploads/2019/07/BBC-ggplot-examples.png" width="600"></p>
+</div>
+<div style="text-align: center; font-size:1em">
+<p><a href="https://select-statistics.co.uk/blog/data-visualisation-with-rs-ggplot2-package/">Fuente de Imagen</a></p>
+</div>
+<ul>
+<li class="fragment">Extensiones de ggplot2: https://exts.ggplot2.tidyverse.org/gallery/</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><code>ggplot2</code> es una librería (o paquete) de R</p>
+</div>
+<ul>
+<li class="fragment"><p><strong>Librería</strong>: conjunto de funciones para objetivo particular.</p>
+<ul>
+<li class="fragment">Librería <code>dplyr</code>: funciones para manipular datos.</li>
+<li class="fragment">Librería <code>moments</code>: trae funciones para calcular estadísticas descriptivas</li>
+</ul></li>
+<li class="fragment"><p>Instalar librería:</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb344"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb344-1"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"NOMBRE DE LIBRERIA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li class="fragment">Cargar la librería:</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb345"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb345-1"><a href=""></a><span class="fu">library</span>(NOMBRE DE LIBRERIA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.5em">
+<p><code>ggplot2</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb346"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb346-1"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span>
+<span id="cb346-2"><a href=""></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>Sintaxis basada en la composición de capas.</p></li>
+<li class="fragment"><p>Se indica qué se quiere visualizar (y no cómo)</p></li>
+</ul>
+<div class="fragment">
+<div style="text-align: center; font-size:1.2em">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb347"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb347-1"><a href=""></a><span class="fu">ggplot</span>(Datos) <span class="sc">+</span></span>
+<span id="cb347-2"><a href=""></a>  <span class="fu">aes</span>(Variables a Graficar) <span class="sc">+</span></span>
+<span id="cb347-3"><a href=""></a>  <span class="fu">geom_TipodeGrafico</span>() <span class="sc">+</span></span>
+<span id="cb347-4"><a href=""></a>  Adiciones_Extras_al_grafico.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<ul>
+<li class="fragment">Distintas capas son conectadas con <code>+</code></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Ejemplo:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb348"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb348-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb348-2"><a href=""></a></span>
+<span id="cb348-3"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> mtcars) <span class="sc">+</span>                         <span class="co"># 1. Especificar datos</span></span>
+<span id="cb348-4"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg, <span class="at">color =</span> <span class="fu">factor</span>(cyl)) <span class="sc">+</span>   <span class="co"># 2. "Mapear" variables </span></span>
+<span id="cb348-5"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>                        <span class="co"># 3. Graficar puntos</span></span>
+<span id="cb348-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Consumo vs Peso del Vehículo"</span>,  <span class="co"># 4. Etiquetas</span></span>
+<span id="cb348-7"><a href=""></a>       <span class="at">x =</span> <span class="st">"Peso (wt)"</span>, <span class="at">y =</span> <span class="st">"Consumo (mpg)"</span>) <span class="sc">+</span></span>
+<span id="cb348-8"><a href=""></a>  <span class="fu">theme_minimal</span>()                               <span class="co"># 5. Aplicacion de un tema</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-162-1.png" class="quarto-figure quarto-figure-center r-stretch" width="480"></section>
+<section class="slide level2">
+
+<div style="font-size:1.2em">
+<p>Elementos de ggplot:</p>
+</div>
+<ul>
+<li class="fragment"><code>aes(x,y)</code>: “aesthetics mappings” o atributos estéticos. Especificar cómo variables se conectan con elementos visuales (estéticas) del gráfico.</li>
+</ul>
+<div class="fragment">
+<div style="text-align: center; font-size:1.2em">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb349"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb349-1"><a href=""></a><span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> Edad,       <span class="co"># variable Edad en eje x</span></span>
+<span id="cb349-2"><a href=""></a>      <span class="at">y =</span> Ingresos,   <span class="co"># variable Ingresos en eje y</span></span>
+<span id="cb349-3"><a href=""></a>      <span class="at">color =</span> Genero, <span class="co"># asignar colores segun Genero</span></span>
+<span id="cb349-4"><a href=""></a>      <span class="at">shape =</span> Comuna <span class="co"># graficar puntos distintos segun Comuna</span></span>
+<span id="cb349-5"><a href=""></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<ul>
+<li class="fragment"><code>geom_X()</code>: especificar la geometría del gráfico, es decir, la forma gráfica para visualizar los datos.</li>
+</ul>
+</div>
+<div class="fragment">
+<div style="text-align: center; font-size:1.2em">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb350"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb350-1"><a href=""></a><span class="fu">geom_point</span>()     <span class="co"># Gráfico de Dispersión</span></span>
+<span id="cb350-2"><a href=""></a><span class="fu">geom_bar</span>()       <span class="co"># Gráfico de Barras</span></span>
+<span id="cb350-3"><a href=""></a><span class="fu">geom_histogram</span>() <span class="co"># Histogramas</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Ejemplos</strong></p>
+</div>
+<ul>
+<li class="fragment">Datos de la tarea:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb351"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb351-1"><a href=""></a><span class="fu">load</span>(<span class="st">"ENS2017.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li class="fragment">Histograma de Edades</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb352"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb352-1"><a href=""></a><span class="fu">ggplot</span>(ENS) <span class="sc">+</span>       <span class="co"># Inicializa datos</span></span>
+<span id="cb352-2"><a href=""></a>  <span class="fu">aes</span>(Edad) <span class="sc">+</span>       <span class="co"># Especificar variables</span></span>
+<span id="cb352-3"><a href=""></a>  <span class="fu">geom_histogram</span>()  <span class="co"># Indicar geometria (grafico)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-166-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Ejemplos</strong></p>
+</div>
+<ul>
+<li class="fragment">Gráfico de Densidad de Edades</li>
+</ul>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb353"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb353-1"><a href=""></a><span class="fu">ggplot</span>(ENS) <span class="sc">+</span>       <span class="co"># Inicializa datos</span></span>
+<span id="cb353-2"><a href=""></a>  <span class="fu">aes</span>(Edad) <span class="sc">+</span>       <span class="co"># Especificar variables</span></span>
+<span id="cb353-3"><a href=""></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-167-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Ejemplos</strong></p>
+</div>
+<div>
+<ul>
+<li>Gráfico de Densidad de Edades</li>
+</ul>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb354"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb354-1"><a href=""></a><span class="fu">ggplot</span>(ENS) <span class="sc">+</span>       <span class="co"># Inicializa datos</span></span>
+<span id="cb354-2"><a href=""></a>  <span class="fu">aes</span>(Edad) <span class="sc">+</span>       <span class="co"># Especificar variables</span></span>
+<span id="cb354-3"><a href=""></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">color =</span> <span class="st">"lightblue4"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-168-1.png" class="quarto-figure quarto-figure-center r-stretch" width="480"></section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Ejemplos</strong></p>
+</div>
+<ul>
+<li class="fragment">Gráfico de Violín</li>
+</ul>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb355"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb355-1"><a href=""></a>ENS <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(ENS)</span>
+<span id="cb355-2"><a href=""></a>ENS <span class="ot">&lt;-</span> ENS[ENS<span class="sc">$</span>Peso <span class="sc">&lt;</span> <span class="dv">250</span> <span class="sc">&amp;</span> ENS<span class="sc">$</span>Altura <span class="sc">&lt;</span> <span class="dv">220</span> <span class="sc">&amp;</span> ENS<span class="sc">$</span>Altura <span class="sc">&gt;</span> <span class="dv">100</span> ,]</span>
+<span id="cb355-3"><a href=""></a></span>
+<span id="cb355-4"><a href=""></a><span class="fu">ggplot</span>(ENS) <span class="sc">+</span>       </span>
+<span id="cb355-5"><a href=""></a>  <span class="fu">aes</span>(<span class="at">y =</span> Peso, <span class="at">x =</span> <span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb355-6"><a href=""></a>  <span class="fu">geom_violin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-169-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Ejemplos</strong></p>
+</div>
+<div>
+<ul>
+<li>Gráfico de Violín</li>
+</ul>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb356"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb356-1"><a href=""></a><span class="fu">ggplot</span>(ENS) <span class="sc">+</span>       </span>
+<span id="cb356-2"><a href=""></a>  <span class="fu">aes</span>(<span class="at">y =</span> Peso, <span class="at">x =</span> Sexo, <span class="at">fill =</span> Sexo) <span class="sc">+</span> </span>
+<span id="cb356-3"><a href=""></a>  <span class="fu">geom_violin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-170-1.png" class="quarto-figure quarto-figure-center r-stretch" width="480"></section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Ejemplos</strong></p>
+</div>
+<ul>
+<li class="fragment">Gráfico de Dispersión</li>
+</ul>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb357"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb357-1"><a href=""></a><span class="fu">ggplot</span>(ENS) <span class="sc">+</span></span>
+<span id="cb357-2"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> Peso, <span class="at">y =</span> Altura) <span class="sc">+</span> </span>
+<span id="cb357-3"><a href=""></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-171-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Ejemplos</strong></p>
+</div>
+<div>
+<ul>
+<li>Gráfico de Dispersión</li>
+</ul>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb358"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb358-1"><a href=""></a><span class="fu">ggplot</span>(ENS) <span class="sc">+</span></span>
+<span id="cb358-2"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> Peso, <span class="at">y =</span> Altura, <span class="at">color =</span> Sexo) <span class="sc">+</span> </span>
+<span id="cb358-3"><a href=""></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-172-1.png" class="quarto-figure quarto-figure-center r-stretch" width="480"></section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Ejemplos</strong></p>
+</div>
+<ul>
+<li class="fragment">Gráfico de Caja</li>
+</ul>
+<div class="fragment">
+<div style="text-align: center; font-size:0.8em">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb359"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb359-1"><a href=""></a><span class="fu">ggplot</span>(ENS) <span class="sc">+</span></span>
+<span id="cb359-2"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> Peso, <span class="at">y =</span> Altura, <span class="at">color =</span> Sexo) <span class="sc">+</span> </span>
+<span id="cb359-3"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"grey95"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-173-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Ejemplos</strong></p>
+</div>
+<div>
+<ul>
+<li>Gráfico de Caja</li>
+</ul>
+</div>
+<div style="text-align: center; font-size:0.8em">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb360"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb360-1"><a href=""></a><span class="fu">ggplot</span>(ENS) <span class="sc">+</span></span>
+<span id="cb360-2"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> Peso, <span class="at">y =</span> Altura, <span class="at">color =</span> Sexo) <span class="sc">+</span> </span>
+<span id="cb360-3"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"grey95"</span>) <span class="sc">+</span></span>
+<span id="cb360-4"><a href=""></a>  </span>
+<span id="cb360-5"><a href=""></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span>        <span class="co"># Rota coordenadas</span></span>
+<span id="cb360-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mi primer Grafico de Caja en ggplot2"</span>,</span>
+<span id="cb360-7"><a href=""></a>       <span class="at">x =</span> <span class="st">"Peso en Kg"</span>,</span>
+<span id="cb360-8"><a href=""></a>       <span class="at">y =</span> <span class="st">"Altura en cm"</span>) <span class="sc">+</span> </span>
+<span id="cb360-9"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-174-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.2em">
+<p><strong>Ejemplos</strong></p>
+</div>
+<ul>
+<li class="fragment">Gráfico de Barras</li>
+</ul>
+<div class="fragment">
+<div style="text-align: center; font-size:0.8em">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb361"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb361-1"><a href=""></a><span class="fu">ggplot</span>(ENS) <span class="sc">+</span></span>
+<span id="cb361-2"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> Sexo) <span class="sc">+</span> </span>
+<span id="cb361-3"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">width =</span> <span class="fl">0.7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-175-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment">Suponer deseamos cambirle los colores a este gráfico:</li>
+</ul>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb362"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb362-1"><a href=""></a><span class="fu">ggplot</span>(ENS) <span class="sc">+</span></span>
+<span id="cb362-2"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> Peso, <span class="at">y =</span> Altura, <span class="at">color =</span> Sexo) <span class="sc">+</span> </span>
+<span id="cb362-3"><a href=""></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-176-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment">Solución: modificar la “escala” del atributo “color”</li>
+</ul>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb363"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb363-1"><a href=""></a><span class="fu">ggplot</span>(ENS) <span class="sc">+</span></span>
+<span id="cb363-2"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> Peso, <span class="at">y =</span> Altura, <span class="at">color =</span> Sexo) <span class="sc">+</span> </span>
+<span id="cb363-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb363-4"><a href=""></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"F"</span> <span class="ot">=</span> <span class="st">"red"</span>, <span class="st">"M"</span> <span class="ot">=</span> <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-177-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Escalas en ggplot2: <code>scale_</code></strong></p>
+<ul>
+<li class="fragment">Controlan cómo los valores de las variables se traducen en elementos gráficos.</li>
+</ul>
+<div class="fragment">
+<div style="text-align: center; font-size:1.1em">
+<p><code>scale_ElementoEstetico_Tipo()</code></p>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">Ejemplos:</li>
+</ul>
+</div>
+<div class="fragment">
+<div style="text-align: center; font-size:1.1em">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb364"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb364-1"><a href=""></a><span class="fu">scale_x_continuous</span>()     <span class="co"># eje x con datos numéricos</span></span>
+<span id="cb364-2"><a href=""></a><span class="fu">scale_color_manual</span>()</span>
+<span id="cb364-3"><a href=""></a><span class="fu">scale_shape_manual</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment">Ejemplo: modificar etiquetas de los ejes:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb365"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb365-1"><a href=""></a><span class="fu">ggplot</span>(ENS) <span class="sc">+</span></span>
+<span id="cb365-2"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> Peso, <span class="at">y =</span> Altura, <span class="at">color =</span> Sexo) <span class="sc">+</span> </span>
+<span id="cb365-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb365-4"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">200</span>,<span class="dv">10</span>)) <span class="sc">+</span> <span class="co"># Modifica numeros del eje y</span></span>
+<span id="cb365-5"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">40</span>,<span class="dv">60</span>,<span class="dv">80</span>,<span class="dv">100</span>,<span class="dv">120</span>,<span class="dv">140</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li class="fragment">Ejemplo: modificar colores y tamaño de puntos:</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb366"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb366-1"><a href=""></a><span class="fu">ggplot</span>(ENS) <span class="sc">+</span></span>
+<span id="cb366-2"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> Peso, <span class="at">y =</span> Altura, <span class="at">color =</span> Sexo, <span class="at">shape =</span> Sexo) <span class="sc">+</span> </span>
+<span id="cb366-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb366-4"><a href=""></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"F"</span> <span class="ot">=</span> <span class="st">"red"</span>, <span class="st">"M"</span> <span class="ot">=</span> <span class="st">"blue"</span>)) <span class="sc">+</span></span>
+<span id="cb366-5"><a href=""></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"F"</span> <span class="ot">=</span> <span class="dv">15</span>, <span class="st">"M"</span> <span class="ot">=</span> <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </div>
 </section>
