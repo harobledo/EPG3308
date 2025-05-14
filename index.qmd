@@ -29,6 +29,7 @@ knitr::opts_chunk$set(
 - [Clase 3: Estructura de Datos](#clase3)
 - [Clase 4: Operaciones Lógicas y Control de Flujo](#clase4)
 - [Clase 5: Herramientas Gráficas](#clase5)
+- [Clase 6: Álgebra Lineal en R](#clase6)
 
 :::
 
@@ -4479,5 +4480,468 @@ ggplot(ENS) +
   scale_color_manual(values = c("F" = "red", "M" = "blue")) +
   scale_shape_manual(values = c("F" = 15, "M" = 3))
 ```
+
+
+
+--------------------------------------------------------------------------------
+
+
+::: {#clase6}
+
+<img src="imagenes/LogoMATUC.png"
+     style="position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;" />
+  
+<br><br><br><br><br>
+
+<div style = "text-align: center; font-size:1.5em;color:#2E86C1">
+**EPG3308: Computación Estadística**
+</div>
+<div style = "text-align: center; font-size:1.9em;color:#313131">
+**Clase 06: Álgebra Lineal en R**
+</div>
+
+<div style = "text-align: center; font-size:1em;color:#313131">
+**Profesor**: Hernán Robledo Araya (harobledo@uc.cl)<br> 
+**Ayudante**: Josefa Silva Muñoz (josefa.silva@alumni.uc.cl) <br> <br> 
+Primer Semestre - 2025
+
+</div>
+           
+:::
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.3em">
+**Álgebra Lineal en R**
+</div>
+
+* Matrices
+
+. . .
+
+$$
+\begin{pmatrix}
+ 3 & 17 \\
+15 &  4 \\
+\end{pmatrix}
+$$
+
+. . .
+
+```{r echo = TRUE}
+matrix(c(3, 15, 17, 4), nrow = 2) # Basta con indicar numero de filas
+```
+
+--------------------------------------------------------------------------------
+
+:::{.nonincremental}
+
+<div style = "text-align: center; font-size:1.3em">
+**Álgebra Lineal en R**
+</div>
+
+:::
+
+* Vectores
+
+. . .
+
+$$
+\begin{pmatrix}
+ 1 \\
+ 0 \\
+ 2 \\
+\end{pmatrix}
+$$
+
+. . .
+
+```{r echo = TRUE}
+vector <- c(1,0,2) # Interpretado como vector columna
+vector <- matrix(c(1,0,2)) # Interpretado como vector columna
+dim(vector) # (3 x 1)
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.3em">
+**Suma de Matrices**
+</div>
+
+
+
+. . .
+
+$$
+\begin{pmatrix}
+ 1 & 3 \\
+-1 & 2 \\
+\end{pmatrix} + 
+\begin{pmatrix}
+ 4 & 3 \\
+3 & 5 \\
+\end{pmatrix} =
+\begin{pmatrix}
+ 5 & 6 \\
+ 2 & 7 \\
+\end{pmatrix}
+$$
+
+
+. . .
+
+
+```{r echo = TRUE}
+A <- matrix(c(1,-1,3,2), nrow = 2)
+B <- matrix(c(4,3,3,5), nrow = 2)
+A + B
+```
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.3em">
+**Suma de Vectores**
+</div>
+
+. . .
+
+$$
+\begin{pmatrix}
+ 1 \\
+ 3 \\
+-1 \\
+\end{pmatrix} + 
+\begin{pmatrix}
+ 4 \\
+ 3 \\
+ 3 \\
+\end{pmatrix} =
+\begin{pmatrix}
+ 5 \\
+ 6 \\
+ 2 \\
+\end{pmatrix}
+$$
+
+. . .
+
+```{r echo = TRUE}
+a <- matrix(c(1,-1,3));   b <- matrix(c(4,3,3))
+a + b
+
+a <- c(1,-1,3);   b <- c(4,3,3)
+a+b
+```
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.3em">
+**Transposición de matrices con `t(A)`**
+</div>
+
+. . .
+
+$$A = \begin{pmatrix}
+ 1 & 3 & 4  \\
+-1 & 2 & -2 \\
+\end{pmatrix} \quad \Longrightarrow \quad \ A^t = \begin{pmatrix}
+ 1 & -1 \\
+ 3 &  2 \\
+ 4 &  -2
+\end{pmatrix} $$
+
+. . .
+
+```{r echo = TRUE}
+A <- matrix(c(1,-1,3,2,4,-2), ncol = 3)
+t(A)
+```
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.3em">
+**Producto Matricial con `%*%`**
+</div>
+
+
+. . . 
+
+$$
+\begin{pmatrix}
+ 1 & 3 \\
+-1 & 2 \\
+\end{pmatrix} \cdot 
+\begin{pmatrix}
+ 4 & 3 \\
+3 & 5 \\
+\end{pmatrix} =
+\begin{pmatrix}
+ 1\cdot 4 + 3\cdot 3   & 1 \cdot 3 + 3 \cdot 5 \\
+ -1\cdot 4 + 2 \cdot 3 & -1 \cdot 3 + 2 \cdot 5 \\ 
+\end{pmatrix} \\
+$$
+
+$$ 
+= \begin{pmatrix}
+ 13 & 18  \\
+  2 &  7  \\
+\end{pmatrix}
+$$
+
+
+
+```{r echo = TRUE}
+A <- matrix(c(1,-1,3,2), nrow = 2)
+B <- matrix(c(4,3,3,5), nrow = 2)
+A %*% B
+```
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.3em">
+**Solución de Sistemas Lineales **
+</div>
+
+. . .
+
+::: {.nonincremental}
+
+$$Ax = b$$
+
+* $A \in \mathbb{R}^{n\times m}$, $x \in \mathbb{R}^{m}$, $b \in \mathbb{R}^{n}$
+
+:::
+
+. . .
+
+Ejemplo:
+
+$$
+\begin{pmatrix}
+ 2 & 3 \\
+ 1 & 2
+\end{pmatrix} 
+\begin{pmatrix}
+  x_1 \\
+  x_2
+\end{pmatrix}  = 
+\begin{pmatrix}
+  0 \\ 
+  1 \\
+\end{pmatrix}  
+$$
+
+. . .
+
+$$A = \begin{pmatrix}
+ 2 & 3 \\
+ 1 & 2
+\end{pmatrix} , \quad 
+x = \begin{pmatrix}
+  x_1 \\ 
+  x_2 \\
+\end{pmatrix}, \quad 
+b = \begin{pmatrix}
+  0 \\ 
+  1 \\
+\end{pmatrix}    $$
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.3em">
+**Solución de Sistemas Lineales **
+</div>
+
+* Función `solve(A,b)` para encontrar solución `x`.
+
+. . .
+
+```{r echo = TRUE}
+
+A <- matrix(c(2,1,3,2), ncol = 2)
+b <- c(0,1)
+x <- solve(A,b)
+x
+```
+
+* Calcular $x = A^{-1}b$ usando `solve(A)` para obtener $A^{-1}$.
+
+. . .
+
+```{r echo = TRUE}
+invA <- solve(A)
+x <- invA %*% b
+x
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.3em">
+**Invertibilidad de Matrices**
+</div>
+
+* Una matriz no es invertible si el determinante es cero.
+
+. . .
+
+$$
+A = \begin{pmatrix}
+ 2 & 2 \\
+ 1 & 2
+\end{pmatrix}, \quad \operatorname{det}(A) = 2  \quad (\text{Invertible})
+$$
+
+. . .
+
+$$
+A = \begin{pmatrix}
+ 2 & 4 \\
+ 1 & 2
+\end{pmatrix}, \quad \operatorname{det}(A) = 0  \quad (\text{No Invertible})
+$$
+
+```{r echo = TRUE}
+A <- matrix(c(2,1,2,2), ncol = 2); det(A)
+A <- matrix(c(2,1,4,2), ncol = 2); det(A)
+```
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.3em">
+**Invertibilidad de Matrices**
+</div>
+
+* Usualmente, el determinante es un número muy cercano a cero si la matriz no es invertible.
+
+. . .
+
+$$\operatorname{det}(A) = \text{1e-16} = 1\cdot 10^{-16} = 0$$
+
+* El número de condicionamiento, $\kappa$, de una matriz indica la estabilidad de las soluciones del sistema $Ax = b$.
+
+. . .
+
+```{r}
+A <- matrix(c(2,1,2,2), ncol = 2)
+kappa(A)
+
+A <-  matrix(c(2,1,4,2.00001), ncol = 2)
+kappa(A)
+```
+
+
+--------------------------------------------------------------------------------
+
+<span style="font-size:1.4em; color: #28A745;"> **¡Actividad Bonificada!** </span> 
+
+Verifique si las siguientes matrices $A$ son invertibles y , en caso de serlos, resuelva el sistema lineal correspondientes al vector $b$ indicado. 
+
+<div style = "text-align: center; font-size:0.6em">
+
+$$
+A = \begin{pmatrix}
+ 2 & 5 \\
+ -2 & 3
+\end{pmatrix}, \qquad
+b = \begin{pmatrix}
+ 0 \\
+ 1
+\end{pmatrix}
+$$
+
+$$
+A = \begin{pmatrix}
+1 & 0 & 2 & -1 \\
+0 & 1 & 4 &  2 \\
+0 & 0 & 1 &  3 \\
+0 & 0 & 0 &  1
+\end{pmatrix}, \qquad
+b = \begin{pmatrix}
+ 4 \\
+ 5 \\
+ 6 \\
+ 7
+\end{pmatrix}
+$$
+
+$$
+A = \begin{pmatrix}
+1 & 2 & 3 \\
+2 & 4 & 6 \\
+0 & 1 & 1
+\end{pmatrix}, \qquad
+b = \begin{pmatrix}
+ 1 \\
+ 2 \\
+ 1
+\end{pmatrix}
+$$
+
+</div>
+
+--------------------------------------------------------------------------------
+
+<span style="font-size:1.4em"> **Aplicación** </span> 
+
+Los datos `airquality` poseen mediciones diarias de la calidad del aire en Nueva York durante 1973, incluyendo concentración de ozono, temperatura, radiación solar y velocidad del viento.
+
+Se busca explicar la variable `Ozone` en función de las otras tres variables disponibles: `Solar.R`, `Wind` y `Temp`.
+
+```{r}
+AQ <- na.omit(airquality) # Omitir valores faltantes
+```
+
+--------------------------------------------------------------------------------
+
+Estimar un *modelo de regresión lineal*:
+
+$$\text{O}_i = \beta_0 + \beta_1 \cdot \text{Solar}_i + \beta_2 \cdot \text{Wind}_i + \beta_3 \cdot \text{Temp}_i + \varepsilon_i,$$
+
+. . .
+
+Escrito matricialmente:
+
+$$\textbf{O} = X\boldsymbol{\beta} + \boldsymbol{\varepsilon},$$
+donde 
+
+* $\textbf{O}$ es el vector de todos los valores observados de ozono,
+* $X$ es la matriz de regresión del modelo de regresión lineal, 
+* $\boldsymbol{\beta}$ es el vector de cuatro parámetros a estimar,
+* $\boldsymbol{\varepsilon}$ es el vector de errores. 
+
+--------------------------------------------------------------------------------
+
+Para estimar los parámetros $\beta_i$, se resuelven las **ecuaciones normales** obtenidas por el método de Mínimos Cuadrados Ordinarios.
+
+. . .
+
+$$(X^tX) \boldsymbol{\beta} = X^t \boldsymbol{O} \quad \Longrightarrow \quad \boldsymbol{\beta} = \left(X^t X\right)^{-1} X^t \boldsymbol{O} $$
+
+donde 
+
+$$
+X = \begin{pmatrix}
+1 & \text{Solar}_1 & \text{Wind}_1 & \text{Temp}_1 \\
+1 & \text{Solar}_2 & \text{Wind}_2 & \text{Temp}_2 \\
+\vdots & \vdots & \vdots & \vdots \\
+1 & \text{Solar}_n & \text{Wind}_n & \text{Temp}_n \\
+\end{pmatrix}, \quad 
+\boldsymbol{O} = 
+\begin{pmatrix}
+O_1 \\
+O_2 \\
+\vdots \\
+O_n
+\end{pmatrix}
+$$
 
 

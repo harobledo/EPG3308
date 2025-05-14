@@ -407,6 +407,7 @@
 <li><a href="#/clase3">Clase 3: Estructura de Datos</a></li>
 <li><a href="#/clase4">Clase 4: Operaciones Lógicas y Control de Flujo</a></li>
 <li><a href="#/clase5">Clase 5: Herramientas Gráficas</a></li>
+<li><a href="#/clase6">Clase 6: Álgebra Lineal en R</a></li>
 </ul>
 </div>
 </section>
@@ -5199,6 +5200,459 @@ Levels: setosa versicolor virginica</code></pre>
 <span id="cb366-4"><a href=""></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"F"</span> <span class="ot">=</span> <span class="st">"red"</span>, <span class="st">"M"</span> <span class="ot">=</span> <span class="st">"blue"</span>)) <span class="sc">+</span></span>
 <span id="cb366-5"><a href=""></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"F"</span> <span class="ot">=</span> <span class="dv">15</span>, <span class="st">"M"</span> <span class="ot">=</span> <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="clase6">
+<p><img src="imagenes/LogoMATUC.png" style="position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;"></p>
+<p><br><br><br><br><br></p>
+<div style="text-align: center; font-size:1.5em;color:#2E86C1">
+<p><strong>EPG3308: Computación Estadística</strong></p>
+</div>
+<div style="text-align: center; font-size:1.9em;color:#313131">
+<p><strong>Clase 06: Álgebra Lineal en R</strong></p>
+</div>
+<div style="text-align: center; font-size:1em;color:#313131">
+<p><strong>Profesor</strong>: Hernán Robledo Araya (harobledo@uc.cl)<br> <strong>Ayudante</strong>: Josefa Silva Muñoz (josefa.silva@alumni.uc.cl) <br> <br> Primer Semestre - 2025</p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.3em">
+<p><strong>Álgebra Lineal en R</strong></p>
+</div>
+<ul>
+<li class="fragment">Matrices</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\begin{pmatrix}
+3 &amp; 17 \\
+15 &amp;  4 \\
+\end{pmatrix}
+\]</span></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb367"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb367-1"><a href=""></a><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">15</span>, <span class="dv">17</span>, <span class="dv">4</span>), <span class="at">nrow =</span> <span class="dv">2</span>) <span class="co"># Basta con indicar numero de filas</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    3   17
+[2,]   15    4</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div>
+<div style="text-align: center; font-size:1.3em">
+<p><strong>Álgebra Lineal en R</strong></p>
+</div>
+</div>
+<ul>
+<li class="fragment">Vectores</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\begin{pmatrix}
+1 \\
+0 \\
+2 \\
+\end{pmatrix}
+\]</span></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb369"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb369-1"><a href=""></a>vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">2</span>) <span class="co"># Interpretado como vector columna</span></span>
+<span id="cb369-2"><a href=""></a>vector <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">2</span>)) <span class="co"># Interpretado como vector columna</span></span>
+<span id="cb369-3"><a href=""></a><span class="fu">dim</span>(vector) <span class="co"># (3 x 1)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3 1</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.3em">
+<p><strong>Suma de Matrices</strong></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\begin{pmatrix}
+1 &amp; 3 \\
+-1 &amp; 2 \\
+\end{pmatrix} +
+\begin{pmatrix}
+4 &amp; 3 \\
+3 &amp; 5 \\
+\end{pmatrix} =
+\begin{pmatrix}
+5 &amp; 6 \\
+2 &amp; 7 \\
+\end{pmatrix}
+\]</span></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb371"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb371-1"><a href=""></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>), <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb371-2"><a href=""></a>B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">5</span>), <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb371-3"><a href=""></a>A <span class="sc">+</span> B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    5    6
+[2,]    2    7</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.3em">
+<p><strong>Suma de Vectores</strong></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\begin{pmatrix}
+1 \\
+3 \\
+-1 \\
+\end{pmatrix} +
+\begin{pmatrix}
+4 \\
+3 \\
+3 \\
+\end{pmatrix} =
+\begin{pmatrix}
+5 \\
+6 \\
+2 \\
+\end{pmatrix}
+\]</span></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb373"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb373-1"><a href=""></a>a <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">3</span>));   b <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">3</span>))</span>
+<span id="cb373-2"><a href=""></a>a <span class="sc">+</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1]
+[1,]    5
+[2,]    2
+[3,]    6</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb375"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb375-1"><a href=""></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">3</span>);   b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">3</span>)</span>
+<span id="cb375-2"><a href=""></a>a<span class="sc">+</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5 2 6</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.3em">
+<p><strong>Transposición de matrices con <code>t(A)</code></strong></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[A = \begin{pmatrix}
+1 &amp; 3 &amp; 4  \\
+-1 &amp; 2 &amp; -2 \\
+\end{pmatrix} \quad \Longrightarrow \quad \ A^t = \begin{pmatrix}
+1 &amp; -1 \\
+3 &amp;  2 \\
+4 &amp;  -2
+\end{pmatrix} \]</span></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb377"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb377-1"><a href=""></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="sc">-</span><span class="dv">2</span>), <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb377-2"><a href=""></a><span class="fu">t</span>(A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    1   -1
+[2,]    3    2
+[3,]    4   -2</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.3em">
+<p><strong>Producto Matricial con <code>%*%</code></strong></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\begin{pmatrix}
+1 &amp; 3 \\
+-1 &amp; 2 \\
+\end{pmatrix} \cdot
+\begin{pmatrix}
+4 &amp; 3 \\
+3 &amp; 5 \\
+\end{pmatrix} =
+\begin{pmatrix}
+1\cdot 4 + 3\cdot 3   &amp; 1 \cdot 3 + 3 \cdot 5 \\
+-1\cdot 4 + 2 \cdot 3 &amp; -1 \cdot 3 + 2 \cdot 5 \\
+\end{pmatrix} \\
+\]</span></p>
+<p><span class="math display">\[
+= \begin{pmatrix}
+13 &amp; 18  \\
+  2 &amp;  7  \\
+\end{pmatrix}
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb379"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb379-1"><a href=""></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>), <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb379-2"><a href=""></a>B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">5</span>), <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb379-3"><a href=""></a>A <span class="sc">%*%</span> B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]   13   18
+[2,]    2    7</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.3em">
+<p><strong>Solución de Sistemas Lineales </strong></p>
+</div>
+<div class="fragment">
+<div>
+<p><span class="math display">\[Ax = b\]</span></p>
+<ul>
+<li><span class="math inline">\(A \in \mathbb{R}^{n\times m}\)</span>, <span class="math inline">\(x \in \mathbb{R}^{m}\)</span>, <span class="math inline">\(b \in \mathbb{R}^{n}\)</span></li>
+</ul>
+</div>
+</div>
+<div class="fragment">
+<p>Ejemplo:</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+2 &amp; 3 \\
+1 &amp; 2
+\end{pmatrix}
+\begin{pmatrix}
+  x_1 \\
+  x_2
+\end{pmatrix}  =
+\begin{pmatrix}
+  0 \\
+  1 \\
+\end{pmatrix}  
+\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[A = \begin{pmatrix}
+2 &amp; 3 \\
+1 &amp; 2
+\end{pmatrix} , \quad
+x = \begin{pmatrix}
+  x_1 \\
+  x_2 \\
+\end{pmatrix}, \quad
+b = \begin{pmatrix}
+  0 \\
+  1 \\
+\end{pmatrix}    \]</span></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.3em">
+<p><strong>Solución de Sistemas Lineales </strong></p>
+</div>
+<ul>
+<li class="fragment">Función <code>solve(A,b)</code> para encontrar solución <code>x</code>.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb381"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb381-1"><a href=""></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>), <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb381-2"><a href=""></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb381-3"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">solve</span>(A,b)</span>
+<span id="cb381-4"><a href=""></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -3  2</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">Calcular <span class="math inline">\(x = A^{-1}b\)</span> usando <code>solve(A)</code> para obtener <span class="math inline">\(A^{-1}\)</span>.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb383"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb383-1"><a href=""></a>invA <span class="ot">&lt;-</span> <span class="fu">solve</span>(A)</span>
+<span id="cb383-2"><a href=""></a>x <span class="ot">&lt;-</span> invA <span class="sc">%*%</span> b</span>
+<span id="cb383-3"><a href=""></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1]
+[1,]   -3
+[2,]    2</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.3em">
+<p><strong>Invertibilidad de Matrices</strong></p>
+</div>
+<ul>
+<li class="fragment">Una matriz no es invertible si el determinante es cero.</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+A = \begin{pmatrix}
+2 &amp; 2 \\
+1 &amp; 2
+\end{pmatrix}, \quad \operatorname{det}(A) = 2  \quad (\text{Invertible})
+\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+A = \begin{pmatrix}
+2 &amp; 4 \\
+1 &amp; 2
+\end{pmatrix}, \quad \operatorname{det}(A) = 0  \quad (\text{No Invertible})
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb385"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb385-1"><a href=""></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>), <span class="at">ncol =</span> <span class="dv">2</span>); <span class="fu">det</span>(A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb387"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb387-1"><a href=""></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">2</span>), <span class="at">ncol =</span> <span class="dv">2</span>); <span class="fu">det</span>(A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; font-size:1.3em">
+<p><strong>Invertibilidad de Matrices</strong></p>
+</div>
+<ul>
+<li class="fragment">Usualmente, el determinante es un número muy cercano a cero si la matriz no es invertible.</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[\operatorname{det}(A) = \text{1e-16} = 1\cdot 10^{-16} = 0\]</span></p>
+<ul>
+<li class="fragment">El número de condicionamiento, <span class="math inline">\(\kappa\)</span>, de una matriz indica la estabilidad de las soluciones del sistema <span class="math inline">\(Ax = b\)</span>.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb389"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb389-1"><a href=""></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>), <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb389-2"><a href=""></a><span class="fu">kappa</span>(A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7.692308</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb391"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb391-1"><a href=""></a>A <span class="ot">&lt;-</span>  <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="fl">2.00001</span>), <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb391-2"><a href=""></a><span class="fu">kappa</span>(A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1500003</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><span style="font-size:1.4em; color: #28A745;"> <strong>¡Actividad Bonificada!</strong> </span></p>
+<p>Verifique si las siguientes matrices <span class="math inline">\(A\)</span> son invertibles y , en caso de serlos, resuelva el sistema lineal correspondientes al vector <span class="math inline">\(b\)</span> indicado.</p>
+<div style="text-align: center; font-size:0.6em">
+<p><span class="math display">\[
+A = \begin{pmatrix}
+2 &amp; 5 \\
+-2 &amp; 3
+\end{pmatrix}, \qquad
+b = \begin{pmatrix}
+0 \\
+1
+\end{pmatrix}
+\]</span></p>
+<p><span class="math display">\[
+A = \begin{pmatrix}
+1 &amp; 0 &amp; 2 &amp; -1 \\
+0 &amp; 1 &amp; 4 &amp;  2 \\
+0 &amp; 0 &amp; 1 &amp;  3 \\
+0 &amp; 0 &amp; 0 &amp;  1
+\end{pmatrix}, \qquad
+b = \begin{pmatrix}
+4 \\
+5 \\
+6 \\
+7
+\end{pmatrix}
+\]</span></p>
+<p><span class="math display">\[
+A = \begin{pmatrix}
+1 &amp; 2 &amp; 3 \\
+2 &amp; 4 &amp; 6 \\
+0 &amp; 1 &amp; 1
+\end{pmatrix}, \qquad
+b = \begin{pmatrix}
+1 \\
+2 \\
+1
+\end{pmatrix}
+\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+
+<p><span style="font-size:1.4em"> <strong>Aplicación</strong> </span></p>
+<p>Los datos <code>airquality</code> poseen mediciones diarias de la calidad del aire en Nueva York durante 1973, incluyendo concentración de ozono, temperatura, radiación solar y velocidad del viento.</p>
+<p>Se busca explicar la variable <code>Ozone</code> en función de las otras tres variables disponibles: <code>Solar.R</code>, <code>Wind</code> y <code>Temp</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb393"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb393-1"><a href=""></a>AQ <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(airquality) <span class="co"># Omitir valores faltantes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Estimar un <em>modelo de regresión lineal</em>:</p>
+<p><span class="math display">\[\text{O}_i = \beta_0 + \beta_1 \cdot \text{Solar}_i + \beta_2 \cdot \text{Wind}_i + \beta_3 \cdot \text{Temp}_i + \varepsilon_i,\]</span></p>
+<div class="fragment">
+<p>Escrito matricialmente:</p>
+<p><span class="math display">\[\textbf{O} = X\boldsymbol{\beta} + \boldsymbol{\varepsilon},\]</span> donde</p>
+<ul>
+<li class="fragment"><span class="math inline">\(\textbf{O}\)</span> es el vector de todos los valores observados de ozono,</li>
+<li class="fragment"><span class="math inline">\(X\)</span> es la matriz de regresión del modelo de regresión lineal,</li>
+<li class="fragment"><span class="math inline">\(\boldsymbol{\beta}\)</span> es el vector de cuatro parámetros a estimar,</li>
+<li class="fragment"><span class="math inline">\(\boldsymbol{\varepsilon}\)</span> es el vector de errores.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Para estimar los parámetros <span class="math inline">\(\beta_i\)</span>, se resuelven las <strong>ecuaciones normales</strong> obtenidas por el método de Mínimos Cuadrados Ordinarios.</p>
+<div class="fragment">
+<p><span class="math display">\[(X^tX) \boldsymbol{\beta} = X^t \boldsymbol{O} \quad \Longrightarrow \quad \boldsymbol{\beta} = \left(X^t X\right)^{-1} X^t \boldsymbol{O} \]</span></p>
+<p>donde</p>
+<p><span class="math display">\[
+X = \begin{pmatrix}
+1 &amp; \text{Solar}_1 &amp; \text{Wind}_1 &amp; \text{Temp}_1 \\
+1 &amp; \text{Solar}_2 &amp; \text{Wind}_2 &amp; \text{Temp}_2 \\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
+1 &amp; \text{Solar}_n &amp; \text{Wind}_n &amp; \text{Temp}_n \\
+\end{pmatrix}, \quad
+\boldsymbol{O} =
+\begin{pmatrix}
+O_1 \\
+O_2 \\
+\vdots \\
+O_n
+\end{pmatrix}
+\]</span></p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
