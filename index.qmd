@@ -30,6 +30,7 @@ knitr::opts_chunk$set(
 - [Clase 4: Operaciones Lógicas y Control de Flujo](#clase4)
 - [Clase 5: Herramientas Gráficas](#clase5)
 - [Clase 6: Álgebra Lineal en R](#clase6)
+- [Clase 7: Cálculo para Estadística](#clase7)
 
 :::
 
@@ -4944,4 +4945,860 @@ O_n
 \end{pmatrix}
 $$
 
+
+
+--------------------------------------------------------------------------------
+
+::: {#clase7}
+
+<img src="imagenes/LogoMATUC.png"
+     style="position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;" />
+  
+<br><br><br><br><br>
+
+<div style = "text-align: center; font-size:1.5em;color:#2E86C1">
+**EPG3308: Computación Estadística**
+</div>
+<div style = "text-align: center; font-size:1.9em;color:#313131">
+**Clase 07: Cálculo para Estadística**
+</div>
+
+<div style = "text-align: center; font-size:1em;color:#313131">
+**Profesor**: Hernán Robledo Araya (harobledo@uc.cl)<br> 
+**Ayudante**: Josefa Silva Muñoz (josefa.silva@alumni.uc.cl) <br> <br> 
+Primer Semestre - 2025
+
+</div>
+           
+:::
+
+
+--------------------------------------------------------------------------------
+
+![](imagenes/0030_Calculo1.png){.absolute top="0" left="75" width="1000" style="transform: rotate(0deg);"}
+
+
+--------------------------------------------------------------------------------
+
+![](imagenes/0030_Calculo2.png){.absolute top="0" left="75" width="1000" style="transform: rotate(0deg);"}
+
+--------------------------------------------------------------------------------
+
+![](imagenes/0031_Calculo1.png){.absolute top="0" left="400" width="400" style="transform: rotate(0deg);"}
+
+<div style="margin-top: 170px;">
+* Sea $f: \mathbb{R} \to \mathbb{R}$
+  * $f(x)$ recibe números reales y da como resultado un número real.
+  
+* La Derivada de $f(x)$ es una función $f'(x)$ que represesenta la tasa de cambio instantáneo de la función $f(x)$ en el punto $x$.
+</div>
+
+
+. . .
+
+
+$$f(x) = x^2 \qquad \to \qquad f'(x) = 2x $$
+
+
+
+
+
+
+--------------------------------------------------------------------------------
+
+**Ejemplo**
+
+* Distancia recorrida por un auto al tiempo $t$ está dada por 
+  $$f(t) = 10 + 5t$$
+  * La velocidad del auto es la **tasa de cambio instantánea** de la distancia recorrida.
+  * La velocidad es la derivada de $f(t)$.
+  
+. . .
+
+  $$\text{Velocidad: } f'(t) = 5$$
+  $$\text{(Velocidad constante)}$$
+    
+    
+--------------------------------------------------------------------------------
+
+**Notación para escribir una Derivada**
+
+$$f'(x) = \frac{d}{dx}f(x)$$
+
+* $\frac{d}{dx}$ hace explícito que estamos calculando la derivada respecto a la variable $x$.
+
+* Usamos $f'(x)$ cuando la variable por la cual estamos derivando es evidente.
+
+
+--------------------------------------------------------------------------------
+
+**Obtener Derivada de una Función**
+
+* Las Derivadas se *calculan*.
+  * Seguir reglas dependiendo de cómo es $f(x)$.
+  * Derivar $f(x)$ es seguir reglas dependiendo de la forma de $f(x)$. 
+  
+. . .
+  
+  $$\text{Potencia}: f(x) = x^3 \quad \to \quad  f'(x) = 3x^2 $$
+  
+. . .
+  
+  
+  $$\text{Exponencial}: f(x) = e^{2x} \quad \to \quad  f'(x) = 2e^{2x} $$
+  
+. . .
+  
+  $$\text{etc.}$$
+
+--------------------------------------------------------------------------------
+
+**I) Derivada de una Constante**
+
+. . .
+
+$$f(x) = a \qquad \to \qquad \frac{d}{dx}f(x) = 0$$
+
+. . .
+
+**II) Derivada de una constante multiplicada a una función**
+
+. . .
+
+$$f(x) = a\cdot g(x)$$
+
+$$\frac{d}{dx}f(x) = \frac{d}{dx}\Big( a \cdot g(x)\Big) = a \cdot \left(\frac{d}{dx} g(x)\right)$$
+
+. . .
+
+--------------------------------------------------------------------------------
+
+**III) Derivada de una Potencia**
+
+. . .
+
+$$f(x) = b\cdot x^a \qquad \to \qquad \frac{d}{dx}f(x) = b\cdot a\cdot x^{a - 1}$$
+
+. . .
+
+
+**IV) Linealidad de la Derivada**
+
+$$f(x) = h(x) + g(x) $$
+
+. . .
+
+$$\frac{d}{dx}f(x) = \frac{d}{dx}\left(h(x) + g(x)\right) =  \frac{d}{dx}h(x) + \frac{d}{dx}g(x)$$
+
+--------------------------------------------------------------------------------
+
+**V) Regla de la Cadena**
+
+. . .
+
+$$f(x) = g(h(x)) \quad \to \quad \frac{d}{dx}f(x) = \frac{d}{dx} g(h(x)) \cdot \frac{d}{dx} h(x)$$
+
+. . .
+
+**VI) Derivada del Producto**
+
+. . .
+
+$$\frac{d}{dx} \left(f(x)\cdot g(x) \right) = \left(\frac{d}{dx} f(x)\right) g(x) + f(x) \left( \frac{d}{dx} g(x)\right) $$
+
+**VII) Derivadas importantes**
+
+
+$$\frac{d}{dx} e^x = e^x \qquad \frac{d}{dx} \log(x) = \frac{1}{x}$$
+
+
+--------------------------------------------------------------------------------
+
+<span style="font-size:1.4em; color: #28A745;"> **Problemas de Optimización** </span> 
+  
+* Sea $f: \mathbb{R}^n \to \mathbb{R}$.
+
+* Se busca encontrar el valor $x^* \in \mathbb{R}^n$ tal que $f(x^*)$ sea un máximo o un mínimo.
+
+. . .
+
+```{r echo = FALSE, fig.width = 8, fig.height = 4}
+y <- iris$Sepal.Length
+f <- function(x) sum( (y - x)^2 )   
+xs <- seq(0,12,0.1)
+fs <- c()
+for(i in 1:length(xs)) fs[i] <- f(xs[i])
+
+par(las = 1, mfrow = c(1,2), cex = 1.2, mar = c(2,2,0.5,0.5))
+plot(I(fs/100) ~ xs, type = "l",
+     xlab = "x", ylab = "f(x)",
+     lwd = 2)
+grid()
+lines(I(fs/100) ~ xs, type = "l", lwd = 2)
+points(x  = 5.843333, 
+       y = 1.021683, 
+       col = "red", 
+       pch = 19,
+       cex = 2)
+```
+
+
+. . .
+
+![](imagenes/0034_Grafico3D.png){.absolute top="320" left="600" width="400" style="transform: rotate(0deg);"}
+
+
+--------------------------------------------------------------------------------
+
+**Procedimiento para el caso univariado**
+
+. . .
+
+Para una función continua y dos veces diferenciable $f: \mathbb{R} \to \mathbb{R}$
+
+1. Obtener analíticamente $f'(x)$ y $f''(x)$.
+
+2. Encontrar el valor $x^*$ tal que $f'(x^*) = 0$.
+
+3. Evaluar $f''(x^*)$.
+  - Si $f''(x^*) > 0$, entonces $f(x^*)$ es un mínimo.
+  - Si $f''(x^*) < 0$, entonces $f(x^*)$ es un máximo.
+  - Si $f''(x^*) = 0$, no se puede concluir.
+
+
+--------------------------------------------------------------------------------
+
+**Soluciones computacionales aproximadas**
+
+* Función `optimize` para encontrar el máximo o mínimo de una función en un intervalo.
+
+
+* Ejemplo: encontrar $x^*$ que minimice la suma cuadrática
+
+. . .
+
+$$f(x) = \sum_{i = 1}^n (y_i - x)^2$$
+
+. . .
+
+<div style = "font-size:0.8em">
+
+```{r eval = FALSE}
+y <- iris$Sepal.Length
+f <- function(x) sum( (y - x)^2 ) ## Minimizar la suma cuadratica
+Res <- optimize(f = f,
+                interval = c(-100, 100),
+                maximum = FALSE # Para encontrar un minimo.
+)
+Res$minimum    # El valor x* de f(x) donde se logra el minimo
+Res$objective  # f(x) evaluado en el x* que lo minimiza
+
+
+```
+
+</div>
+
+--------------------------------------------------------------------------------
+
+```{r echo = FALSE, fig.width = 6, fig.height = 4, fig.align="center"}
+y <- iris$Sepal.Length
+f <- function(x) sum( (y - x)^2 )   
+xs <- seq(0,12,0.1)
+fs <- c()
+for(i in 1:length(xs)) fs[i] <- f(xs[i])
+
+plot(I(fs/100) ~ xs, type = "l",
+     xlab = "x", ylab = "f(x)",
+     lwd = 2,
+     main = "Gráfico de f(x)")
+grid()
+lines(I(fs/100) ~ xs, type = "l", lwd = 2)
+points(x  = 5.843333, 
+       y = 1.021683, 
+       col = "red", 
+       pch = 19,
+       cex = 2)
+text(x = 6, y = 7, labels = "Mínimo", col = "red")
+```
+
+
+--------------------------------------------------------------------------------
+
+
+**Procedimiento para el caso multivariado**
+
+. . .
+
+Sea $f: \mathbb{R}^n \to \mathbb{R}$ una función continua y dos veces diferenciable.
+
+$$f(\boldsymbol{x}) = f(x_1,x_2,\dots, x_n)$$
+
+* Gradiente de $f(x)$:
+
+. . .
+
+$$\nabla f(x) = \begin{pmatrix}
+\frac{\partial}{\partial x_1} f(x) \\
+\vdots \\
+\frac{\partial}{\partial x_n} f(x) \\
+\end{pmatrix}$$   
+
+. . .
+
+
+--------------------------------------------------------------------------------
+
+
+**Procedimiento para el caso multivariado**
+
+. . .
+
+Sea $f: \mathbb{R}^n \to \mathbb{R}$ una función continua y dos veces diferenciable.
+
+$$f(x) = f(x_1,x_2,\dots, x_n)$$
+
+* $H_f(x)$ Matriz Hessiana de $f(x)$
+
+. . .
+
+<div style = "font-size:0.6em">
+
+$$H_f(x) = \begin{pmatrix}
+\frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2} & \cdots & \frac{\partial^2 f}{\partial x_1 \partial x_n} \\
+\frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2} & \cdots & \frac{\partial^2 f}{\partial x_2 \partial x_n} \\
+\vdots & \vdots & \ddots & \vdots \\
+\frac{\partial^2 f}{\partial x_n \partial x_1} & \frac{\partial^2 f}{\partial x_n \partial x_2} & \cdots & \frac{\partial^2 f}{\partial x_n^2} \\
+\end{pmatrix}$$
+</div>
+
+--------------------------------------------------------------------------------
+
+**Procedimiento para el caso multivariado**
+
+. . .
+
+Para una función continua y dos veces diferenciable  
+$f: \mathbb{R}^n \to \mathbb{R}$:
+
+<div style = "font-size:0.8em">
+
+1. Obtener analíticamente:
+   - El **gradiente**: $\nabla f(x)$   
+   - La **matriz Hessiana**: $H_f(x) = \nabla^2 f(x)$
+
+2. Encontrar $x^*$ tal que $\nabla f(x^*) = 0$
+
+3. Evaluar la matriz Hessiana en $x^*$:
+   - Si $H_f(x^*)$ es **definida positiva**, entonces $f(x^*)$ es un **mínimo local**
+   - Si $H_f(x^*)$ es **definida negativa**, entonces $f(x^*)$ es un **máximo local**
+   - Si $H_f(x^*)$ es **indefinida**, entonces $x^*$ es un **punto de silla**
+   - Si no se puede determinar la definitud, no se puede concluir.
+   
+   
+</div>
+
+
+--------------------------------------------------------------------------------
+
+**Soluciones computacionales aproximadas**
+
+
+* Función `optim` para hallar mínimo (por defecto) o máximo de función multivariada.
+
+* Ejemplo: encontrar $\beta = (\beta_0, \beta_1)$ que minimice
+
+. . .
+
+$$f(\beta) = \sum_{i = 1}^n (y_i - (\beta_0 + \beta_1x_i))^2$$
+
+* Problema de Mínimos Cuadrados: encontrar la recta $\beta_0 + \beta_1 x$ que minimice la distancia a los puntos $(x_i, y_i)$.
+
+
+
+--------------------------------------------------------------------------------
+
+
+```{r echo = FALSE, fig.width = 10, fig.height = 10, fig.align="center"}
+
+set.seed(123)
+x <- rnorm(50)
+y <- 10 + 5*x + rnorm(50, sd = 3)
+par(las = 1, cex = 1.3, cex.main = 1.5)
+plot(y ~x, pch = 19, main = "Problema de Mínimos Cuadrados")
+abline(a = 10, b = 3, col = 2, lwd = 3, lty = 1)
+abline(a = 10, b = 5,   col = 3, lwd = 3, lty = 2)
+abline(a = 13, b = 6,  col = 4, lwd = 3, lty = 3)
+legend("bottomright", legend = paste0("Recta ", 1:3), col = 2:4, lty = 1:3, lwd = 2, bg = "grey90", cex = 1.2)
+```
+
+
+--------------------------------------------------------------------------------
+
+`optim(par, fn, gr, method, hessian, control)`
+
+<div style = "font-size:0.8em">
+
+  * `par`: valores iniciales.
+  * `fn`: función a maximizar o minimizar.
+  * `gr`: función que contiene al vector gradiente de la función.
+  * `method`: método de optimización a usar.
+  * `hessian`: valor lógico indicando si devolver matriz Hessiana aproximada $H_f(x)$.
+  * `control`: lista de argumentos adicionales para controlar el proceso. `control = list(fnscale = -1)` permite que `optim` maximice en vez de minimizar.
+
+</div>
+
+. . .
+
+**Importante:** el primer argumento de las funciones `fn` y `gr` deben ser un vector que represente a $x$ en $f(x)$.
+
+--------------------------------------------------------------------------------
+
+**Problema de Mínimos Cuadrados**
+
+. . .
+
+<div style = "font-size:0.7em">
+
+$$f(\beta) = \sum_{i = 1}^n (y_i - (\beta_0 + \beta_1x_i))^2$$
+
+</div>
+
+```{r}
+fn <- function(beta){ # beta es un vector.
+  b0 <- beta[1]
+  b1 <- beta[2]
+  sum((y - (b0 + b1*x))^2)
+}
+
+```
+
+
+. . .
+
+<div style = "font-size:0.7em">
+
+$$\nabla f(\beta) = 
+\begin{pmatrix}
+-2 \sum_{i = 1}^n (y_i - (\beta_0 + \beta_1 x_i )) \\ 
+-2 \sum_{i = 1}^n x_i(y_i - (\beta_0 + \beta_1 x_i ))
+\end{pmatrix}
+$$
+
+
+</div>
+
+```{r}
+gr <- function(beta) { # beta es un vector
+  b0 <- beta[1]
+  b1 <- beta[2]
+  c(-2 * sum(y - (b0 + b1 * x)), 
+    -2 * sum(x * (y - (b0 + b1 * x)) ))
+}
+```
+
+
+--------------------------------------------------------------------------------
+
+```{r echo = TRUE}
+
+R <- optim(par = c(0,0), # valor inicial
+      fn = fn, # funcion a optimizar
+      gr, # gradiente
+      method = "Nelder-Mead", # metodo 
+      hessian = TRUE # opcional
+)
+```
+
+* `R$par`: valor $x^*$ donde se maximiza $f(x)$ 
+
+. . .
+
+```{r}
+R$par
+```
+
+* `R$value`: valor $f(x^*)$
+
+. . .
+
+```{r}
+R$value
+```
+
+--------------------------------------------------------------------------------
+
+* `R$convergence`: si se logró convergencia del método. `0` es convergencia exitosa.
+
+. . .
+
+```{r}
+R$convergence
+```
+
+* `R$hessian`: matriz Hessiana $H_f(x)$.
+
+. . .
+
+```{r}
+R$hessian
+```
+
+
+--------------------------------------------------------------------------------
+
+**Otro ejemplo:** $f(x) = (x_1 - 2)^2 + (x_2 + 3)^2$
+
+* Es posible omitir el argumento `gr` para que R internamente aproxime el vector gradiente.
+
+. . .
+
+```{r}
+Funcion <- function(x) { 
+  x1 <- x[1]  # -> variable x
+  x2 <- x[2]  # -> variable y
+  (x1 - 2)^2 + (x2 + 3)^2
+}
+
+Res <- optim(c(0, 0), 
+             Funcion
+)
+
+
+Res$par
+```
+
+
+--------------------------------------------------------------------------------
+
+
+<div style = "text-align: center; font-size:1.3em">
+**Integración**
+</div>
+
+
+$$\int_a^b f(x)dx$$
+
+![](imagenes/0035_Integral.png){.absolute top="270" left="320" width="500" style="transform: rotate(0deg);"}
+
+
+--------------------------------------------------------------------------------
+
+<div style = "text-align: center; font-size:1.3em">
+**Integración**
+</div>
+
+* $\int_a^b f(x)dx$ es un número que representa el área bajo la curva en el intervalo $(a,b)$.
+
+* Aplicado en estadística para calcular probabilidades de variables aleatorias continuas.
+
+* Si $f(x)$ es una función de densidad (normal, gamma, etc), 
+
+
+. . .
+
+$$\operatorname{Pr}(a < X < b) = \int_{a}^b f(x)dx$$
+
+
+--------------------------------------------------------------------------------
+
+
+$$\operatorname{Pr}(a < X < b) = \int_{a}^b f(x)dx$$
+
+```{r echo = FALSE, fig.width = 20, fig.height = 10, fig.align='center'}
+{
+  x <- seq(-4, 4, length.out = 1000)
+y <- dnorm(x)
+
+xa <- seq(-1.5, 1.5, length.out = 1000)
+ya <- dnorm(xa)
+
+
+  plot(y ~ x, type = "l", yaxt = "n", bty = "n", lwd = 2, xaxt = "n", ylab = "", xlab = "")
+  abline(h = 0, lwd = 2)
+  polygon(x = c(xa, 1.5, rev(xa), -1.5), 
+          y = c(ya, 0, rev(ya), 0),
+          col = "orange"
+  )
+  
+  polygon(x = c(-1.5, 1.5, 1.5, rev(xa), -1.5), 
+          y = c(0, 0, ya[1000], rev(ya), ya[1]),
+          col = "orange"
+  )
+  lines(y ~ x, type = "l",lwd = 4)
+  
+  text(x = -1.5, y = -0.02, label = "a", xpd = TRUE, cex = 2)
+  text(x = 1.5, y = -0.02, label = "b", xpd = TRUE, cex = 2)
+  
+  text(x = 0, y = 0.14, label = "Pr(a < X < b)", cex = 4)
+}
+```
+
+
+
+--------------------------------------------------------------------------------
+
+**Calcular Integrales**
+
+* Analíticamente:
+
+. . .
+
+$$F(x) = \int f(x)dx \quad \to \quad F(b) - F(a) = \int_a^b f(x)dx$$
+
+
+--------------------------------------------------------------------------------
+
+**Calcular Integrales**
+
+* Métodos de Cuadratura
+
+. . .
+
+$$\int_a^b f(x)dx \approx \sum_{i = 1}^n \omega_i f(x_i)$$
+
+. . .
+
+![](https://calculadorasonline.com/wp-content/uploads/2021/04/subintervalos-Suma-de-Riemann.jpg){.absolute top="350" left="280" width="450" style="transform: rotate(0deg);"}
+
+--------------------------------------------------------------------------------
+
+**Calcular Integrales**
+
+* **Métodos de Cuadratura**: `integrate(f, lower, upper)`
+
+  * `f`: función a calcular la integral.
+  * `lower` y `upper`: límites inferior y superior para calcular la integral.
+
+. . .
+
+  
+  $$\texttt{integrate} = \int_{\texttt{lower}}^{\texttt{upper}} f(x)dx$$
+  * Es posible especificar `lower = -Inf` y `upper = Inf`.
+
+--------------------------------------------------------------------------------
+
+**Ejemplos**
+
+. . .
+
+$$f(x) = \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}x^2} \quad \to \quad \int_{-\infty}^{\infty}f(x)dx$$
+
+. . .
+
+```{r}
+f <- function(x) (1/sqrt(2*pi))*exp(-x^2/2)
+integrate(f,lower = -Inf, upper = Inf)
+```
+
+
+. . .
+
+$$f(x|\lambda) = \lambda e^{-\lambda x}  \quad \to \quad \int_{0}^{\infty}f(x)dx$$
+
+. . .
+
+```{r}
+f <- function(x, lambda) lambda*exp(-x*lambda)
+integrate(f,lower = 0, upper = Inf, lambda = 2)
+```
+
+
+--------------------------------------------------------------------------------
+
+**Ejemplos**
+
+. . .
+
+* Calcular $\mathbb{E}(X)$ para la distribución Gamma$(k,v)$.
+
+. . .
+
+$$f(x) = \frac{k^v}{\Gamma(k)}x^{k-1}e^{-v x} \quad \to \quad \mathbb{E}(X) = \int_0^{\infty} x f(x)dx$$
+
+. . .
+
+```{r}
+xfx <- function(x, k, v) x * (  (v^k/gamma(k)) *(x^(k-1))*exp(-v*x) )
+integrate(xfx, lower = 0, upper = Inf, k = 4, v = 5)
+```
+
+
+
+
+--------------------------------------------------------------------------------
+
+**Ejemplos**
+
+
+* Calcular $\operatorname{Var}(X)$ donde $\mathbb{E}(X) = k/v$.
+
+. . .
+
+$$\operatorname{Var}(X) = \mathbb{E}((X - k/v)^2) = \int_{0}^{\infty} (x - k/v)^2 f(x)dx$$
+
+. . .
+
+```{r}
+varf <- function(x, k, v) (x - 0.8)^2 * (  (v^k/gamma(k)) *(x^(k-1))*exp(-v*x) )
+integrate(varf, lower = 0, upper = Inf, k = 4, v = 5)
+```
+
+
+--------------------------------------------------------------------------------
+
+<div style="font-size:1.4em; color: #28A745;">
+**Actividad Bonificada**
+</div>
+
+Calcule la probabilidad de que una variable aleatoria que sigue una distribución normal de media 9 y varianza 1 sea menor a 10, $\operatorname{Pr}(X < 10)$.
+
+. . .
+
+$$\operatorname{Pr}(X < 10) = \int_{-\infty}^{10} \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(x-9)^2}  dx$$
+
+
+
+--------------------------------------------------------------------------------
+
+**Calcular Integrales**: **Método de Montecarlo**.
+
+. . .
+
+* Sea $X \sim$ Uniforme(0,1). Entonces, 
+$$\int_{0}^1 f(x)dx = \mathbb{E}(f(X))$$
+
+* Los promedios muestrales, $\bar{x}$, **aproximan** la esperanza $\mathbb{E}(X)$.
+  
+. . .
+
+  
+  $$\text{Si } n\to \infty \quad \Longrightarrow \quad \bar{x} \to \mathbb{E}(X)$$
+* El promedio de  $f(x_1), \dots, f(x_n)$ aproximan $\mathbb{E}(f(X))$.
+  
+--------------------------------------------------------------------------------
+
+**Calcular Integrales**: **Método de Montecarlo**.
+
+
+* Así, si $x_1,\dots,x_n$ son valores simulados a partir de una distribución Uniforme(0,1), entonces
+  
+. . .
+  
+  $$\int_0^1 f(x)dx \approx \frac{1}{n}\sum_{i = 1}^n f(x_i),$$
+
+
+--------------------------------------------------------------------------------
+
+**Calcular Integrales**: **Método de Montecarlo**.
+
+
+$$\int_{0}^{1}\frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}x^2}dx$$
+
+. . .
+
+* Cálculo con Cuadratura:
+
+. . .
+
+```{r}
+f <- function(x) (1/sqrt(2*pi))*exp(-x^2/2)
+integrate(f,lower = 0, upper = 1)
+```
+
+
+--------------------------------------------------------------------------------
+
+* Cálculo con **Integración de Montecarlo**:
+
+1. Simular $x_1,\dots, x_n \sim$ Uniforme(0,1)
+
+2. Evaluar $f(x_1), \dots, f(x_n)$. 
+
+3. Aproximar la integral con $\frac{1}{n}\sum_{i = 1}^n f(x_i)$.
+
+. . .
+
+```{r}
+f <- function(x) (1/sqrt(2*pi))*exp(-x^2/2)
+
+# 1. Simular valores uniforme:
+x <- runif(n = 10000)
+
+# 2. Evaluar cada valor:
+fx <- f(x)
+
+# 3. Aproximar la integral
+mean(fx) 
+```
+
+--------------------------------------------------------------------------------
+
+* El método es sencillo pero de *lenta convergencia*.
+
+. . .
+
+
+```{r echo = FALSE, fig.width = 10, fig.height = 6, fig.align = "center"}
+n <- 1000
+acum <- cumsum(fx[1:1000]) / (1:n)
+valor_real <- pnorm(1) - pnorm(0)
+
+# Graficar
+par(las = 1, cex = 1.2)
+plot(acum, type = "l", lwd = 2, col = "blue",
+     xlab = "Número de muestras", ylab = "Estimación acumulada",
+     main = "Cambio en la estimación según el\n número de valores simulados.")
+
+abline(h = valor_real, col = "red", lty = 2, lwd = 2)
+legend("topright", legend = c("Estimación acumulada", "Valor exacto"),
+       col = c("blue3", "red"), lty = c(1, 2), lwd = 2)
+```
+
+
+--------------------------------------------------------------------------------
+
+
+* Para una integral en $(a,b)$, se puede usar cualquier distribución de probabilidad que tenga soporte en $(a,b)$.
+
+* Suponga $X \sim g(x)$ donde $g(x) > 0$ para todo $x$.
+
+. . .
+
+$$I = \int_{a}^b f(x)dx = \int_{a}^b \frac{f(x)}{g(x)}g(x)dx$$
+
+* Para una muestra $x_1, \dots, x_n$, aproximamos $I$:
+
+. . .
+
+$$\hat{I} = \frac{1}{n}\sum_{i = 1}^n \frac{f(x_i)}{g(x_i)}$$.
+
+
+--------------------------------------------------------------------------------
+
+
+$$\int_{0}^{1}\frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}x^2}dx$$
+
+*  Usemos una variable aleatoria Beta(2,2) (que tiene soporte en (0,1)) para aproximar la integral.
+
+. . .
+
+```{r}
+
+f <- function(x) (1/sqrt(2*pi))*exp(-x^2/2)
+
+# Función de muestreo: Beta(2, 2)
+g <- function(x) dbeta(x, 2, 2)
+
+# Simular valores desde Beta(2, 2)
+set.seed(123)
+n <- 10000
+x <- rbeta(n, 2, 2)
+
+## Estimacion de la integral:
+mean(f(x) / g(x))
+```
 
