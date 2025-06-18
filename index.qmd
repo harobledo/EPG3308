@@ -32,7 +32,7 @@ knitr::opts_chunk$set(
 - [Clase 6: Álgebra Lineal en R](#clase6)
 - [Clase 7: Cálculo para Estadística](#clase7)
 - [Clase 8: tidyverse y otras librerías](#clase8)
-
+- [Clase 9: Shiny](#clase9)
 :::
 
 
@@ -6466,4 +6466,602 @@ Próxima clase:
 ::: {style="text-align: center;"}
 <img src="https://comunidadbioinfo.github.io/cdsb2021_workflows/img/shiny_1.png" width="300"/>
 :::
+
+
+------------------------------------------------------------------------
+
+:::::: {#clase9}
+```{=html}
+<img src="imagenes/LogoMATUC.png"
+     style="position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;" />
+```
+
+<br><br><br><br><br>
+
+::: {style="text-align: center; font-size:1.5em;color:#2E86C1"}
+**EPG3308: Computación Estadística**
+:::
+
+::: {style="text-align: center; font-size:1.9em;color:#313131"}
+**Clase 09: Shiny**
+:::
+
+::: {style="text-align: center; font-size:1em;color:#313131"}
+**Profesor**: Hernán Robledo Araya (harobledo\@uc.cl)<br> **Ayudante**: Josefa Silva Muñoz (josefa.silva\@alumni.uc.cl) <br> <br> Primer Semestre - 2025
+:::
+::::::
+
+------------------------------------------------------------------------
+
+::: {style="text-align: center;"}
+<img src="https://comunidadbioinfo.github.io/cdsb2021_workflows/img/shiny_1.png" width="500"/>
+:::
+
+
+------------------------------------------------------------------------
+
+::: {style="text-align: center;"}
+<img src="https://comunidadbioinfo.github.io/cdsb2021_workflows/img/shiny_1.png" width="150"/>
+:::
+
+* Paquete para construir **aplicaciones web interactivas**.
+* Ideal para:
+  - Visualización de datos
+  - Dashboards
+  - Herramientas docentes
+  
+
+------------------------------------------------------------------------
+
+::: {style="text-align: left; font-size:1.0em;"}
+**¿Por qué usar Shiny?**
+:::
+
+* Facilita la interacción con estadística sin necesidad de programar.
+* Se integra directamente con R y RStudio.
+* Permite compartir fácilmente aplicaciones vía:
+  - https://www.shinyapps.io
+  - Servidores propios
+
+
+------------------------------------------------------------------------
+
+::: {style="text-align: left; font-size:1.0em;"}
+**Aplicaciones de Shiny**
+:::
+
+* Visualización de datos en tiempo real  
+* Formularios interactivos  
+* Simulaciones estadísticas  
+* Herramientas de enseñanza  
+
+* Ejemplos en la Galería de Posit:
+
+. . .
+
+> https://shiny.posit.co/gallery/
+
+
+------------------------------------------------------------------------
+
+::: {style="text-align: center; font-size:1.2em;"}
+**Estructura de una Shiny App**
+:::
+
+. . .
+
+<br>
+
+::: {style="text-align: center;"}
+![](imagenes/0037_Shiny1){width=1000}
+:::
+------------------------------------------------------------------------
+
+::: {style="text-align: center; font-size:1.2em;"}
+**Estructura de una Shiny App**
+:::
+
+::: {style="text-align: center; font-size:1.2em;"}
+Ejemplo: [Grafica Histograma](https://shiny.posit.co/r/gallery/start-simple/single-file-shiny-app/)
+:::
+
+. . .
+
+<br>
+
+::: {style="text-align: center;"}
+![](imagenes/0037_Shiny3){width=1000}
+:::
+
+
+------------------------------------------------------------------------
+
+::: {style="text-align: center; font-size:1.2em;"}
+**Estructura de una Shiny App**
+:::
+
+```{r eval = FALSE}
+library(shiny)
+
+ui <- TipoDePagina(
+  ## Se controla que elementos verá el usuario y con cuales
+  ## podrá interactuar.
+)
+
+server <- function(input ,output){
+  # Es el cerebro de la aplicacion.
+  # Aqui se hacen todos los cálculos de acuerdo a los inputs recibidos. 
+  
+}
+
+# Inicializacion de la App
+shinyApp(ui = ui, server = server)
+```
+
+------------------------------------------------------------------------
+
+::: {style="text-align: center; font-size:1.2em;"}
+**UI: Interfaz de Usuario**
+:::
+
+* `ui <- fluidPage()`: página que se adopta al tamaño de la pantalla.
+* `ui <- navbarPage()`: página con pestañas para múltiples secciones.
+* `ui <- dashboard()`: interfaz tipo dashboard.
+
+------------------------------------------------------------------------
+
+::: {style="text-align: center; font-size:1.2em;"}
+**UI: Interfaz de Usuario**
+:::
+
+```{r eval = FALSE}
+library(shiny)
+ui <- fluidPage(  # Tipo de Pagina: Pagina Fluida
+  sidebarLayout(  # Estructura Interna: Barra Lateral y Panel Principal
+    sidebarPanel( # Barra Lateral
+      # Todo lo que vaya en la barra lateral
+    ),
+    
+    mainPanel(    # Panel Principal
+      # Todo lo que vaya en el panel principal
+    )
+  )
+)
+
+server <- function(input, output) {} # Server vacio
+
+shinyApp(ui,server)
+
+```
+
+
+------------------------------------------------------------------------
+
+::: {style="text-align: center; font-size:1.2em;"}
+**UI: Interfaz de Usuario**
+:::
+
+```{r eval = FALSE}
+library(shiny)
+ui <- navbarPage("Mi App",
+  tabPanel("Inicio"),
+  tabPanel("Análisis")
+)
+
+
+server <- function(input, output) {} # Server vacio
+
+shinyApp(ui,server)
+
+```
+
+
+------------------------------------------------------------------------
+
+::: {style="text-align: center; font-size:1.2em;"}
+**Menús de Interacción del Usuario**
+:::
+
+* `numericInput()`: cuadro para ingresar un número.
+* `textInput()`: cuadro para ingresar texto.
+* `selectInput()`: menú para selección múltiple.
+* `sliderInput()`: barra para seleccionar un número de un rango.
+* `dateInput()`: cuadro para ingresar una fecha.
+* `fileInput()`: menú para adjuntar un archivo.
+
+
+------------------------------------------------------------------------
+
+::: {style="text-align: center; font-size:1.2em;"}
+**Menús de Interacción del Usuario**
+:::
+
+```{r eval = FALSE}
+library(shiny)
+ui <- fluidPage(
+  sidebarLayout(  
+    sidebarPanel( 
+      numericInput(inputId = "inp1", label = "Ingrese Valor", value = 5, min = 1, max = 10),
+      
+      textInput(inputId = "inp2", label = "Ingrese Texto"),
+      
+      selectInput(inputId = "inp3", label = "Seleccione opción.",choices = c("A", "B", "C"), multiple = FALSE),
+      
+      sliderInput(inputId = "inp4", label = "Seleccione un número",min = 1, max = 10, value = 5)
+    ),
+    
+    mainPanel(    
+    )
+  )
+)
+
+
+server <- function(input, output) {} # Server vacio
+
+shinyApp(ui,server)
+
+```
+
+------------------------------------------------------------------------
+
+::: {style="text-align: center; font-size:1.5em;"}
+**server**
+:::
+
+* `server` trae cálculos que se ejecutan al iniciar la app.
+
+* Los datos generados en UI llegan al server a través de la lista `input`.
+  * Cada `xxxxxInput` tiene un `inputId` que define objeto.
+
+. . .
+
+```{r eval = FALSE}
+numericInput(inputId = "numero", ...)
+textInput(inputId = "texto", ...)
+
+server <- function(input, output){
+  input$numero # para acceder a input de numericInput
+  input$texto # para acceder a input de textInput
+}
+```
+
+------------------------------------------------------------------------
+
+::: {style="text-align: center; font-size:1.5em;"}
+**server**
+:::
+
+* Guardar en `output` elementos a imprimir en UI.
+  * Como `input`, `output` también se comporta como una lista
+
+. . .
+
+```{r eval = FALSE}
+server <- function(input, output){
+  output$ImprNum <- paste0("El numero seleccionado es ", input$numero)
+}
+```
+
+* Especificar en `UI` cómo imprimir output.
+
+. . .
+
+```{r eval = FALSE}
+ui <- fluidPage(
+  
+  textOutput(outputId = "ImprNum")
+  
+)
+```
+
+------------------------------------------------------------------------
+
+::: {style="text-align: center; font-size:1.5em;"}
+**server**
+:::
+
+* Los valores generados por `xxxxxInput` son denominados *Valores Reactivos*.
+
+  * **Valores Reactivos**: almacenan un valor que puede cambiar en el tiempo.
+  
+* Llamadas de `input$Objeto` en server **deben** estar dentro de **Entorno Reactivo**.
+
+. . .
+
+```{r eval = FALSE}
+output$ImprNum <- reactive({   <<------
+  paste0("El numero seleccionado es ", input$numero)
+})
+```
+
+
+------------------------------------------------------------------------
+
+Código completo:
+
+```{r eval = FALSE}
+library(shiny)
+ui <- fluidPage(
+  ### Inputs:
+  numericInput(inputId = "Numero", label = "Ingrese un número", value = 1)
+  
+  ### Outputs:
+  textOutput(outputId = "ImprNum")
+)
+
+
+server <- function(input, output){
+  output$ImprNum <- reactive({
+    paste0("El numero seleccionado es ", input$Numero)
+  })
+}
+
+shinyApp(ui, server)
+```
+
+------------------------------------------------------------------------
+
+::: {style="text-align: center; font-size:1.5em;"}
+**Entornos Reactivos**
+:::
+
+* `reactive()`: encapsula código que depende de `input` y devuelve un resultado reactivo.
+  * Sólo se ejecuta cuando es necesario.
+  * No permite generar efectos visibles en UI.
+
+. . .
+
+```{r eval = FALSE}
+Numero <- reactive({
+    input$Numero
+})
+```
+
+------------------------------------------------------------------------
+
+::: {style="text-align: center; font-size:1.5em;"}
+**Entornos Reactivos**
+:::
+
+* `observe()`: observador que permite generar efectos visibles en UI.
+  * Se ejecuta cuando cambia alguna de sus dependencias.
+  * No devuelve valor como `reactive()`.
+
+. . .
+
+```{r eval = FALSE}
+observe({
+  print(input$nombre)
+})
+```
+
+
+------------------------------------------------------------------------
+
+::: {style="text-align: center; font-size:1.5em;"}
+**Entornos Reactivos**
+:::
+
+* `observeEvent()`: observador que se ejecuta cuando ocurre un evento específico. 
+  * Útil para reaccionar a clics en botones.
+
+. . .
+
+```{r eval = FALSE}
+observeEvent(input$boton, {
+  showNotification("¡Botón presionado!")
+})
+```
+
+------------------------------------------------------------------------
+
+::: {style="text-align: center; font-size:1.5em;"}
+**Entornos Reactivos**
+:::
+
+* `eventReactive()`: similar a `reactive()` pero sólo se actualiza cuando ocurre un evento específico.
+  * Devuelve un objeto reactivo.
+
+. . .
+
+```{r eval = FALSE}
+resultado <- eventReactive(input$boton, {
+  input$nombre
+})
+```
+
+
+------------------------------------------------------------------------
+
+::: {style="text-align: center; font-size:1.5em;"}
+**Visualización de Outputs**
+:::
+
+* Imprimir una tabla y un gráfico en el `UI`.
+* Funciones `renderXxxx` para enviar de server a `UI`.
+  * `renderTable()` y `renderPlot()`
+
+. . .
+
+```{r  eval = FALSE}
+server <- function(input, output){
+  output$Tabla <- renderTable({
+    head(iris)
+  })
+  
+  output$Grafico <- renderPlot({
+    hist(iris$Sepal.Length)
+  })
+}
+
+```
+
+* `renderTable` y `renderPlot` son reactivos.
+
+------------------------------------------------------------------------
+
+::: {style="text-align: center; font-size:1.5em;"}
+**Visualización de Outputs**
+:::
+
+* En `UI` debe configurarse cómo imprimir `Grafico` y `Tabla`.
+
+. . . 
+
+```{r eval = FALSE}
+
+ui <- fluidPage(
+  
+  tableOutput(outputId = "Tabla") # Nombre de objeto creado en server (output$Tabla)
+  plotOutput(outputId = "Grafico") # Nombre de objeto creado en server (output$Grafico)
+  
+)
+
+
+```
+
+------------------------------------------------------------------------
+
+Código completo (incorpora botón para imprimir resultados):
+
+```{r eval = FALSE}
+library(shiny)
+
+ui <- fluidPage(
+  # Input
+  actionButton(inputId = "PresionaBoton",
+               label = "¿Mostrar Tabla y Gráfico?"),
+  
+  # Output
+  tableOutput(outputId = "Tabla"),   # Nombre de objeto en output
+  plotOutput(outputId = "Grafico")   # Nombre de objeto en output
+)
+
+server <- function(input, output) {
+  observeEvent(input$PresionaBoton, { # Si se presiona boton se imprimen resultados
+    output$Tabla <- renderTable({
+      head(iris)  
+    })
+    output$Grafico <- renderPlot({
+      hist(iris$Sepal.Length)
+    })
+  })
+}
+shinyApp(ui, server)
+```
+
+------------------------------------------------------------------------
+
+::: {style="text-align: left; font-size:1.5em;"}
+**Visto hasta ahora:**
+:::
+
+1. Estructura de Shiny App: `UI` + `server`.
+
+2. Distintos tipos de `UI`.
+
+3. Menús de Interacción - `xxxxInput()`
+
+4. Uso de `input` y generación de `output` en `server`.
+  - Valores y Entornos Reactivos.
+
+5. Visualización de `output` en `UI`:
+  - `renderTable` y `renderPlot` en `server`.
+  - `tableOutput` y `plotOutput` en `UI`.
+
+  
+------------------------------------------------------------------------
+
+::: {style="text-align: center; font-size:1.5em;"}
+**Actividad 1**
+:::
+
+::: {style="font-size:0.8em;"}
+Sin ejecutar la app, identifiquemos cómo esta interactua con usuario, qué inputs genera, cómo los procesa, qué outputs genera, y cuales imprime. 
+:::
+
+
+```{r eval = FALSE}
+library(shiny)
+ui <- bootstrapPage(
+  
+  selectInput(inputId = "n_barras",
+              label = "Número de barras en el histograma (aproximado):",
+              choices = c(10, 20, 35, 50),
+              selected = 20),
+  
+  checkboxInput(inputId = "mostrar_obs",
+                label = strong("Mostrar observaciones individuales"),
+                value = FALSE),
+  
+  checkboxInput(inputId = "mostrar_densidad",
+                label = strong("Mostrar estimación de densidad"),
+                value = FALSE),
+  
+  plotOutput(outputId = "grafico_principal", height = "300px"),
+  
+  conditionalPanel(condition = "input.mostrar_densidad == true",
+                   sliderInput(inputId = "ajuste_bw",
+                               label = "Ajuste de ancho de banda:",
+                               min = 0.2, max = 2, value = 1, step = 0.2)
+  )
+)
+
+server <- function(input, output) {
+  
+  output$grafico_principal <- renderPlot({
+    
+    hist(faithful$eruptions,
+         probability = TRUE,
+         breaks = as.numeric(input$n_bins),
+         xlab = "Duración (minutos)",
+         main = "Duración de erupciones del géiser")
+    
+    if (input$mostrar_obs) {
+      rug(faithful$eruptions)
+    }
+    
+    if (input$mostrar_densidad) {
+      dens <- density(faithful$eruptions,
+                      adjust = input$ajuste_bw)
+      lines(dens, col = "blue")
+    }
+    
+  })
+}
+
+
+shinyApp(ui, server)
+
+```
+
+------------------------------------------------------------------------
+
+::: {style="text-align: center; font-size:1.5em;"}
+**Actividad 2**
+:::
+
+::: {style="font-size:0.9em;"}
+
+::: {.nonincremental}
+
+Considere los datos `iris` sin la columna `species`. Diseñe una aplicación que haga lo siguiente:
+
+1. Usando `selectInput` permita al usuario seleccionar una variable.
+
+2. Usando `selectInput` permita al usuario seleccionar una segunda variable.
+
+3. Con las dos variables seleccionadas anteriormente, imprimir un gráfico de dispersión. *Ayuda: acceda a las variables usando `tabla[[input$variable1]]`.*
+
+4. Usando `actionButton`, permitir al usuario decidir si desea imprimir las primeras doce filas de una tabla generada con las dos variables seleccionadas anteriormente. 
+
+:::
+
+:::
+
+
 
